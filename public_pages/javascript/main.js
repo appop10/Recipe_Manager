@@ -5,9 +5,15 @@
 // Scroll changes for the Navbar
 function shrinkNav() {
     if (window.scrollY > 100) {
-        console.log(">100");
+        document.querySelector("nav").style.height = "13vh";
+        document.querySelector("nav").style.backgroundColor = "#0e402d";
+        document.querySelector("nav img").style.height = "10vh";
+        document.querySelector("nav img").style.bottom = "3vh";
     } else {
-        console.log("<100");
+        document.querySelector("nav").style.height = "55vh";
+        document.querySelector("nav img").style.height = "45vh";
+        document.querySelector("nav img").style.bottom = "0";
+        document.querySelector("nav").style.backgroundColor = "#0e402ddd";
     }
 }
 
