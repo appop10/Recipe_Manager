@@ -1,0 +1,56 @@
+/*
+    Stylesheet for loginPage.php
+*/
+
+@use 'main.scss';
+
+main {
+    div {
+        width: fit-content;
+        margin: 8em auto;
+
+        img {
+            height: 300px;
+        }
+    }
+}
+.container {
+    border: 1px solid main.$color4;
+    border-radius: 3px;
+    margin: 3em auto;
+    background-color: main.$color6;
+    width: 60%;
+
+    h1 {
+        background-color: main.$color1;
+        color: main.$color4;
+        padding: 1.5em 3em;
+    }
+    form {
+        border: 1px solid main.$color2;
+        border-radius: 5px;
+        box-shadow: 0 0 5px main.$color4;
+        width: 60%;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fff;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin: 1em 0 0 0;
+            font-size: 1.2em;
+
+            p {
+                margin: 0.6em 0;
+            }
+            input {
+                font-size: 1em;
+            }
+            input[type|="submit"], input[type|="reset"] {
+                padding: 0.1em 1.5em;
+            }
+        }
+    }
+}

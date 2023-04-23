@@ -1,0 +1,120 @@
+/*
+    Stylesheet for unit_11_self_posting_form.php
+*/
+/** General **/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h3 {
+  margin: 1em;
+}
+
+.error-message {
+  color: red;
+}
+
+/** Nav bar **/
+nav {
+  width: 20%;
+  background-color: #252023;
+  color: #b9b9b9;
+}
+nav p {
+  font-size: 2em;
+  margin: 2em 0.5em;
+}
+nav p a {
+  text-decoration: none;
+  color: #b9b9b9;
+}
+nav ul {
+  list-style: none;
+  font-size: 1.1em;
+}
+nav ul li {
+  margin: 2em 1.5em;
+}
+nav ul a {
+  color: #b9b9b9;
+  text-decoration: none;
+  padding: 0.5em;
+}
+nav ul a:hover {
+  color: #DBEFBC;
+  border: 3px solid #DBEFBC;
+  border-style: none none none solid;
+}
+nav ul a.active {
+  color: #DBEFBC;
+  border: 3px solid #DBEFBC;
+  border-style: none none none solid;
+}
+
+/** Main **/
+main {
+  width: 80%;
+  background-color: #fff8ef;
+}
+main header {
+  color: #3D5A6C;
+  background-color: #DBEFBC;
+  padding: 2em;
+}
+
+/*
+    Stylesheet for loginPage.php
+*/
+main div {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 8em auto;
+}
+main div img {
+  height: 300px;
+}
+
+.container {
+  border: 1px solid #3D5A6C;
+  border-radius: 3px;
+  margin: 3em auto;
+  background-color: #fff8ef;
+  width: 60%;
+}
+.container h1 {
+  background-color: #DBEFBC;
+  color: #3D5A6C;
+  padding: 1.5em 3em;
+}
+.container form {
+  border: 1px solid #252023;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #3D5A6C;
+  width: 60%;
+  margin: 5em auto;
+  padding: 2em;
+  background-color: #fff;
+}
+.container form div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 1em 0 0 0;
+  font-size: 1.2em;
+}
+.container form div p {
+  margin: 0.6em 0;
+}
+.container form div input {
+  font-size: 1em;
+}
+.container form div input[type|=submit], .container form div input[type|=reset] {
+  padding: 0.1em 1.5em;
+}/*# sourceMappingURL=login.css.map */

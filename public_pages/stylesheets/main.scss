@@ -1,0 +1,57 @@
+/*
+    Nav, header, and other elements shared by other stylesheets
+*/
+$color1: #0e402d;
+$color1-transparent: #0e402ddd;
+$color2: #e6af2e;
+$color2-variant: #E6B94F;
+$color3: #F35628;
+$color4: #E5E5E5;
+
+/** General **/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: $color4;
+}
+
+/** Navbar **/
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em 3em;
+    width: 100%;
+    background-color: $color1-transparent;
+
+    img {
+        height: 45vh;
+    }
+    ul {
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+        list-style: none;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.3em;
+            padding: 0.5em;
+        }
+        a:hover {
+            color: $color2;
+        }
+        a.signin {
+            color: $color2;
+            border: 1px solid $color2;
+            border-radius: 5px;
+        }
+        a.signin:hover {
+            background-color: $color2;
+            color: #fff;
+        }
+    }
+}

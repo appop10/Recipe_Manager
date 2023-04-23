@@ -1,0 +1,49 @@
+/*
+    Nav, header, and other elements shared by other stylesheets
+*/
+/** General **/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E5E5E5;
+}
+
+/** Navbar **/
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 3em;
+  width: 100%;
+  background-color: rgba(14, 64, 45, 0.8666666667);
+}
+nav img {
+  height: 45vh;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  list-style: none;
+}
+nav ul a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.3em;
+  padding: 0.5em;
+}
+nav ul a:hover {
+  color: #e6af2e;
+}
+nav ul a.signin {
+  color: #e6af2e;
+  border: 1px solid #e6af2e;
+  border-radius: 5px;
+}
+nav ul a.signin:hover {
+  background-color: #e6af2e;
+  color: #fff;
+}/*# sourceMappingURL=main.css.map */
