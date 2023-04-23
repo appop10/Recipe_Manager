@@ -10,10 +10,10 @@ function shrinkNav() {
         document.querySelector("nav img").style.height = "10vh";
         document.querySelector("nav img").style.bottom = "3vh";
     } else {
-        document.querySelector("nav").style.height = "55vh";
+        document.querySelector("nav").style.height = "61vh";
         document.querySelector("nav img").style.height = "45vh";
         document.querySelector("nav img").style.bottom = "0";
-        document.querySelector("nav").style.backgroundColor = "#0e402ddd";
+        document.querySelector("nav").style.backgroundColor = "#0e402dcb";
     }
 }
 

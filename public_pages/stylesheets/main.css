@@ -19,10 +19,11 @@ nav {
   position: sticky;
   top: 0;
   padding: 2em 3em;
-  height: 55vh;
+  height: 61vh;
   width: 100%;
-  background-color: rgba(14, 64, 45, 0.8666666667);
+  background-color: rgba(14, 64, 45, 0.7960784314);
   transition: height 1s linear, background-color 1s linear;
+  z-index: 1;
 }
 nav img {
   position: relative;
@@ -52,4 +53,13 @@ nav ul a.signin {
 nav ul a.signin:hover {
   background-color: #e6af2e;
   color: #fff;
+}
+
+/** Header **/
+header {
+  position: absolute;
+  top: 0;
+}
+header img {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

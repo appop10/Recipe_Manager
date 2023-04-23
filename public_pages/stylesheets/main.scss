@@ -2,7 +2,7 @@
     Nav, header, and other elements shared by other stylesheets
 */
 $color1: #0e402d;
-$color1-transparent: #0e402ddd;
+$color1-transparent: #0e402dcb;
 $color2: #e6af2e;
 $color2-variant: #E6B94F;
 $color3: #F35628;
@@ -25,10 +25,11 @@ nav {
     position: sticky;
     top: 0;
     padding: 2em 3em;
-    height: 55vh;
+    height: 61vh;
     width: 100%;
     background-color: $color1-transparent;
     transition: height 1s linear, background-color 1s linear;
+    z-index: 1;
 
     img {
         position: relative;
@@ -59,5 +60,15 @@ nav {
             background-color: $color2;
             color: #fff;
         }
+    }
+}
+
+/** Header **/
+header {
+    position: absolute;
+    top: 0;
+    
+    img {
+        width: 100%;
     }
 }
