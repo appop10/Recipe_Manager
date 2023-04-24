@@ -16,6 +16,17 @@ body {
   color: #1d1d1d;
 }
 
+a.signin {
+  color: #e6af2e;
+  border: 1px solid #e6af2e;
+  border-radius: 5px;
+}
+
+a.signin:hover {
+  background-color: #e6af2e;
+  color: #fff;
+}
+
 /** Navbar **/
 nav {
   display: flex;
@@ -52,15 +63,6 @@ nav ul a {
 nav ul a:hover {
   color: #e6af2e;
 }
-nav ul a.signin {
-  color: #e6af2e;
-  border: 1px solid #e6af2e;
-  border-radius: 5px;
-}
-nav ul a.signin:hover {
-  background-color: #e6af2e;
-  color: #fff;
-}
 
 /** Header **/
 header {
@@ -80,6 +82,40 @@ header p {
 /** Footer **/
 footer {
   display: flex;
+  justify-content: space-between;
   width: 100%;
+  color: #E5E5E5;
   background-color: #1d1d1d;
+  padding: 3em 4em;
+  padding-bottom: 4em;
+}
+footer img {
+  height: 25vh;
+  margin-right: 1.5em;
+}
+footer section {
+  display: flex;
+}
+footer section div {
+  margin: 0 1.5em;
+}
+footer section h3 {
+  color: #e6af2e;
+  font-size: 1.8em;
+  margin-bottom: 0.6em;
+}
+footer section p {
+  font-size: 1.3em;
+  line-height: 1.8em;
+}
+footer > div {
+  width: 15vw;
+}
+footer > div p {
+  font-size: 1.8em;
+  margin-bottom: 1.5em;
+}
+footer > div a {
+  font-size: 1.3em;
+  padding: 0.5em 2em;
 }/*# sourceMappingURL=main.css.map */

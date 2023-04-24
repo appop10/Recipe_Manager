@@ -28,6 +28,15 @@ body {
     background-color: $color4;
     color: $color5;
 }
+a.signin {
+    color: $color2;
+    border: 1px solid $color2;
+    border-radius: 5px;
+}
+a.signin:hover {
+    background-color: $color2;
+    color: #fff;
+}
 
 /** Navbar **/
 nav {
@@ -65,15 +74,6 @@ nav {
         a:hover {
             color: $color2;
         }
-        a.signin {
-            color: $color2;
-            border: 1px solid $color2;
-            border-radius: 5px;
-        }
-        a.signin:hover {
-            background-color: $color2;
-            color: #fff;
-        }
     }
 }
 
@@ -96,6 +96,43 @@ header {
 /** Footer **/
 footer {
     display: flex;
+    justify-content: space-between;
     width: 100%;
+    color: $color4;
     background-color: $color5;
+    padding: 3em 4em;
+    padding-bottom: 4em;
+
+    img {
+        height: 25vh;
+        margin-right: 1.5em;
+    }
+    section {
+        display: flex;
+
+        div {
+            margin: 0 1.5em;
+        }
+        h3 {
+            color: $color2;
+            font-size: 1.8em;
+            margin-bottom: 0.6em;
+        }
+        p {
+            font-size: 1.3em;
+            line-height: 1.8em;
+        }
+    }
+    > div {
+        width: 15vw;
+
+        p {
+            font-size: 1.8em;
+            margin-bottom: 1.5em;
+        }
+        a {
+            font-size: 1.3em;
+            padding: 0.5em 2em;
+        }
+    }
 }
