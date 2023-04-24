@@ -56,36 +56,37 @@ a.orange-button:hover {
 }
 
 /** Navbar **/
-nav {
+nav, nav.transforming {
   display: flex;
   justify-content: space-between;
   position: sticky;
   top: 0;
   padding: 2em 3em;
-  height: 61vh;
   width: 100%;
-  transition: height 1s linear, background-color 1s linear;
   z-index: 1;
 }
-nav img {
-  position: relative;
-  height: 45vh;
-  transition: height 1s linear;
-}
-nav ul {
+nav ul, nav.transforming ul {
   display: flex;
   justify-content: space-between;
   list-style: none;
 }
-nav ul a {
-  text-decoration: none;
-  color: #fff;
+nav ul a, nav.transforming ul a {
   font-size: 1.3em;
+  color: #E5E5E5;
   padding: 0.2em 1em;
-  margin: 0 0.5em;
 }
-nav ul a:hover {
+nav ul a.signin {
   color: #e6af2e;
+}
+
+nav.transforming {
+  height: 61vh;
+  transition: height 1s linear, background-color 1s linear;
+}
+nav.transforming img {
+  position: relative;
+  height: 45vh;
+  transition: height 1s linear;
 }
 
 /** Header **/

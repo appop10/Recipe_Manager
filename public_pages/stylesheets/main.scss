@@ -69,31 +69,33 @@ nav {
     position: sticky;
     top: 0;
     padding: 2em 3em;
-    height: 61vh;
     width: 100%;
-    transition: height 1s linear, background-color 1s linear;
     z-index: 1;
 
-    img {
-        position: relative;
-        height: 45vh;
-        transition: height 1s linear;
-    }
     ul {
         display: flex;
         justify-content: space-between;
         list-style: none;
 
         a {
-            text-decoration: none;
-            color: #fff;
             font-size: 1.3em;
+            color: $color4;
             padding: 0.2em 1em;
-            margin: 0 0.5em;
         }
-        a:hover {
+        a.signin {
             color: $color2;
         }
+    }
+}
+nav.transforming {
+    @extend nav;
+    height: 61vh;
+    transition: height 1s linear, background-color 1s linear;
+
+    img {
+        position: relative;
+        height: 45vh;
+        transition: height 1s linear;
     }
 }
 
