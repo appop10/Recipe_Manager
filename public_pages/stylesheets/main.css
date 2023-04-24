@@ -16,6 +16,7 @@ body {
   color: #1d1d1d;
 }
 
+/** Buttons **/
 a.signin {
   color: #e6af2e;
   border: 1px solid #e6af2e;
@@ -29,14 +30,29 @@ a.signin:hover {
 
 a.green-button {
   font-size: 1.3em;
-  border: 2px solid #0e402d;
   border-radius: 5px;
   padding: 0.5em 2em;
+  color: #0e402d;
+  text-decoration: none;
+  border: 2px solid #0e402d;
 }
 
 a.green-button:hover {
   color: #E5E5E5;
   background-color: #0e402d;
+}
+
+a.orange-button {
+  font-size: 1.3em;
+  border-radius: 5px;
+  padding: 0.5em 2em;
+  color: #0e402d;
+  text-decoration: none;
+  border: 2px solid #dd542a;
+}
+
+a.orange-button:hover {
+  background-color: #dd542a;
 }
 
 /** Navbar **/

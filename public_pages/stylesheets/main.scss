@@ -14,6 +14,13 @@ $color5: #1d1d1d;
     background-size: cover;
     background-repeat: no-repeat;
 }
+@mixin button {
+    font-size: 1.3em;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+    color: $color1;
+    text-decoration: none;
+}
 
 /** General **/
 * {
@@ -28,6 +35,8 @@ body {
     background-color: $color4;
     color: $color5;
 }
+
+/** Buttons **/
 a.signin {
     color: $color2;
     border: 1px solid $color2;
@@ -38,14 +47,19 @@ a.signin:hover {
     color: #fff;
 }
 a.green-button {
-    font-size: 1.3em;
+    @include button;
     border: 2px solid $color1;
-    border-radius: 5px;
-    padding: 0.5em 2em;
 }
 a.green-button:hover {
     color: $color4;
     background-color: $color1;
+}
+a.orange-button {
+    @include button;
+    border: 2px solid $color3;
+}
+a.orange-button:hover {
+    background-color: $color3;
 }
 
 /** Navbar **/

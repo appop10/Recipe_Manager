@@ -32,7 +32,7 @@ div.recipes {
         }
     }
     section {
-        margin: 1em 0;
+        margin: 2em 0;
 
         a {
             width: 23vw;
@@ -53,7 +53,60 @@ div.recipes {
 }
 /** Announcement **/
 div.announcement {
-    border: 1px solid black;
     display: flex;
-    margin: 5em 0;
+    margin: 8em 0;
+
+    section {
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 75vh;
+        width: 30vw;
+        border: 2px solid main.$color1;
+        border-radius: 3px;
+        margin: 0 2vw;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            left: -1vw;
+            height: 90%;
+            width: 32vw;
+            background-color: main.$color4;
+            padding: 0 3em;
+
+            h2 {
+                color: main.$color1;
+                font-size: 1.8em;
+                margin-bottom: 1em;
+            }
+            p {
+                font-size: 1.3em;
+            }
+            a {
+                margin-top: 2em;
+                width: fit-content;
+            }
+        }
+    }
+    > div {
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75vh;
+        width: 30vw;
+        border-radius: 5px;
+        background-image: 
+            linear-gradient(main.$color1-transparent,main.$color1-transparent),
+            url("../../images/pexels-klaus-nielsen-6287234.jpg");
+        @include main.nav-image;
+
+
+        img {
+            width: 28vw;
+        }
+    }
 }
