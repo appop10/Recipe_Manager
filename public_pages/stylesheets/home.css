@@ -126,4 +126,58 @@ footer > div p {
 footer > div a {
   font-size: 1.3em;
   padding: 0.5em 2em;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*
+    Stylesheet for ATP Home
+*/
+/** Navbar **/
+nav {
+  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/cropped-images/making-dough-header.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/** Recipes **/
+div.recipes {
+  width: 80%;
+  padding-top: 5em;
+}
+div.recipes section, div.recipes div {
+  display: flex;
+  justify-content: space-between;
+}
+div.recipes div {
+  align-items: flex-end;
+  color: #0e402d;
+  border-bottom: 3px solid #0e402d;
+  padding: 1em;
+}
+div.recipes div h2 {
+  font-size: 2em;
+}
+div.recipes section {
+  margin: 1em 0;
+}
+div.recipes section a {
+  width: 23vw;
+}
+div.recipes section a img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #454545;
+}
+div.recipes section a p {
+  color: #dd542a;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-top: 2vh;
+}
+
+/** Announcement **/
+div.announcement {
+  border: 1px solid black;
+  display: flex;
+  margin: 5em 0;
+}/*# sourceMappingURL=home.css.map */

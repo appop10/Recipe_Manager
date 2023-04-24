@@ -1,0 +1,59 @@
+/*
+    Stylesheet for ATP Home
+*/
+
+@use 'main.scss';
+
+/** Navbar **/
+nav {
+    background-image: 
+        linear-gradient(main.$color1-transparent,main.$color1-transparent),
+        url("../../images/cropped-images/making-dough-header.jpg");
+    @include main.nav-image;
+}
+
+/** Recipes **/
+div.recipes {
+    width: 80%;
+    padding-top: 5em;
+
+    section, div {
+        display: flex;
+        justify-content: space-between;
+    }
+    div {
+        align-items: flex-end;
+        color: main.$color1;
+        border-bottom: 3px solid main.$color1;
+        padding: 1em;
+
+        h2 {
+            font-size: 2em;
+        }
+    }
+    section {
+        margin: 1em 0;
+
+        a {
+            width: 23vw;
+
+            img {
+                width: 100%;
+                border-radius: 5px;
+                box-shadow: 2px 2px 5px #454545;
+            }
+            p {
+                color: main.$color3;
+                font-size: 1.5em;
+                line-height: 1.5em;
+                margin-top: 2vh;
+            }
+        }
+    }
+}
+/** Announcement **/
+div.announcement {
+    border: 1px solid black;
+    display: flex;
+    margin: 5em 0;
+}

@@ -5,7 +5,7 @@ $color1: #0e402d;
 $color1-transparent: #0e402dc2;
 $color2: #e6af2e;
 $color2-variant: #E6B94F;
-$color3: #F35628;
+$color3: #dd542a;
 $color4: #E5E5E5;
 $color5: #1d1d1d;
 
@@ -37,6 +37,16 @@ a.signin:hover {
     background-color: $color2;
     color: #fff;
 }
+a.green-button {
+    font-size: 1.3em;
+    border: 2px solid $color1;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+}
+a.green-button:hover {
+    color: $color4;
+    background-color: $color1;
+}
 
 /** Navbar **/
 nav {
@@ -47,10 +57,6 @@ nav {
     padding: 2em 3em;
     height: 61vh;
     width: 100%;
-    background-image: 
-        linear-gradient($color1-transparent,$color1-transparent),
-        url("../../images/making-dough-header.jpg");
-    @include nav-image;
     transition: height 1s linear, background-color 1s linear;
     z-index: 1;
 

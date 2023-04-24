@@ -4,7 +4,7 @@
 
 // Scroll changes for the Navbar
 function shrinkNav() {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 0) {
         // nav settings
         document.querySelector("nav").style.height = "13vh";
         // nav image settings
