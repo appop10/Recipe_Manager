@@ -1,0 +1,13 @@
+/*
+    Stylesheet for ATP Recipes
+*/
+
+@use 'main.scss';
+
+/** Navbar **/
+nav {
+    background-image: 
+        linear-gradient(main.$color1-transparent,main.$color1-transparent),
+        url("../../images/cropped-images/making-dough-4-header.jpg");
+    @include main.nav-image;
+}

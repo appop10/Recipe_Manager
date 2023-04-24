@@ -81,6 +81,10 @@ nav {
             font-size: 1.3em;
             color: $color4;
             padding: 0.2em 1em;
+            text-decoration: none;
+        }
+        a:hover {
+            color: $color2;
         }
         a.signin {
             color: $color2;
@@ -96,6 +100,17 @@ nav.transforming {
         position: relative;
         height: 45vh;
         transition: height 1s linear;
+    }
+}
+nav.static {
+    @extend nav;
+    height: 13vh;
+    background-color: $color1;
+
+    img {
+        position: relative;
+        bottom: 3vh;
+        height: 10vh;
     }
 }
 

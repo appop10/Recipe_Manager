@@ -15,7 +15,7 @@ function shrinkNav() {
         document.querySelector("nav.transforming").style.height = "61vh";
         // nav image settings
         document.querySelector("nav.transforming img").style.height = "45vh";
-        document.querySelector("nav.transforming img").style.bottom = "0";
+        document.querySelector("nav.transforming img").style.bottom = "";
 
     }
 }

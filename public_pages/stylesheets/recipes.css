@@ -157,4 +157,15 @@ footer > div p {
 footer > div a {
   font-size: 1.3em;
   padding: 0.5em 2em;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*
+    Stylesheet for ATP Recipes
+*/
+/** Navbar **/
+nav {
+  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/cropped-images/making-dough-4-header.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}/*# sourceMappingURL=recipes.css.map */
