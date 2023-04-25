@@ -2,12 +2,13 @@
     Stylesheet for unit_11_self_posting_form.php
 */
 
-$color1: #DBEFBC;
-$color2: #252023;
-$color3: #98C1D9;
-$color4: #3D5A6C;
-$color5: #b9b9b9;
-$color6: #fff8ef;
+$color1: #0e402d;
+$color1-transparent: #0e402dc2;
+$color2: #e6af2e;
+$color2-variant: #E6B94F;
+$color3: #dd542a;
+$color4: #E5E5E5;
+$color5: #1d1d1d;
 
 /** General **/
 * {
@@ -23,13 +24,13 @@ h3 {
     margin: 1em;
 }
 .error-message {
-    color: red;
+    color: $color3;
 }
 /** Nav bar **/
 nav {
     width: 20%;
-    background-color: $color2;
-    color: $color5;
+    background-color: $color5;
+    color: $color2;
 
     p {
         font-size: 2em;
@@ -37,7 +38,7 @@ nav {
 
         a {
             text-decoration: none;
-            color: $color5;
+            color: $color4;
         }
     }
     ul {
@@ -48,18 +49,18 @@ nav {
             margin: 2em 1.5em;
         }
         a {
-            color: $color5;
+            color: $color4;
             text-decoration: none;
             padding: 0.5em;
         }
         a:hover {
-            color: $color1;
-            border: 3px solid $color1;
+            color: $color2-variant;
+            border: 3px solid $color2;
             border-style: none none none solid;
         }
         a.active {
-            color: $color1;
-            border: 3px solid $color1;
+            color: $color2-variant;
+            border: 3px solid $color2;
             border-style: none none none solid;
         }
     }
@@ -68,7 +69,7 @@ nav {
 /** Main **/
 main {
     width: 80%;
-    background-color: $color6;
+    background-color: $color4;
 
     header {
         color: $color4;

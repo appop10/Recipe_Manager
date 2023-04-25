@@ -110,7 +110,7 @@
         <p><a href="loginPage.php">Admin Area</a></p>
 
         <ul>
-            <li><a href="addRecipe.php">Add Recipe</a></li>
+            <li><a href="addRecipe.php" class="active">Add Recipe</a></li>
             <li><a href="#">View All Recipes</a></li>
             <li><a href="logoutPage.php">Sign out</a></li>
         </ul>

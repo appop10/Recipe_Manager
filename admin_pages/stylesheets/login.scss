@@ -4,53 +4,107 @@
 
 @use 'main.scss';
 
+@mixin center-everything {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/** Main **/
 main {
+    height: 100vh;
+
     div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: fit-content;
         margin: 8em auto;
 
         img {
             height: 300px;
+            margin-bottom: 2em;
+        }
+        h1, h2 {
+            color: main.$color1;
+            padding: 0.5vh;
         }
     }
 }
-.container {
-    border: 1px solid main.$color4;
-    border-radius: 3px;
-    margin: 3em auto;
-    background-color: main.$color6;
-    width: 60%;
 
-    h1 {
-        background-color: main.$color1;
-        color: main.$color4;
-        padding: 1.5em 3em;
+/** Sign In **/
+.login {
+    @include center-everything;
+    height: 100vh;
+    width: 100%;
+    background-image: 
+        linear-gradient(main.$color1-transparent,main.$color1-transparent),
+        url("../../images/original-images/making-dough.jpg"); 
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    div.homepage {
+        @include center-everything;
+        height: 75vh;
+        width: 30vw; 
+
+        img {
+            width: 28vw;
+        }
     }
-    form {
-        border: 1px solid main.$color2;
-        border-radius: 5px;
-        box-shadow: 0 0 5px main.$color4;
-        width: 60%;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fff;
+    div.container {
+        @include center-everything;
+        height: 75vh;
+        width: 30vw; 
+        background-color: main.$color4;
 
-        div {
+        > div {
+            @include center-everything;
+            position: relative;
+            border: 2px solid main.$color1;
+            border-radius: 5px;
+            height: 71vh;
+            width: 28vw;
+        }
+        form {
+            position: absolute;
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            margin: 1em 0 0 0;
-            font-size: 1.2em;
+            width: 30vw;
+            padding: 2em 3em;
+            background-color: main.$color4;
 
+            h2 {
+                font-size: 2em;
+                color: main.$color1;
+            }
             p {
-                margin: 0.6em 0;
+                display: flex;
+                flex-direction: column;
+                margin: 0.5em 0;
+            }
+            div {
+                display: flex;
+                justify-content: space-between;
+                margin: 1em 0;
+            }
+            label, input {
+                font-size: 1.3em;
+                margin: 0.1em 0;
             }
             input {
-                font-size: 1em;
+                padding: 0.3em;
             }
-            input[type|="submit"], input[type|="reset"] {
-                padding: 0.1em 1.5em;
-            }
+            input[id|="submit"], input[id|="reset"] {
+                width: 45%;
+                border: 2px solid main.$color1;
+                border-radius: 5px;
+                color: main.$color1;
+            }  
+            input[id|="submit"]:hover, input[id|="reset"]:hover {
+                background-color: main.$color1;
+                color: main.$color2;
+            } 
         }
     }
 }
