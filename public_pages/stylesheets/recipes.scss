@@ -11,3 +11,31 @@ nav {
         url("../../images/cropped-images/making-dough-4-header.jpg");
     @include main.nav-image;
 }
+
+/** Title Filter **/
+div.title-filter {
+    position: fixed;
+    top: 13vh;
+    width: 80%;
+    padding: 2em 0;
+    background-color: main.$color4;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        color: main.$color1;
+        border-bottom: 3px solid main.$color1;
+        padding: 1em;
+
+        h2 {
+            font-size: 2em;
+        }
+    }
+}
+
+/** Recipe List **/
+div.recipe-list {
+    border: 1px solid black;
+    width: 80%;
+}

@@ -38,7 +38,7 @@ a.green-button {
 }
 
 a.green-button:hover {
-  color: #E5E5E5;
+  color: #e6af2e;
   background-color: #0e402d;
 }
 
@@ -99,7 +99,7 @@ nav.static {
 }
 nav.static img {
   position: relative;
-  top: 1vh;
+  bottom: 3vh;
   height: 10vh;
 }
 

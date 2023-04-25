@@ -38,7 +38,7 @@ a.green-button {
 }
 
 a.green-button:hover {
-  color: #E5E5E5;
+  color: #e6af2e;
   background-color: #0e402d;
 }
 
@@ -168,4 +168,30 @@ nav {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+/** Title Filter **/
+div.title-filter {
+  position: fixed;
+  top: 13vh;
+  width: 80%;
+  padding: 2em 0;
+  background-color: #E5E5E5;
+}
+div.title-filter div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #0e402d;
+  border-bottom: 3px solid #0e402d;
+  padding: 1em;
+}
+div.title-filter div h2 {
+  font-size: 2em;
+}
+
+/** Recipe List **/
+div.recipe-list {
+  border: 1px solid black;
+  width: 80%;
 }/*# sourceMappingURL=recipes.css.map */
