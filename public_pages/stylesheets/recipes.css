@@ -174,14 +174,18 @@ nav {
 div.title-filter {
   position: fixed;
   top: 13vh;
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   padding: 2em 0;
   background-color: #E5E5E5;
+  z-index: 1;
 }
 div.title-filter div {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  width: 80%;
   color: #0e402d;
   border-bottom: 3px solid #0e402d;
   padding: 1em;
@@ -192,6 +196,30 @@ div.title-filter div h2 {
 
 /** Recipe List **/
 div.recipe-list {
-  border: 1px solid black;
+  position: relative;
+  top: 23vh;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 80%;
+  margin-bottom: 30vh;
+}
+div.recipe-list a {
+  width: 23vw;
+  margin-bottom: 10vh;
+}
+div.recipe-list a img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #454545;
+}
+div.recipe-list a h3 {
+  color: #dd542a;
+  font-size: 1.5em;
+  margin-top: 2vh;
+}
+div.recipe-list a p {
+  color: #1d1d1d;
+  font-size: 1.3em;
+  padding: 0.3em 0;
 }/*# sourceMappingURL=recipes.css.map */

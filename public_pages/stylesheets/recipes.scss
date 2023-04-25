@@ -16,14 +16,18 @@ nav {
 div.title-filter {
     position: fixed;
     top: 13vh;
-    width: 80%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     padding: 2em 0;
     background-color: main.$color4;
+    z-index: 1;
 
     div {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        width: 80%;
         color: main.$color1;
         border-bottom: 3px solid main.$color1;
         padding: 1em;
@@ -36,6 +40,32 @@ div.title-filter {
 
 /** Recipe List **/
 div.recipe-list {
-    border: 1px solid black;
+    position: relative;
+    top: 23vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     width: 80%;
+    margin-bottom: 30vh;
+
+    a {
+        width: 23vw;
+        margin-bottom: 10vh;
+
+        img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #454545;
+        }
+        h3 {
+            color: main.$color3;
+            font-size: 1.5em;
+            margin-top: 2vh;
+        }
+        p {
+            color: main.$color5;
+            font-size: 1.3em;
+            padding: 0.3em 0;
+        }
+    }
 }
