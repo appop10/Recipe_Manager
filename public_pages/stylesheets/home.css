@@ -199,11 +199,15 @@ div.recipes section a img {
   border-radius: 5px;
   box-shadow: 2px 2px 5px #454545;
 }
-div.recipes section a p {
+div.recipes section a h3 {
   color: #dd542a;
   font-size: 1.5em;
-  line-height: 1.5em;
   margin-top: 2vh;
+}
+div.recipes section a p {
+  color: #1d1d1d;
+  font-size: 1.3em;
+  padding: 0.3em 0;
 }
 
 /** Announcement **/

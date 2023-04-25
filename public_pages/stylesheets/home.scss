@@ -36,17 +36,21 @@ div.recipes {
 
         a {
             width: 23vw;
-
+    
             img {
                 width: 100%;
                 border-radius: 5px;
                 box-shadow: 2px 2px 5px #454545;
             }
-            p {
+            h3 {
                 color: main.$color3;
                 font-size: 1.5em;
-                line-height: 1.5em;
                 margin-top: 2vh;
+            }
+            p {
+                color: main.$color5;
+                font-size: 1.3em;
+                padding: 0.3em 0;
             }
         }
     }
