@@ -1,111 +1,162 @@
 <?php
-    session_start();
+session_start();
 
-    // flag/switch variable - tells whether or not you requested the form
-    $formRequested = true;
-    $readyStmt = true;
-    $errMsg = "";
-    $eventNameMsg = "";
-    $eventDescriptionMsg = "";
-    $eventPresenterMsg = "";
-    $eventDateMsg = "";
-    $eventTimeMsg = "";
+// flag/switch variable - tells whether or not you requested the form
+$formRequested = true;
+$errMsg = "";
+$recipeNameEmpty = "";
+$prepTimeEmpty = "";
+$cookTimeEmpty = "";
+$servingSizeEmpty = "";
 
-    // functions to make sure all fields are filled in
-    function checkFieldEmpty($inField) {
-        if(empty($inField)) {
-            $requireddMsg = "*Field is required";
-        } else {
-            $requireddMsg = "";
-        }
-
-        return $requireddMsg;
+// functions to make sure all fields are filled in
+function checkFieldEmpty($inField)
+{
+    if (empty($inField)) {
+        $requireddMsg = "*Field is required";
+    } else {
+        $requireddMsg = "";
     }
-    function countEmptyFields($inFieldArray) {
-        $tally = 0;
 
-        for($x=0; $x<count($inFieldArray); $x++) {
-            if($inFieldArray[$x] != "") {
-                $tally++;
+    return $requireddMsg;
+}
+function countEmptyFields($inFieldArray)
+{
+    $tally = 0;
+
+    for ($x = 0; $x < count($inFieldArray); $x++) {
+        if ($inFieldArray[$x] != "") {
+            $tally++;
+        }
+    }
+
+    return $tally;
+}
+
+// if invalid user return to loginPage.php
+if (!(isset($_SESSION['validUser']))) {
+    header("Location: loginPage.php");
+    exit();
+}
+
+// process the form if submitted
+if (isset($_POST['submit'])) {
+
+    if (empty($_POST['totalTime']) && empty($_POST['imageName']) && empty($_POST['ingredientSection1'])) {
+        // general recipe variables
+        $recipeName = $_POST['recipeName'];
+        $prepTime = $_POST['prepTime'];
+        $cookTime = $_POST['cookTime'];
+        $servingSize = $_POST['servingSize'];
+        $category = $_POST['category'];
+        $ingredient = $_POST['ingredient'];
+        $complexity = $_POST['complexity'];
+        $recipeImage = $_POST['recipeImage'];
+
+        // make a categories array after validation
+        $categories = [$category, $ingredient, $complexity];
+
+        // load ingredients into parallel arrays
+        $ingredientAmounts = [];
+        $ingredientTypes = [];
+        $ingredientNames = [];
+
+        for ($x = 0; $x < 21; $x++) {
+            $ingredientAmountID = "ingredientAmount$x";
+            $ingredientTypeID = "ingredientType$x";
+            $ingredientNameID = "ingredientName$x";
+
+            if (isset($_POST[$ingredientAmountID])) {
+                $ingredientAmounts[$x] = $_POST[$ingredientAmountID];
+            }
+
+            if (isset($_POST[$ingredientTypeID])) {
+                $ingredientTypes[$x] = $_POST[$ingredientTypeID];
+            }
+
+            if (isset($_POST[$ingredientNameID])) {
+                $ingredientNames[$x] = $_POST[$ingredientNameID];
             }
         }
 
-        return $tally;
-    }
+        $ingredients = [$ingredientAmounts, $ingredientTypes, $ingredientNames];
 
-    // if invalid user return to loginPage.php
-    if(!(isset($_SESSION['validUser']))) {
-        header("Location: loginPage.php");
-        exit();
-    }
+        // load directions variables into an array
+        $recipeSteps = [];
 
-    // process the form if submitted
-    if (isset($_POST['submit'])) {
-        // process the form data into the database
-        if(empty($_POST['dateInserted']) && empty($_POST['dateUpdated'])) {
-            // variables from form fields
-            $eventName = $_POST['eventName'];
-            $eventDescription = $_POST['eventDescription'];
-            $eventPresenter = $_POST['eventPresenter'];
-            $eventDate = $_POST['eventDate'];
-            $eventTime = $_POST['eventTime'];
+        for ($x = 0; $x < 11; $x++) {
+            $directionID = "recipeStep$x";
 
-            // date inserted/updated will be a generated date
-            $dateInserted = date("Y-m-d");
-
-            $eventNameMsg = checkFieldEmpty($eventName);
-            $eventDescriptionMsg = checkFieldEmpty($eventDescription);
-            $eventPresenterMsg = checkFieldEmpty($eventPresenter);
-            $eventDateMsg = checkFieldEmpty($eventDate);
-            $eventTimeMsg = checkFieldEmpty($eventTime);
-
-            $fieldArray = [$eventNameMsg, $eventDescriptionMsg, $eventPresenterMsg, $eventDateMsg, $eventTimeMsg];
-
-            $fieldCount = countEmptyFields($fieldArray);
-
-            if($fieldCount == 0) {
-                $formRequested = false;
-
-                try {
-                    require "../../databases/dbConnect.php";
-                    $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
-                    $sql = "INSERT INTO wdv341_events (name, description, presenter, date, time, date_inserted, date_updated) VALUES (:eventName, :eventDescription, :eventPresenter, :eventDate, :eventTime, :dateInserted, :dateUpdated)";
-
-                    $stmt = $conn->prepare("$sql");
-                    $stmt->bindParam(':eventName', $eventName);
-                    $stmt->bindParam(':eventDescription', $eventDescription);
-                    $stmt->bindParam(':eventPresenter', $eventPresenter);
-                    $stmt->bindParam(':eventDate', $eventDate);
-                    $stmt->bindParam(':eventTime', $eventTime);
-                    $stmt->bindParam(':dateInserted', $dateInserted);
-                    $stmt->bindParam(':dateUpdated', $dateInserted);
-
-                    $stmt->execute();
-                    $conn = null;
-                } catch(PDOException $e) {
-                    $readyStmt = false;
-                    $errMsg = "Data Unavailable";
-                }
+            if (isset($_POST[$directionID])) {
+                $recipeSteps[$x] = $_POST[$directionID];
             }
-
-        } else {
-            exit("Form Invalid");
         }
-    } 
+
+        // arrays to JSON
+        $categoriesJSON = json_encode($categories);
+        $ingredientsJSON = json_encode($ingredients);
+        $recipeStepsJSON = json_encode($recipeSteps);
+
+        // check if other fields are empty
+        // show form with require message if any
+        // image will default to the logo if empty
+        $recipeNameEmpty = checkFieldEmpty($recipeName);
+        $prepTimeEmpty = checkFieldEmpty($prepTime);
+        $cookTimeEmpty = checkFieldEmpty($cookTime);
+        $servingSizeEmpty = checkFieldEmpty($servingSize);
+
+        $singleRecipeFields = [$recipeNameEmpty, $prepTimeEmpty, $cookTimeEmpty, $servingSizeEmpty];
+
+        $emptyTally = countEmptyFields($singleRecipeFields);
+
+        if (empty($recipeImage)) {
+            $recipeImage = "logo_black.png";
+        }
+
+        if ($emptyTally == 0) {
+            $formRequested = false;
+            // INSERT into database
+        // try {
+        //     require "../admin_pages/databases/dbConnect.php";
+        //     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        //     $sql = "INSERT INTO recipe_manager (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
+
+        //     $stmt = $conn->prepare("$sql");
+        //     $stmt->bindParam(':recipeName', $recipeName);
+        //     $stmt->bindParam(':prepTime', $prepTime);
+        //     $stmt->bindParam(':cookTime', $cookTime);
+        //     $stmt->bindParam(':servingSize', $servingSize);
+        //     $stmt->bindParam(':categories', $categoriesJSON);
+        //     $stmt->bindParam(':ingredients', $ingredientsJSON);
+        //     $stmt->bindParam(':directions', $recipeStepsJSON);
+        //     $stmt->bindParam(':image', $recipeImage);
+
+        //     $stmt->execute();
+        // } catch(PDOException $e) {
+        //     $errMsg = "Could not add new recipe. Please try again"
+        // }
+        } else {
+            $formRequested = true;
+        }
+    } else {
+        exit("Form Invalid");
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Self Posting Form</title>
+    <title>Add Recipe</title>
 
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="stylesheets/enter-event-page.css">
+    <script src="form_functions.js"></script>
 </head>
-<body>
+
+<body onload="pageLoad()">
     <nav>
         <p><a href="loginPage.php">Admin Area</a></p>
 
@@ -117,85 +168,200 @@
     </nav>
 
     <main>
-<?php
-    if ($formRequested) {
-        // form was requested
-        // display form
-?>
-    
-    <header>
-        <h1>WDV341 Intro to PHP</h1>
-        <h2>Self Posting Form - Event Input</h2>
-    </header>
 
-    <form method="post" action="unit_11_self_posting_form.php">
-        <h3>Event Input Form</h3>
+        <?php
+        if ($formRequested) {
+        ?>
+            <form method="post" action="addRecipe.php">
+                <!-- General Information -->
+                <h2>General Information</h2>
 
-        <p>
-            <label for="eventName">Event Name</label>
-            <span class="error-message"><?php echo $eventNameMsg; ?></span>
-            <input type="text" name="eventName" id="eventName">
-        </p>
+                <p>
+                    <label for="recipeName">Recipe Name</label>
+                    <span><?php echo $recipeNameEmpty; ?></span>
+                    <input type="text" name="recipeName" id="recipeName">
+                </p>
 
-        <div><!-- description and presenter -->
-            <p>
-                <label for="eventDescription">Event Description</label>
-                <span class="error-message"><?php echo $eventDescriptionMsg; ?></span>
-                <input type="text" name="eventDescription" id="eventDescription">
-            </p>
+                <p>
+                    <label for="prepTime">Prep Time</label>
+                    <span><?php echo $prepTimeEmpty; ?></span>
+                    <input type="number" name="prepTime" id="prepTime" min="0" max="100" step="5">
+                    <p>minutes</p>
 
-            <p>
-                <label for="eventPresenter">Event Presenter</label>
-                <span class="error-message"><?php echo $eventPresenterMsg; ?></span>
-                <input type="text" name="eventPresenter" id="eventPresenter">
-            </p>
-        </div>
+                    <label for="cookTime">Cook Time</label>
+                    <span><?php echo $cookTimeEmpty; ?></span>
+                    <input type="number" name="cookTime" id="cookTime" min="0" max="100" step="5">
+                    <p>minutes</p>
 
-        <div><!-- date and time -->
-            <p>
-                <label for="eventDate">Event Date</label>
-                <span class="error-message"><?php echo $eventDateMsg; ?></span>
-                <input type="date" name="eventDate" id="eventDate">
-            </p>
+                    <label for="totalTime">Total Time *</label>
+                    <span></span>
+                    <input type="number" name="totalTime" id="totalTime" min="0" max="100" step="5">
+                    <p>minutes</p>
 
-            <p>
-                <label for="eventTime">Event Time</label>
-                <span class="error-message"><?php echo $eventTimeMsg; ?></span>
-                <input type="time" name="eventTime" id="eventTime">
-            </p>
-        </div>
+                    <label for="servingSize">Serving Size</label>
+                    <span><?php echo $servingSizeEmpty; ?></span>
+                    <input type="number" name="servingSize" id="servingSize" min="0" max="20" step="1">
+                </p>
 
-        <div><!-- inserted and updated -->
-            <p class="info-dates">
-                <label for="dateInserted">Date Inserted</label>
-                <span class="error-message"></span>
-                <input type="date" name="dateInserted" id="dateInserted">
-            </p>
+                <p>
+                    <label for="category">Category</label>
+                    <select name="category" id="category">
+                        <option value="">Please choose one</option>
+                        <option value="Simple">Simple</option>
+                        <option value="One Pot">One Pot</option>
+                        <option value="Fusion">Fusion</option>
+                        <option value="Comfort">Comfort</option>
+                        <option value="Spicy">Spicy</option>
+                    </select>
 
-            <p class="info-dates">
-                <label for="dateUpdated">Date Updated</label>
-                <span class="error-message"></span>
-                <input type="date" name="dateUpdated" id="dateUpdated">
-            </p>
-        </div>
+                    <label for="ingredient">Ingredient</label>
+                    <select name="ingredient" id="ingredient">
+                        <option value="">Please choose one</option>
+                        <option value="No Meat">No Meat</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Beef">Beef</option>
+                        <option value="Pork">Pork</option>
+                        <option value="Fish">Fish</option>
+                    </select>
 
-        <div>
-            <input type="submit" name="submit" value="Submit">
-            <input type="reset" name="reset" value="Reset">
-        </div>
-    </form>
-<?php
-    } else {
-        // dipslay cofirmation
-?>
-    <div class="container">
-        <h3><?php echo $errMsg; ?></h3>
-        <h3>Thank You!</h3>
-        <p>Your event has been added to the database. Please check your new event on the Display Events page.</p>
-    </div>
-<?php
-    }
-?>
-    </main><!-- close main -->
+                    <label for="complexity">Complexity</label>
+                    <select name="complexity" id="complexity">
+                        <option value="">Please choose one</option>
+                        <option value="Novice">Novice</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="imageName">Recipe Image Name *</label>
+                    <input type="text" name="imageName" id="imageName">
+
+                    <label for="recipeImage">Upload Image</label>
+                    <input type="file" name="recipeImage" id="recipeImage" accept="image/png, image/jpeg">
+                </p>
+
+                <!-- Ingredienet List -->
+                <h2>Ingredient List</h2>
+
+                <p>
+                    <label for="ingredientSection1">Section Title*</label>
+                    <input type="text" name="ingredientSection1" id="ingredientSection1">
+                </p>
+
+                <div class="ingredient-list">
+                    <p>
+                        <label for="ingredientAmount1">Amount</label>
+                        <input type="number" name="ingredientAmount1" id="ingredientAmount1" step="0.01">
+
+                        <label for="ingredientType1">Type</label>
+                        <select name="ingredientType1" id="ingredientType1">
+                            <option value=""></option>
+                            <option value="tsp">tsp</option>
+                            <option value="tbsp">tbsp</option>
+                            <option value="cup(s)">cup(s)</option>
+                            <option value="oz">oz</option>
+                        </select>
+
+                        <label for="ingredientName1">Ingredient Name</label>
+                        <input type="text" name="ingredientName1" id="ingredientName1">
+                    </p>
+
+                    <p>
+                        <label for="ingredientAmount2">Amount</label>
+                        <input type="number" name="ingredientAmount2" id="ingredientAmount2" step="0.01">
+
+                        <label for="ingredientType2">Type</label>
+                        <select name="ingredientType2" id="ingredientType2">
+                            <option value=""></option>
+                            <option value="tsp">tsp</option>
+                            <option value="tbsp">tbsp</option>
+                            <option value="cup(s)">cup(s)</option>
+                            <option value="oz">oz</option>
+                        </select>
+
+                        <label for="ingredientName2">Ingredient Name</label>
+                        <input type="text" name="ingredientName2" id="ingredientName2">
+                    </p>
+
+                    <p>
+                        <label for="ingredientAmount3">Amount</label>
+                        <input type="number" name="ingredientAmount3" id="ingredientAmount3" step="0.01">
+
+                        <label for="ingredientType3">Type</label>
+                        <select name="ingredientType3" id="ingredientType3">
+                            <option value=""></option>
+                            <option value="tsp">tsp</option>
+                            <option value="tbsp">tbsp</option>
+                            <option value="cup(s)">cup(s)</option>
+                            <option value="oz">oz</option>
+                        </select>
+
+                        <label for="ingredientName3">Ingredient Name</label>
+                        <input type="text" name="ingredientName3" id="ingredientName3">
+                    </p>
+                </div>
+
+                <p>
+                    <a class="button">+ Add Ingredient</a>
+                    <a class="button"></a>
+                </p>
+
+                <!-- Directions -->
+                <h2>Directions</h2>
+
+                <div class="direction-list">
+                    <p>
+                        <label for="recipeStep1">Step 1</label>
+                        <textarea name="recipeStep1" id="recipeStep1" rows="5"></textarea>
+                    </p>
+
+                    <p>
+                        <label for="recipeStep2">Step 2</label>
+                        <textarea name="recipeStep2" id="recipeStep2" rows="5"></textarea>
+                    </p>
+
+                    <p>
+                        <label for="recipeStep3">Step 3</label>
+                        <textarea name="recipeStep3" id="recipeStep3" rows="5"></textarea>
+                    </p>
+                </div>
+
+                <p>
+                    <a class="button">+ Add Step</a>
+                    <a class="button"></a>
+                </p>
+
+                <!-- Submit and Clear buttons -->
+                <p>
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                    <input type="reset" name="reset" id="reset" value="Clear">
+                </p>
+            </form>
+        <?php
+        } else {
+        ?>
+            <div>
+                <img src="../images/logo_black.png" alt="all things pasta logo">
+                <?php 
+                    if ($errMsg == "") {
+                ?>
+                    <h1>New Recipe Added!</h1>
+                    <h2>View all recipes to see your changes</h2>
+                <?php
+                    } else {
+                ?>
+                    <h1><?php echo $errMsg; ?></h1>
+                <?php
+                    }
+                ?>
+            </div>
+        <?php
+        }
+        ?>
+    </main>
 </body>
+
 </html>
