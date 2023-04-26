@@ -181,61 +181,76 @@ if (isset($_POST['submit'])) {
                 <p>
                     <label for="recipeName">Recipe Name</label>
                     <span><?php echo $recipeNameEmpty; ?></span>
-                    <input type="text" name="recipeName" id="recipeName">
+                    <input type="text" name="recipeName" id="recipeName" placeholder="Pasta Dish">
                 </p>
 
-                <p>
-                    <label for="prepTime">Prep Time</label>
-                    <span><?php echo $prepTimeEmpty; ?></span>
-                    <input type="number" name="prepTime" id="prepTime" min="0" max="100" step="5">
-                    <p>minutes</p>
+                <div class="recipe-times"><!-- prep, cook, total time and serving size -->
+                    <p>
+                        <span><?php echo $prepTimeEmpty; ?></span>
+                        <label for="prepTime">Prep Time</label>
+                        
+                        <input type="number" name="prepTime" id="prepTime" min="0" max="100" step="5" placeholder="minutes">
+                    </p>
 
-                    <label for="cookTime">Cook Time</label>
-                    <span><?php echo $cookTimeEmpty; ?></span>
-                    <input type="number" name="cookTime" id="cookTime" min="0" max="100" step="5">
-                    <p>minutes</p>
+                    <p>
+                        <span><?php echo $cookTimeEmpty; ?></span>
+                        <label for="cookTime">Cook Time</label>
+                        
+                        <input type="number" name="cookTime" id="cookTime" min="0" max="100" step="5" placeholder="minutes">
+                    </p>
 
-                    <label for="totalTime">Total Time *</label>
-                    <span></span>
-                    <input type="number" name="totalTime" id="totalTime" min="0" max="100" step="5">
-                    <p>minutes</p>
+                    <p>
+                        <span><?php echo $servingSizeEmpty; ?></span>
+                        <label for="servingSize">Serving Size</label>
+                        
+                        <input type="number" name="servingSize" id="servingSize" min="0" max="20" step="1" placeholder="servings">
+                    </p>
 
-                    <label for="servingSize">Serving Size</label>
-                    <span><?php echo $servingSizeEmpty; ?></span>
-                    <input type="number" name="servingSize" id="servingSize" min="0" max="20" step="1">
-                </p>
+                    <p>
+                        <span></span>
+                        <label for="totalTime">Total Time *</label>
+                        
+                        <input type="number" name="totalTime" id="totalTime" min="0" max="100" step="5" placeholder="minutes">
+                    </p>
+                </div>
 
-                <p>
-                    <label for="category">Category</label>
-                    <select name="category" id="category">
-                        <option value="">Please choose one</option>
-                        <option value="Simple">Simple</option>
-                        <option value="One Pot">One Pot</option>
-                        <option value="Fusion">Fusion</option>
-                        <option value="Comfort">Comfort</option>
-                        <option value="Spicy">Spicy</option>
-                    </select>
+                <div class="recipe-categories">
+                    <p>
+                        <label for="category">Category</label>
+                        <select name="category" id="category">
+                            <option value="">Please choose one</option>
+                            <option value="Simple">Simple</option>
+                            <option value="One Pot">One Pot</option>
+                            <option value="Fusion">Fusion</option>
+                            <option value="Comfort">Comfort</option>
+                            <option value="Spicy">Spicy</option>
+                        </select>
+                    </p>
 
-                    <label for="ingredient">Ingredient</label>
-                    <select name="ingredient" id="ingredient">
-                        <option value="">Please choose one</option>
-                        <option value="No Meat">No Meat</option>
-                        <option value="Chicken">Chicken</option>
-                        <option value="Beef">Beef</option>
-                        <option value="Pork">Pork</option>
-                        <option value="Fish">Fish</option>
-                    </select>
+                    <p>
+                        <label for="ingredient">Ingredient</label>
+                        <select name="ingredient" id="ingredient">
+                            <option value="">Please choose one</option>
+                            <option value="No Meat">No Meat</option>
+                            <option value="Chicken">Chicken</option>
+                            <option value="Beef">Beef</option>
+                            <option value="Pork">Pork</option>
+                            <option value="Fish">Fish</option>
+                        </select>
+                    </p>
 
-                    <label for="complexity">Complexity</label>
-                    <select name="complexity" id="complexity">
-                        <option value="">Please choose one</option>
-                        <option value="Novice">Novice</option>
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced</option>
-                        <option value="Expert">Expert</option>
-                    </select>
-                </p>
+                    <p>
+                        <label for="complexity">Complexity</label>
+                        <select name="complexity" id="complexity">
+                            <option value="">Please choose one</option>
+                            <option value="Novice">Novice</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Expert">Expert</option>
+                        </select>
+                    </p>
+                </div>
 
                 <p>
                     <label for="imageName">Recipe Image Name *</label>
@@ -306,7 +321,7 @@ if (isset($_POST['submit'])) {
                     </p>
                 </div>
 
-                <p>
+                <p class="add-parts">
                     <a class="button">+ Add Ingredient</a>
                     <a class="button"></a>
                 </p>
@@ -331,7 +346,7 @@ if (isset($_POST['submit'])) {
                     </p>
                 </div>
 
-                <p>
+                <p class="add-parts">
                     <a class="button">+ Add Step</a>
                     <a class="button"></a>
                 </p>

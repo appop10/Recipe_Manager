@@ -76,52 +76,77 @@ form {
   display: flex;
   flex-direction: column;
   margin: 3em auto;
-  padding: 3em;
-  width: 60%;
-  border: 1px solid #e6af2e;
+  padding: 0 3em;
+  width: 80%;
+  border: 2px solid #e6af2e;
   border-radius: 5px;
-  box-shadow: 0 0 5px #E5E5E5;
+  box-shadow: 0 0 2px #1d1d1d;
   background-color: #fff;
-  color: black;
+  color: #1d1d1d;
 }
-form div {
-  display: flex;
+form input {
+  padding: 0.5em;
+  border-radius: 5px;
 }
-form div input[type|=submit], form div input[type|=reset] {
-  width: 40%;
-  margin: 0.3em;
-  padding: 0.5em 1em;
-  font-size: 1.1em;
+form h2 {
+  color: #0e402d;
+  border-bottom: 2px solid #0e402d;
+  padding-bottom: 10px;
+  margin: 2em 0 1em 0;
 }
-form p {
+form > p {
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  border: 1px solid black;
 }
-form p input {
-  display: block;
-  margin: 0.5em 0;
-  font-size: 1.1em;
-  width: 100%;
-}
-form p.info-dates {
+form > p label[for|=imageName], form > p input[id|=imageName], form > p label[for|=ingredientSection1], form > p input[id|=ingredientSection1] {
   display: none;
 }
-
-.container {
-  width: 60%;
-  padding: 3em 3em 5em 3em;
-  margin: 12em auto;
-  border: 1px solid #e6af2e;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #E5E5E5;
-  background-color: #fff;
+form > p label {
+  padding: 0.5em 0;
 }
-.container h3 {
-  font-size: 2em;
+form > p.add-parts {
+  flex-direction: row;
+  margin-top: 1em;
+  border-top: 1px solid #1d1d1d;
+  padding: 0.5em;
 }
-.container p {
-  font-size: 1.3em;
-  padding: 0 2em;
-  line-height: 1.3em;
+form > p.add-parts a {
+  padding: 0.5em;
+}
+form > p.add-parts a:hover {
+  cursor: pointer;
+  color: #e6af2e;
+}
+form div.recipe-times {
+  display: flex;
+  justify-content: space-between;
+}
+form div.recipe-times label[for|=totalTime], form div.recipe-times input[id|=totalTime] {
+  display: none;
+}
+form div.recipe-times p {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+form div.recipe-times p input {
+  width: 10vw;
+  margin-top: 0.5em;
+  text-align: center;
+}
+form div.recipe-categories {
+  border: 1px solid green;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+form div.recipe-categories p {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+form div.recipe-categories p select {
+  padding: 0.5em;
+  margin: 0.5em 0;
 }/*# sourceMappingURL=addRecipe.css.map */
