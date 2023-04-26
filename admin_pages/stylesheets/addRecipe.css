@@ -28,6 +28,7 @@ nav {
   color: #e6af2e;
 }
 nav p {
+  position: fixed;
   font-size: 2em;
   margin: 2em 0.5em;
 }
@@ -36,6 +37,8 @@ nav p a {
   color: #E5E5E5;
 }
 nav ul {
+  position: fixed;
+  top: 15vh;
   list-style: none;
   font-size: 1.1em;
 }
@@ -83,10 +86,13 @@ form {
   box-shadow: 0 0 2px #1d1d1d;
   background-color: #fff;
   color: #1d1d1d;
+  font-size: 1.2em;
 }
 form input {
   padding: 0.5em;
-  border-radius: 5px;
+}
+form input, form select, form textarea {
+  font-size: 1em;
 }
 form h2 {
   color: #0e402d;
@@ -97,7 +103,6 @@ form h2 {
 form > p {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 }
 form > p label[for|=imageName], form > p input[id|=imageName], form > p label[for|=ingredientSection1], form > p input[id|=ingredientSection1] {
   display: none;
@@ -136,7 +141,6 @@ form div.recipe-times p input {
   text-align: center;
 }
 form div.recipe-categories {
-  border: 1px solid green;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1em;
@@ -149,4 +153,54 @@ form div.recipe-categories p {
 form div.recipe-categories p select {
   padding: 0.5em;
   margin: 0.5em 0;
+}
+form div.ingredient-list div.ingredient-row {
+  display: flex;
+}
+form div.ingredient-list div.ingredient-row p {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 1em;
+}
+form div.ingredient-list div.ingredient-row p label {
+  padding-bottom: 0.5em;
+}
+form div.ingredient-list div.ingredient-row p input, form div.ingredient-list div.ingredient-row p select {
+  height: 5vh;
+}
+form div.ingredient-list div.ingredient-row p input[id*=Amount], form div.ingredient-list div.ingredient-row p select[id*=Type] {
+  width: 6vw;
+  padding: 0.5em 0.5em 0.5em 0.8em;
+}
+form div.ingredient-list div.ingredient-row p.ingredient-name {
+  width: 100%;
+}
+form div.direction-list {
+  display: flex;
+  flex-direction: column;
+}
+form div.direction-list p {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+form div.direction-list p label {
+  margin: 0.5em 0;
+}
+form div.direction-list p textarea {
+  resize: none;
+}
+form div.form-buttons {
+  margin: 1em 0 3em 0;
+}
+form div.form-buttons input {
+  width: 10vw;
+  border: 1px solid #0e402d;
+  border-radius: 5px;
+  color: #0e402d;
+  margin-right: 1.5em;
+}
+form div.form-buttons input:hover {
+  background-color: #0e402d;
+  color: #e6af2e;
 }/*# sourceMappingURL=addRecipe.css.map */

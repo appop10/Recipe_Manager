@@ -115,27 +115,27 @@ if (isset($_POST['submit'])) {
 
         if ($emptyTally == 0) {
             $formRequested = false;
-            // INSERT into database
-        // try {
-        //     require "../admin_pages/databases/dbConnect.php";
-        //     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+           // INSERT into database
+            try {
+                require "../admin_pages/databases/dbConnect.php";
+                $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-        //     $sql = "INSERT INTO recipe_manager (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
+                $sql = "INSERT INTO recipe_manager (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
 
-        //     $stmt = $conn->prepare("$sql");
-        //     $stmt->bindParam(':recipeName', $recipeName);
-        //     $stmt->bindParam(':prepTime', $prepTime);
-        //     $stmt->bindParam(':cookTime', $cookTime);
-        //     $stmt->bindParam(':servingSize', $servingSize);
-        //     $stmt->bindParam(':categories', $categoriesJSON);
-        //     $stmt->bindParam(':ingredients', $ingredientsJSON);
-        //     $stmt->bindParam(':directions', $recipeStepsJSON);
-        //     $stmt->bindParam(':image', $recipeImage);
+                $stmt = $conn->prepare("$sql");
+                $stmt->bindParam(':recipeName', $recipeName);
+                $stmt->bindParam(':prepTime', $prepTime);
+                $stmt->bindParam(':cookTime', $cookTime);
+                $stmt->bindParam(':servingSize', $servingSize);
+                $stmt->bindParam(':categories', $categoriesJSON);
+                $stmt->bindParam(':ingredients', $ingredientsJSON);
+                $stmt->bindParam(':directions', $recipeStepsJSON);
+                $stmt->bindParam(':image', $recipeImage);
 
-        //     $stmt->execute();
-        // } catch(PDOException $e) {
-        //     $errMsg = "Could not add new recipe. Please try again"
-        // }
+                $stmt->execute();
+            } catch(PDOException $e) {
+                $errMsg = "Could not add new recipe. Please try again";
+            }
         } else {
             $formRequested = true;
         }
@@ -179,42 +179,42 @@ if (isset($_POST['submit'])) {
                 <h2>General Information</h2>
 
                 <p>
-                    <label for="recipeName">Recipe Name</label>
-                    <span><?php echo $recipeNameEmpty; ?></span>
+                    <label for="recipeName">Recipe Name <span class="error-message"><?php echo $recipeNameEmpty; ?></span></label>
+                    
                     <input type="text" name="recipeName" id="recipeName" placeholder="Pasta Dish">
                 </p>
 
                 <div class="recipe-times"><!-- prep, cook, total time and serving size -->
                     <p>
-                        <span><?php echo $prepTimeEmpty; ?></span>
                         <label for="prepTime">Prep Time</label>
+                        <span class="error-message"><?php echo $prepTimeEmpty; ?></span>
                         
                         <input type="number" name="prepTime" id="prepTime" min="0" max="100" step="5" placeholder="minutes">
                     </p>
 
                     <p>
-                        <span><?php echo $cookTimeEmpty; ?></span>
                         <label for="cookTime">Cook Time</label>
+                        <span class="error-message"><?php echo $cookTimeEmpty; ?></span>
                         
                         <input type="number" name="cookTime" id="cookTime" min="0" max="100" step="5" placeholder="minutes">
                     </p>
 
                     <p>
-                        <span><?php echo $servingSizeEmpty; ?></span>
                         <label for="servingSize">Serving Size</label>
+                        <span class="error-message"><?php echo $servingSizeEmpty; ?></span>
                         
                         <input type="number" name="servingSize" id="servingSize" min="0" max="20" step="1" placeholder="servings">
                     </p>
 
                     <p>
+                        <label for="totalTime">Total Time</label>
                         <span></span>
-                        <label for="totalTime">Total Time *</label>
                         
                         <input type="number" name="totalTime" id="totalTime" min="0" max="100" step="5" placeholder="minutes">
                     </p>
-                </div>
+                </div><!-- prep, cook, total time and serving size -->
 
-                <div class="recipe-categories">
+                <div class="recipe-categories"><!-- recipe categories -->
                     <p>
                         <label for="category">Category</label>
                         <select name="category" id="category">
@@ -250,76 +250,48 @@ if (isset($_POST['submit'])) {
                             <option value="Expert">Expert</option>
                         </select>
                     </p>
-                </div>
+                </div><!-- recipe categories -->
 
                 <p>
-                    <label for="imageName">Recipe Image Name *</label>
+                    <label for="imageName">Recipe Image Name</label>
                     <input type="text" name="imageName" id="imageName">
 
                     <label for="recipeImage">Upload Image</label>
                     <input type="file" name="recipeImage" id="recipeImage" accept="image/png, image/jpeg">
                 </p>
 
-                <!-- Ingredienet List -->
+                <!-- Ingredient List -->
                 <h2>Ingredient List</h2>
 
                 <p>
-                    <label for="ingredientSection1">Section Title*</label>
+                    <label for="ingredientSection1">Section Title</label>
                     <input type="text" name="ingredientSection1" id="ingredientSection1">
                 </p>
 
-                <div class="ingredient-list">
-                    <p>
-                        <label for="ingredientAmount1">Amount</label>
-                        <input type="number" name="ingredientAmount1" id="ingredientAmount1" step="0.01">
+                <div class="ingredient-list"><!-- Ingredient List div -->
+                    <div class="ingredient-row"><!-- Intgredient 1 -->
+                        <p>
+                            <label for="ingredientAmount1">Amount</label>
+                            <input type="number" name="ingredientAmount1" id="ingredientAmount1" step="0.01">
+                        </p>
 
-                        <label for="ingredientType1">Type</label>
-                        <select name="ingredientType1" id="ingredientType1">
-                            <option value=""></option>
-                            <option value="tsp">tsp</option>
-                            <option value="tbsp">tbsp</option>
-                            <option value="cup(s)">cup(s)</option>
-                            <option value="oz">oz</option>
-                        </select>
+                        <p>
+                            <label for="ingredientType1">Type</label>
+                            <select name="ingredientType1" id="ingredientType1">
+                                <option value=""></option>
+                                <option value="tsp">tsp</option>
+                                <option value="tbsp">tbsp</option>
+                                <option value="cup(s)">cup(s)</option>
+                                <option value="oz">oz</option>
+                            </select>
+                        </p>
 
-                        <label for="ingredientName1">Ingredient Name</label>
-                        <input type="text" name="ingredientName1" id="ingredientName1">
-                    </p>
-
-                    <p>
-                        <label for="ingredientAmount2">Amount</label>
-                        <input type="number" name="ingredientAmount2" id="ingredientAmount2" step="0.01">
-
-                        <label for="ingredientType2">Type</label>
-                        <select name="ingredientType2" id="ingredientType2">
-                            <option value=""></option>
-                            <option value="tsp">tsp</option>
-                            <option value="tbsp">tbsp</option>
-                            <option value="cup(s)">cup(s)</option>
-                            <option value="oz">oz</option>
-                        </select>
-
-                        <label for="ingredientName2">Ingredient Name</label>
-                        <input type="text" name="ingredientName2" id="ingredientName2">
-                    </p>
-
-                    <p>
-                        <label for="ingredientAmount3">Amount</label>
-                        <input type="number" name="ingredientAmount3" id="ingredientAmount3" step="0.01">
-
-                        <label for="ingredientType3">Type</label>
-                        <select name="ingredientType3" id="ingredientType3">
-                            <option value=""></option>
-                            <option value="tsp">tsp</option>
-                            <option value="tbsp">tbsp</option>
-                            <option value="cup(s)">cup(s)</option>
-                            <option value="oz">oz</option>
-                        </select>
-
-                        <label for="ingredientName3">Ingredient Name</label>
-                        <input type="text" name="ingredientName3" id="ingredientName3">
-                    </p>
-                </div>
+                        <p class="ingredient-name">
+                            <label for="ingredientName1">Ingredient Name</label>
+                            <input type="text" name="ingredientName1" id="ingredientName1">
+                        </p>
+                    </div><!-- Intgredient 1 -->
+                </div><!-- Ingredient List div -->
 
                 <p class="add-parts">
                     <a class="button">+ Add Ingredient</a>
@@ -332,17 +304,17 @@ if (isset($_POST['submit'])) {
                 <div class="direction-list">
                     <p>
                         <label for="recipeStep1">Step 1</label>
-                        <textarea name="recipeStep1" id="recipeStep1" rows="5"></textarea>
+                        <textarea name="recipeStep1" id="recipeStep1" rows="10"></textarea>
                     </p>
 
                     <p>
                         <label for="recipeStep2">Step 2</label>
-                        <textarea name="recipeStep2" id="recipeStep2" rows="5"></textarea>
+                        <textarea name="recipeStep2" id="recipeStep2" rows="10"></textarea>
                     </p>
 
                     <p>
                         <label for="recipeStep3">Step 3</label>
-                        <textarea name="recipeStep3" id="recipeStep3" rows="5"></textarea>
+                        <textarea name="recipeStep3" id="recipeStep3" rows="10"></textarea>
                     </p>
                 </div>
 
@@ -352,10 +324,10 @@ if (isset($_POST['submit'])) {
                 </p>
 
                 <!-- Submit and Clear buttons -->
-                <p>
+                <div class="form-buttons">
                     <input type="submit" name="submit" id="submit" value="Submit">
                     <input type="reset" name="reset" id="reset" value="Clear">
-                </p>
+                </div>
             </form>
         <?php
         } else {

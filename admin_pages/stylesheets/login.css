@@ -28,6 +28,7 @@ nav {
   color: #e6af2e;
 }
 nav p {
+  position: fixed;
   font-size: 2em;
   margin: 2em 0.5em;
 }
@@ -36,6 +37,8 @@ nav p a {
   color: #E5E5E5;
 }
 nav ul {
+  position: fixed;
+  top: 15vh;
   list-style: none;
   font-size: 1.1em;
 }

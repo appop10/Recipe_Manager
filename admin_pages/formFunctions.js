@@ -1,7 +1,7 @@
 /*
     Contains the button functions for addRecipe.php
 */
-let ingredientCount = 3;
+let ingredientCount = 1;
 let stepCount = 3;
 
 // make the type options
@@ -63,16 +63,28 @@ function addIngredient() {
     nameInput.setAttribute("type", "text");
     nameInput.setAttribute("name", nameID);
     nameInput.setAttribute("id", nameID);
-    // paragraph all together
-    let elements = [amountLabel, amountInput, typeLabel, typeSelect, nameLabel, nameInput];
-    let ingredientPara = document.createElement("p");
-    ingredientPara.setAttribute("id", paragraphID);
+    // paragraphs for each label/input pair
+    let amountPara = document.createElement("p");
+    amountPara.appendChild(amountLabel);
+    amountPara.appendChild(amountInput);
+    let typePara = document.createElement("p");
+    typePara.appendChild(typeLabel);
+    typePara.appendChild(typeSelect);
+    let namePara = document.createElement("p");
+    namePara.setAttribute("class", "ingredient-name");
+    namePara.appendChild(nameLabel);
+    namePara.appendChild(nameInput);
+    // div all together
+    let elements = [amountPara, typePara, namePara];
+    let ingredientDiv = document.createElement("div");
+    ingredientDiv.setAttribute("class", "ingredient-row");
+    ingredientDiv.setAttribute("id", paragraphID);
     
     for (x=0; x<elements.length; x++) {
-        ingredientPara.appendChild(elements[x]);
+        ingredientDiv.appendChild(elements[x]);
     }
     
-    return ingredientPara;
+    return ingredientDiv;
 }
 function addStep() {
     stepCount++;
@@ -88,7 +100,7 @@ function addStep() {
     let stepTextarea = document.createElement("textarea");
     stepTextarea.setAttribute("name", stepID);
     stepTextarea.setAttribute("id", stepID);
-    stepTextarea.setAttribute("rows", "5");
+    stepTextarea.setAttribute("rows", "10");
 
     // paragraph all together
     let stepPara = document.createElement("p");
@@ -125,9 +137,14 @@ function removeStep() {
 // button events
 function pageLoad() {
     let buttons = document.querySelectorAll("form p a.button");
+    let ingredientDiv = document.querySelector(".ingredient-list");
+    let directionsDiv = document.querySelector(".direction-list");
+
+    // generate two ingredient-row divs
+    ingredientDiv.appendChild(addIngredient());
+    ingredientDiv.appendChild(addIngredient());
 
     buttons[0].onclick = () => {
-        let ingredientDiv = document.querySelector(".ingredient-list");
         let newIngredient = addIngredient();
 
         if (ingredientCount > 3) {
@@ -149,7 +166,6 @@ function pageLoad() {
         buttons[0].innerHTML = "+ Add Ingredient";
     }
     buttons[2].onclick = () => {
-        let directionsDiv = document.querySelector(".direction-list");
         let newStep = addStep();
 
         if (stepCount > 3) {

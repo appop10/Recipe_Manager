@@ -15,10 +15,13 @@ form {
     box-shadow: 0 0 2px main.$color5;
     background-color: #fff;
     color: main.$color5;
+    font-size: 1.2em;
 
     input {
         padding: 0.5em;
-        border-radius: 5px;
+    }
+    input, select, textarea {
+        font-size: 1em;
     }
     h2 {
         color: main.$color1;
@@ -29,7 +32,6 @@ form {
     > p {
         display: flex;
         flex-direction: column;
-        border: 1px solid black;
 
         label[for|="imageName"], input[id|="imageName"], label[for|="ingredientSection1"], input[id|="ingredientSection1"] {
             display: none;
@@ -72,7 +74,6 @@ form {
         }
     }
     div.recipe-categories {
-        border: 1px solid green;
         display: flex;
         justify-content: space-between;
         margin-bottom: 1em;
@@ -86,6 +87,64 @@ form {
                 padding: 0.5em;
                 margin: 0.5em 0;
             }
+        }
+    }
+    div.ingredient-list {
+
+        div.ingredient-row {
+            display: flex;
+
+            p {
+                display: flex;
+                flex-direction: column;
+                margin: 0.5em 1em;
+
+                label {
+                    padding-bottom: 0.5em;
+                }
+                input, select {
+                    height: 5vh;
+                }
+                input[id*="Amount"], select[id*="Type"] {
+                    width: 6vw;
+                    padding: 0.5em 0.5em 0.5em 0.8em;
+                }
+            }
+            p.ingredient-name {
+                width: 100%;
+            }
+        }
+    }
+    div.direction-list {
+        display: flex;
+        flex-direction: column;
+
+        p {
+            display: flex; 
+            flex-direction: column;
+            margin: 1em 0;
+
+            label {
+                margin: 0.5em 0;
+            }
+            textarea {
+                resize: none;
+            }
+        }
+    }
+    div.form-buttons {
+        margin: 1em 0 3em 0;
+
+        input {
+            width: 10vw;
+            border: 1px solid main.$color1;
+            border-radius: 5px;
+            color: main.$color1;
+            margin-right: 1.5em;
+        }
+        input:hover {
+            background-color: main.$color1;
+            color: main.$color2;
         }
     }
 }

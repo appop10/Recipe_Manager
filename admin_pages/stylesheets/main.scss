@@ -33,6 +33,7 @@ nav {
     color: $color2;
 
     p {
+        position: fixed;
         font-size: 2em;
         margin: 2em 0.5em;
 
@@ -42,6 +43,8 @@ nav {
         }
     }
     ul {
+        position: fixed;
+        top: 15vh;
         list-style: none;
         font-size: 1.1em;
 
