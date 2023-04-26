@@ -18,10 +18,13 @@ function createIngredientTypeOptions() {
     typeOption4.setAttribute("value", "cup(s)");
     typeOption4.innerHTML = "cup(s)";
     let typeOption5 = document.createElement("option");
-    typeOption5.setAttribute("value", "oz");
-    typeOption5.innerHTML = "oz";
+    typeOption5.setAttribute("value", "lb(s)");
+    typeOption5.innerHTML = "lb(s)";
+    let typeOption6 = document.createElement("option");
+    typeOption6.setAttribute("value", "oz");
+    typeOption6.innerHTML = "oz";
 
-    return [typeOption1, typeOption2, typeOption3, typeOption4, typeOption5];
+    return [typeOption1, typeOption2, typeOption3, typeOption4, typeOption5, typeOption6];
 }
 // creating the new ingredient elements
 function addIngredient() {
@@ -151,7 +154,7 @@ function pageLoad() {
             buttons[1].innerHTML = "- Remove Ingredient";
         } 
 
-        if (ingredientCount > 20) {
+        if (ingredientCount > 30) {
             buttons[0].innerHTML = "Ingredient List Full";
         } else {
             ingredientDiv.appendChild(newIngredient);
@@ -172,7 +175,7 @@ function pageLoad() {
             buttons[3].innerHTML = "- Remove Ingredient";
         } 
 
-        if (stepCount > 10) {
+        if (stepCount > 15) {
             buttons[2].innerHTML = "Directions List Full";
         } else {
             directionsDiv.appendChild(newStep);

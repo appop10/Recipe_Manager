@@ -75,6 +75,7 @@ main header {
 /*
     Stylesheet for addRecipe.php
 */
+/** Form **/
 form {
   display: flex;
   flex-direction: column;
@@ -203,4 +204,25 @@ form div.form-buttons input {
 form div.form-buttons input:hover {
   background-color: #0e402d;
   color: #e6af2e;
+}
+
+/** Main **/
+main div.confirm-message {
+  height: 100vh;
+}
+main div.confirm-message div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+main div.confirm-message div img {
+  height: 300px;
+  margin-bottom: 2em;
+}
+main div.confirm-message div h1, main div.confirm-message div h2 {
+  color: #0e402d;
+  padding: 0.5vh;
 }/*# sourceMappingURL=addRecipe.css.map */

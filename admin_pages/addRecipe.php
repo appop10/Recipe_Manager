@@ -282,6 +282,7 @@ if (isset($_POST['submit'])) {
                                 <option value="tsp">tsp</option>
                                 <option value="tbsp">tbsp</option>
                                 <option value="cup(s)">cup(s)</option>
+                                <option value="lb(s)">lb(s)</option>
                                 <option value="oz">oz</option>
                             </select>
                         </p>
@@ -332,20 +333,22 @@ if (isset($_POST['submit'])) {
         <?php
         } else {
         ?>
-            <div>
-                <img src="../images/logo_black.png" alt="all things pasta logo">
-                <?php 
-                    if ($errMsg == "") {
-                ?>
-                    <h1>New Recipe Added!</h1>
-                    <h2>View all recipes to see your changes</h2>
-                <?php
-                    } else {
-                ?>
-                    <h1><?php echo $errMsg; ?></h1>
-                <?php
-                    }
-                ?>
+            <div class="confirm-message">
+                <div>
+                    <img src="../images/logo_black.png" alt="all things pasta logo">
+                    <?php 
+                        if ($errMsg == "") {
+                    ?>
+                        <h1>New Recipe Added!</h1>
+                        <h2>View all recipes to see your changes</h2>
+                    <?php
+                        } else {
+                    ?>
+                        <h1><?php echo $errMsg; ?></h1>
+                    <?php
+                        }
+                    ?>
+                </div>
             </div>
         <?php
         }

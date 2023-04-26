@@ -4,6 +4,7 @@
 
 @use 'main.scss';
 
+/** Form **/
 form {
     display: flex;
     flex-direction: column;
@@ -145,6 +146,31 @@ form {
         input:hover {
             background-color: main.$color1;
             color: main.$color2;
+        }
+    }
+}
+
+/** Main **/
+main {
+
+    div.confirm-message {
+        height: 100vh;
+        
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            margin: 0 auto;
+
+            img {
+                height: 300px;
+                margin-bottom: 2em;
+            }
+            h1, h2 {
+                color: main.$color1;
+                padding: 0.5vh;
+            }
         }
     }
 }
