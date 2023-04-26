@@ -70,7 +70,7 @@ main header {
 }
 
 /*
-    Stylesheet for unit_11_self_posting_form.php
+    Stylesheet for addRecipe.php
 */
 form {
   display: flex;
@@ -124,4 +124,4 @@ form p.info-dates {
   font-size: 1.3em;
   padding: 0 2em;
   line-height: 1.3em;
-}/*# sourceMappingURL=enter-event-page.css.map */
+}/*# sourceMappingURL=addRecipe.css.map */

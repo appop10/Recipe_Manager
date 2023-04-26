@@ -153,7 +153,9 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Recipe</title>
 
-    <script src="form_functions.js"></script>
+    <link rel="stylesheet" href="stylesheets/addRecipe.css">
+
+    <script src="formFunctions.js"></script>
 </head>
 
 <body onload="pageLoad()">
