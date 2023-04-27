@@ -36,7 +36,7 @@
 
         <ul>
             <li><a href="addRecipe.php">Add Recipe</a></li>
-            <li><a href="viewRecipes.php" class="active">View All Recipes</a></li>
+            <li><a href="viewAllRecipes.php" class="active">View All Recipes</a></li>
             <li><a href="logoutPage.php">Sign out</a></li>
         </ul>
     </nav>
@@ -63,7 +63,7 @@
                     <td><?php echo $row['servings']; ?></td>
                     <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td><a href="#"><button>Edit</button></a></td>
-                    <td><a href="#"><button>Delete</button></a></td>
+                    <td><a href="deleteRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>
             <?php
                 }

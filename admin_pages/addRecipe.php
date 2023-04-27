@@ -165,7 +165,7 @@ if (isset($_POST['submit'])) {
 
         <ul>
             <li><a href="addRecipe.php" class="active">Add Recipe</a></li>
-            <li><a href="viewRecipes.php">View All Recipes</a></li>
+            <li><a href="viewAllRecipes.php">View All Recipes</a></li>
             <li><a href="logoutPage.php">Sign out</a></li>
         </ul>
     </nav>
