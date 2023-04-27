@@ -277,7 +277,7 @@ if (isset($_POST['submit'])) {
                     <div class="ingredient-row"><!-- Intgredient 1 -->
                         <p>
                             <label for="ingredientAmount1">Amount</label>
-                            <input type="number" name="ingredientAmount1" id="ingredientAmount1" step="0.01">
+                            <input type="number" name="ingredientAmount1" id="ingredientAmount1" step="0.001">
                         </p>
 
                         <p>

@@ -76,7 +76,6 @@
                 <td class="category-col">Categories</td>
                 <td>Recent</td>
                 <td>Popular</td>
-                <td>Edit</td>
                 <td>Delete</td>
             </tr>
             <?php
@@ -88,7 +87,6 @@
                     <td><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td><a href="addRecentRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
                     <td><a href="addPopularRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
-                    <td><a href="#"><button>Edit</button></a></td>
                     <td><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>
             <?php

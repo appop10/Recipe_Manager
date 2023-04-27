@@ -44,7 +44,7 @@ function addIngredient() {
     amountInput.setAttribute("type", "number");
     amountInput.setAttribute("name", amountID);
     amountInput.setAttribute("id", amountID);
-    amountInput.setAttribute("step", "0.01");
+    amountInput.setAttribute("step", "0.001");
     // Type
     let typeLabel = document.createElement("label");
     typeLabel.setAttribute("for", typeID);
