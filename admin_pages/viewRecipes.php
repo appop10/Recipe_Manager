@@ -48,7 +48,7 @@
                 <td>Prep Time</td>
                 <td>Cook Time</td>
                 <td>Servings</td>
-                <td class="name-col">Categories</td>
+                <td class="category-col">Categories</td>
                 <td>Edit</td>
                 <td>Delete</td>
             </tr>
@@ -61,7 +61,7 @@
                     <td><?php echo $row['prep_time']; ?> min</td>
                     <td><?php echo $row['cook_time']; ?> min</td>
                     <td><?php echo $row['servings']; ?></td>
-                    <td class="name-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
+                    <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td><a href="#"><button>Edit</button></a></td>
                     <td><a href="#"><button>Delete</button></a></td>
                 </tr>

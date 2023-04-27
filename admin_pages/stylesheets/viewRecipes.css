@@ -86,22 +86,21 @@ main table {
   background-color: #fff;
 }
 main td {
-  padding: 0.5em 1em;
+  padding: 0.5em;
 }
 main tr.first-row {
-  font-size: 1.3em;
+  font-size: 1.2em;
   background-color: #e6af2e;
 }
-main tr.first-row td {
-  padding: 1em 0.5em;
-}
 main td.name-col {
-  width: 21%;
+  width: 25%;
+}
+main td.category-col {
+  width: 20%;
 }
 main button {
   font-size: 1.1em;
-  padding: 0.5em 0;
-  width: 100%;
+  padding: 0.5em;
   border: 1px solid #0e402d;
   border-radius: 5px;
   color: #0e402d;
