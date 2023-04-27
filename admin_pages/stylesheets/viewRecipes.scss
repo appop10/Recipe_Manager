@@ -15,14 +15,14 @@ main {
         background-color: #fff;
     }
     td {
-        padding: 1em 0.5em;
+        padding: 0.5em 1em;
     }
     tr.first-row {
         font-size: 1.3em;
         background-color: main.$color2;
 
         td {
-            padding: 1em 0.3em;
+            padding: 1em 0.5em;
         }
     }
     td.name-col {
@@ -30,7 +30,8 @@ main {
     }
     button {
         font-size: 1.1em;
-        padding: 0.5em;
+        padding: 0.5em 0;
+        width: 100%;
         border: 1px solid main.$color1;
         border-radius: 5px;
         color: main.$color1;
