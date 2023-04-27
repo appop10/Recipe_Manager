@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    $deleteRecordConfirm = false;
+
     if ($_SESSION['validUser']) {
         try {
             require "databases/dbConnect.php";
@@ -15,6 +17,11 @@
         } catch(PDOException $e) {
             echo $e;
         }
+
+        if (isset($_GET['eventID'])) {
+            $deleteRecordConfirm = true;
+            $eventID = $_GET['eventID'];
+        }
     } else {
         header("Location: loginPage.php");
     }
@@ -28,7 +35,7 @@
     <title>View Recipes</title>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="stylesheets/viewRecipes.css">
+    <link rel="stylesheet" href="stylesheets/viewAllRecipes.css">
 </head>
 <body>
     <nav>
@@ -42,6 +49,23 @@
     </nav>
 
     <main>
+        <?php
+            if ($deleteRecordConfirm) {
+        ?>
+            <div class="confirm-delete">
+                <form method="post" action="deleteRecipe.php?eventID=<?php echo $eventID; ?>">
+                    <legend>Confirm Delete</legend>
+                    <p>You are about to delete a record. Do you wish to proceed?</p>
+
+                    <p>
+                        <input type="submit" name="submit" type="submit" value="Yes, delete record">
+                        <a href="viewAllRecipes.php">No, keep record</a>
+                    </p>
+                </form>
+            </div>
+        <?php
+            }
+        ?>
         <table rules="all">
             <tr class="first-row">
                 <td class="name-col">Recipe Name</td>
@@ -63,7 +87,7 @@
                     <td><?php echo $row['servings']; ?></td>
                     <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td><a href="#"><button>Edit</button></a></td>
-                    <td><a href="deleteRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
+                    <td><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>
             <?php
                 }

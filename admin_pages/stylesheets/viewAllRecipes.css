@@ -108,4 +108,35 @@ main button {
 main button:hover {
   background-color: #0e402d;
   color: #e6af2e;
-}/*# sourceMappingURL=viewRecipes.css.map */
+}
+main div.confirm-delete {
+  position: absolute;
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(14, 64, 45, 0.7607843137);
+}
+main div.confirm-delete form {
+  border: 1px solid #1d1d1d;
+  background-color: #E5E5E5;
+  padding: 2em;
+}
+main div.confirm-delete form legend {
+  font-size: 1.5em;
+  padding-top: 0.5em;
+}
+main div.confirm-delete form p {
+  font-size: 1.3em;
+  padding: 1em;
+}
+main div.confirm-delete form input {
+  font-size: 1em;
+}
+main div.confirm-delete form a {
+  color: #dd542a;
+}
+main div.confirm-delete form input, main div.confirm-delete form a {
+  padding: 0.5em;
+}/*# sourceMappingURL=viewAllRecipes.css.map */

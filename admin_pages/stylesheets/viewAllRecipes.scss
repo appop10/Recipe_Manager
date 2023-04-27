@@ -1,0 +1,74 @@
+/*
+    Stylesheet for viewRecipes.php
+*/
+
+@use 'main.scss';
+
+/** Main **/
+main {
+    display: flex;
+    justify-content: center;
+
+    table {
+        width: 95%;
+        margin: 2em 0;
+        background-color: #fff;
+    }
+    td {
+        padding: 0.5em;
+    }
+    tr.first-row {
+        font-size: 1.2em;
+        background-color: main.$color2;
+    }
+    td.name-col {
+        width: 25%;
+    }
+    td.category-col {
+        width: 20%;
+    }
+    button {
+        font-size: 1.1em;
+        padding: 0.5em;
+        border: 1px solid main.$color1;
+        border-radius: 5px;
+        color: main.$color1;
+    }
+    button:hover {
+        background-color: main.$color1;
+        color: main.$color2;
+    }
+    div.confirm-delete {
+        position: absolute;
+        height: 100vh;
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: main.$color1-transparent;
+
+        form {
+            border: 1px solid main.$color5;
+            background-color: main.$color4;
+            padding: 2em;
+
+            legend {
+                font-size: 1.5em;
+                padding-top: 0.5em;
+            }
+            p {
+                font-size: 1.3em;
+                padding: 1em;
+            }
+            input {
+                font-size: 1em;
+            }
+            a {
+                color: main.$color3;
+            }
+            input, a {
+                padding: 0.5em;
+            }
+        }
+    }
+}
