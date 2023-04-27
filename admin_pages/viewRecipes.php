@@ -28,7 +28,7 @@
     <title>View Recipes</title>
 
     <!-- stylesheets -->
-    
+    <link rel="stylesheet" href="stylesheets/viewRecipes.css">
 </head>
 <body>
     <nav>
@@ -42,13 +42,13 @@
     </nav>
 
     <main>
-        <table>
+        <table rules="all">
             <tr class="first-row">
-                <td>Recipe Name</td>
+                <td class="name-col">Recipe Name</td>
                 <td>Prep Time</td>
                 <td>Cook Time</td>
                 <td>Servings</td>
-                <td>Categories</td>
+                <td class="name-col">Categories</td>
                 <td>Edit</td>
                 <td>Delete</td>
             </tr>
@@ -57,11 +57,11 @@
                     $categories = json_decode($row['categories']);
             ?>
                 <tr>
-                    <td><?php echo $row['name']; ?></td>
+                    <td class="name-col"><?php echo $row['name']; ?></td>
                     <td><?php echo $row['prep_time']; ?> min</td>
                     <td><?php echo $row['cook_time']; ?> min</td>
                     <td><?php echo $row['servings']; ?></td>
-                    <td><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
+                    <td class="name-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td><a href="#"><button>Edit</button></a></td>
                     <td><a href="#"><button>Delete</button></a></td>
                 </tr>

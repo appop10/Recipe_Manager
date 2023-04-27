@@ -1,0 +1,111 @@
+/*
+    Stylesheet for unit_11_self_posting_form.php
+*/
+/** General **/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h3 {
+  margin: 1em;
+}
+
+.error-message {
+  color: #dd542a;
+}
+
+/** Nav bar **/
+nav {
+  width: 20%;
+  background-color: #1d1d1d;
+  color: #e6af2e;
+}
+nav p {
+  position: fixed;
+  font-size: 2em;
+  margin: 2em 0.5em;
+}
+nav p a {
+  text-decoration: none;
+  color: #E5E5E5;
+}
+nav ul {
+  position: fixed;
+  top: 15vh;
+  list-style: none;
+  font-size: 1.1em;
+}
+nav ul li {
+  margin: 2em 1.5em;
+}
+nav ul a {
+  color: #E5E5E5;
+  text-decoration: none;
+  padding: 0.5em;
+}
+nav ul a:hover {
+  color: #E6B94F;
+  border: 3px solid #e6af2e;
+  border-style: none none none solid;
+}
+nav ul a.active {
+  color: #E6B94F;
+  border: 3px solid #e6af2e;
+  border-style: none none none solid;
+}
+
+/** Main **/
+main {
+  width: 80%;
+  background-color: #E5E5E5;
+}
+main header {
+  color: #E5E5E5;
+  background-color: #0e402d;
+  padding: 2em;
+}
+
+/*
+    Stylesheet for viewRecipes.php
+*/
+/** Main **/
+main {
+  display: flex;
+  justify-content: center;
+}
+main table {
+  width: 95%;
+  margin: 2em 0;
+  background-color: #fff;
+}
+main td {
+  padding: 1em 0.5em;
+}
+main tr.first-row {
+  font-size: 1.3em;
+  background-color: #e6af2e;
+}
+main tr.first-row td {
+  padding: 1em 0.3em;
+}
+main td.name-col {
+  width: 21%;
+}
+main button {
+  font-size: 1.1em;
+  padding: 0.5em;
+  border: 1px solid #0e402d;
+  border-radius: 5px;
+  color: #0e402d;
+}
+main button:hover {
+  background-color: #0e402d;
+  color: #e6af2e;
+}/*# sourceMappingURL=viewRecipes.css.map */
