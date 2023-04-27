@@ -77,15 +77,19 @@ main header {
 */
 /** Main **/
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 main div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 8em auto;
 }
 main div img {
   height: 300px;

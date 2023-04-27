@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
             $formRequested = false;
            // INSERT into database
             try {
-                require "../admin_pages/databases/dbConnect.php";
+                require "databases/dbConnect.php";
                 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
                 $sql = "INSERT INTO recipe_manager_test (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
@@ -165,7 +165,7 @@ if (isset($_POST['submit'])) {
 
         <ul>
             <li><a href="addRecipe.php" class="active">Add Recipe</a></li>
-            <li><a href="#">View All Recipes</a></li>
+            <li><a href="viewRecipes.php">View All Recipes</a></li>
             <li><a href="logoutPage.php">Sign out</a></li>
         </ul>
     </nav>
