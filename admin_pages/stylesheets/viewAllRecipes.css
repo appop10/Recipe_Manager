@@ -98,6 +98,9 @@ main td.name-col {
 main td.category-col {
   width: 25%;
 }
+main td.delete-col {
+  width: 1%;
+}
 main button {
   font-size: 1.1em;
   padding: 0.5em 1.5em;

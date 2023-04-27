@@ -6,7 +6,7 @@
 
         // do the delete
         try {
-            require "databases/dbConnect.php";
+            require "../databases/dbConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
             $sql = "DELETE FROM recipe_manager_test WHERE id=:eventID";
@@ -21,6 +21,6 @@
             echo "Oops, something went wrong";
         }
     } else {
-        header("Location: loginPage.php");
+        header("Location: ../loginPage.php");
     }
 ?>

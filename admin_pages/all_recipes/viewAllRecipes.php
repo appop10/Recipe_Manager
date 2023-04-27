@@ -5,7 +5,7 @@
 
     if ($_SESSION['validUser']) {
         try {
-            require "databases/dbConnect.php";
+            require "../databases/dbConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
             $sql = "SELECT id, name, categories FROM recipe_manager_test";
@@ -23,7 +23,7 @@
             $eventID = $_GET['eventID'];
         }
     } else {
-        header("Location: loginPage.php");
+        header("Location: ../loginPage.php");
     }
 ?>
 <!DOCTYPE html>
@@ -35,17 +35,17 @@
     <title>View Recipes</title>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="stylesheets/viewAllRecipes.css">
+    <link rel="stylesheet" href="../stylesheets/viewAllRecipes.css">
 </head>
 <body>
     <nav>
-        <p><a href="loginPage.php">Admin Area</a></p>
+        <p><a href="../loginPage.php">Admin Area</a></p>
 
         <ul>
-            <li><a href="addRecipe.php">Add Recipe</a></li>
+            <li><a href="../addRecipe.php">Add Recipe</a></li>
             <li><a href="viewAllRecipes.php" class="active">All Recipes</a></li>
-            <li><a href="viewRecentRecipes.php">Recent Recipes</a></li>
-            <li><a href="logoutPage.php">Sign out</a></li>
+            <li><a href="../recent_recipes/viewRecentRecipes.php">Recent Recipes</a></li>
+            <li><a href="../logoutPage.php">Sign out</a></li>
         </ul>
     </nav>
 
@@ -54,7 +54,7 @@
             if ($deleteRecordConfirm) {
         ?>
             <div class="confirm-delete">
-                <form method="post" action="deleteRecipe.php?eventID=<?php echo $eventID; ?>">
+                <form method="post" action="deleteAllRecipe.php?eventID=<?php echo $eventID; ?>">
                     <legend>Confirm Delete</legend>
                     <p>You are about to delete a record. Do you wish to proceed?</p>
 
