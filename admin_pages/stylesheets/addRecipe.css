@@ -208,15 +208,19 @@ form div.form-buttons input:hover {
 
 /** Main **/
 main div.confirm-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 main div.confirm-message div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0 auto;
 }
 main div.confirm-message div img {
   height: 300px;

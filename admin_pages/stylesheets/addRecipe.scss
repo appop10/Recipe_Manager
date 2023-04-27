@@ -154,14 +154,18 @@ form {
 main {
 
     div.confirm-message {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 100vh;
         
         div {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             width: fit-content;
-            margin: 0 auto;
 
             img {
                 height: 300px;
