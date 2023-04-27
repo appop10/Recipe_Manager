@@ -10,7 +10,7 @@ form {
     flex-direction: column;
     margin: 3em auto;
     padding: 0 3em;
-    width: 80%;
+    width: 85%;
     border: 2px solid main.$color2;
     border-radius: 5px;
     box-shadow: 0 0 2px main.$color5;
@@ -104,11 +104,11 @@ form {
                     padding-bottom: 0.5em;
                 }
                 input, select {
-                    height: 5vh;
+                    height: fit-content;
                 }
                 input[id*="Amount"], select[id*="Type"] {
-                    width: 6vw;
-                    padding: 0.5em 0.5em 0.5em 0.8em;
+                    width: 8vw;
+                    padding: 0.5em;
                 }
             }
             p.ingredient-name {
