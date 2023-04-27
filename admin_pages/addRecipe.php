@@ -117,10 +117,10 @@ if (isset($_POST['submit'])) {
             $formRequested = false;
            // INSERT into database
             try {
-                require "databases/dbConnect.php";
+                require "databases/rmConnect.php";
                 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-                $sql = "INSERT INTO recipe_manager_test (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
+                $sql = "INSERT INTO all_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_categories, recipe_ingredients, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
 
                 $stmt = $conn->prepare("$sql");
                 $stmt->bindParam(':recipeName', $recipeName);
@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
                 $stmt->execute();
             } catch(PDOException $e) {
                 $errMsg = "Could not add new recipe. Please try again";
-                echo $e;
+                // echo $e;
             }
         } else {
             $formRequested = true;

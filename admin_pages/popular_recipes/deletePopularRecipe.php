@@ -6,10 +6,10 @@
 
         // do the delete
         try {
-            require "../databases/dbConnect.php";
+            require "../databases/rmConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-            $sql = "DELETE FROM popular_recipes_test WHERE id=:eventID";
+            $sql = "DELETE FROM popular_recipes WHERE id=:eventID";
 
             $stmt = $conn->prepare("$sql");
             $stmt->bindParam(':eventID', $eventID);

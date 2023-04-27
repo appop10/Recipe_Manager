@@ -5,10 +5,10 @@
 
     if ($_SESSION['validUser']) {
         try {
-            require "../databases/dbConnect.php";
+            require "../databases/rmConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-            $sql = "SELECT id, name, categories FROM recent_recipes_test";
+            $sql = "SELECT id, recipe_name, recipe_categories FROM recent_recipes";
     
             $stmt = $conn->prepare("$sql");
             $stmt->execute();
@@ -78,10 +78,10 @@
             </tr>
             <?php
                 while ($row = $stmt->fetch()) {
-                    $categories = json_decode($row['categories']);
+                    $categories = json_decode($row['recipe_categories']);
             ?>
                 <tr>
-                    <td class="name-col"><?php echo $row['name']; ?></td>
+                    <td class="name-col"><?php echo $row['recipe_name']; ?></td>
                     <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td class="delete-col"><a href="viewRecentRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>

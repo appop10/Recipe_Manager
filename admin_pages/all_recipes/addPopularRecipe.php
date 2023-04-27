@@ -5,10 +5,10 @@
         $eventID = $_GET['eventID'];
 
         try {
-            require "../databases/dbConnect.php";
+            require "../databases/rmConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-            $sqlPull = "SELECT * FROM recipe_manager_test WHERE id=:eventID";
+            $sqlPull = "SELECT * FROM all_recipes WHERE id=:eventID";
     
             $stmtPull = $conn->prepare("$sqlPull");
             $stmtPull->bindParam(':eventID', $eventID);
@@ -17,16 +17,16 @@
     
             $row = $stmtPull->fetch();
 
-            $recipeName = $row['name'];
+            $recipeName = $row['recipe_name'];
             $prepTime = $row['prep_time'];
             $cookTime = $row['cook_time'];
-            $servingSize = $row['servings'];
-            $categories = $row['categories'];
-            $ingredients = $row['ingredients'];
-            $directions = $row['directions'];
-            $recipeImage = $row['image'];
+            $servingSize = $row['serving_size'];
+            $categories = $row['recipe_categories'];
+            $ingredients = $row['recipe_ingredients'];
+            $directions = $row['recipe_directions'];
+            $recipeImage = $row['recipe_image'];
 
-            $sqlPush = "INSERT INTO popular_recipes_test (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
+            $sqlPush = "INSERT INTO popular_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_categories, recipe_ingredients, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
 
             $stmtPush = $conn->prepare("$sqlPush");
             $stmtPush->bindParam(':recipeName', $recipeName);
