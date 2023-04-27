@@ -72,7 +72,7 @@
         ?>
         <table rules="all">
             <tr class="first-row">
-                <td class="name-col">Recipe Name</td>
+                <td>Recipe Name</td>
                 <td class="category-col">Categories</td>
                 <td>Delete</td>
             </tr>
@@ -81,7 +81,7 @@
                     $categories = json_decode($row['recipe_categories']);
             ?>
                 <tr>
-                    <td class="name-col"><?php echo $row['recipe_name']; ?></td>
+                    <td><?php echo $row['recipe_name']; ?></td>
                     <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td class="delete-col"><a href="viewRecentRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>

@@ -90,9 +90,6 @@ main tr.first-row {
   font-size: 1.2em;
   background-color: #e6af2e;
 }
-main td.name-col {
-  width: 30%;
-}
 main td.category-col {
   width: 25%;
 }
