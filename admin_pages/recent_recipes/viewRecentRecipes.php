@@ -8,7 +8,7 @@
             require "../databases/dbConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-            $sql = "SELECT id, name, categories FROM recipe_manager_test";
+            $sql = "SELECT id, name, categories FROM recent_recipes_test";
     
             $stmt = $conn->prepare("$sql");
             $stmt->execute();
@@ -80,7 +80,7 @@
                 <tr>
                     <td class="name-col"><?php echo $row['name']; ?></td>
                     <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
-                    <td class="delete-col"><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
+                    <td class="delete-col"><a href="viewRecentRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>
             <?php
                 }

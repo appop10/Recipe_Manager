@@ -83,7 +83,7 @@
                 <tr>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
-                    <td><a href="#"><button>Add</button></a></td>
+                    <td><a href="addRecentRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
                     <td><a href="#"><button>Add</button></a></td>
                     <td><a href="#"><button>Edit</button></a></td>
                     <td><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>

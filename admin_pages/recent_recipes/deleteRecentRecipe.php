@@ -16,7 +16,7 @@
             
             $stmt->execute();
 
-            header("Location: viewAllRecipes.php");
+            header("Location: viewRecentRecipes.php");
         } catch(PDOException $e) {
             echo "Oops, something went wrong";
         }
