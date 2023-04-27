@@ -64,7 +64,11 @@ nav ul a.active {
 /** Main **/
 main {
   width: 80%;
+  height: 100vh;
   background-color: #E5E5E5;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 main header {
   color: #E5E5E5;
@@ -81,7 +85,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 main div {
   display: flex;

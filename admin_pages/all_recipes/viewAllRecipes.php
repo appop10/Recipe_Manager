@@ -39,14 +39,16 @@
 </head>
 <body>
     <nav>
-        <p><a href="../loginPage.php">Admin Area</a></p>
+        <div>
+            <p><a href="../loginPage.php">Admin Area</a></p>
 
-        <ul>
-            <li><a href="../addRecipe.php">Add Recipe</a></li>
-            <li><a href="viewAllRecipes.php" class="active">All Recipes</a></li>
-            <li><a href="../recent_recipes/viewRecentRecipes.php">Recent Recipes</a></li>
-            <li><a href="../logoutPage.php">Sign out</a></li>
-        </ul>
+            <ul>
+                <li><a href="../addRecipe.php">Add Recipe</a></li>
+                <li><a href="viewAllRecipes.php" class="active">All Recipes</a></li>
+                <li><a href="../recent_recipes/viewRecentRecipes.php">Recent Recipes</a></li>
+                <li><a href="../logoutPage.php">Sign out</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>

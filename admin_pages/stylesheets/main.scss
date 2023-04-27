@@ -19,6 +19,7 @@ $color5: #1d1d1d;
 body {
     display: flex;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: $color4;
 }
 h3 {
     margin: 1em;
@@ -32,6 +33,9 @@ nav {
     background-color: $color5;
     color: $color2;
 
+    div {
+        height: 100vh;
+    }
     p {
         position: fixed;
         font-size: 2em;
@@ -72,11 +76,4 @@ nav {
 /** Main **/
 main {
     width: 80%;
-    background-color: $color4;
-
-    header {
-        color: $color4;
-        background-color: $color1;
-        padding: 2em;
-    }
 }
