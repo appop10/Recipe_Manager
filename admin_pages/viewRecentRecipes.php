@@ -8,7 +8,7 @@
             require "databases/dbConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-            $sql = "SELECT id, name, categories FROM recipe_manager_test";
+            $sql = "SELECT id, name, prep_time, cook_time, servings, categories FROM recipe_manager_test";
     
             $stmt = $conn->prepare("$sql");
             $stmt->execute();
@@ -43,8 +43,8 @@
 
         <ul>
             <li><a href="addRecipe.php">Add Recipe</a></li>
-            <li><a href="viewAllRecipes.php" class="active">All Recipes</a></li>
-            <li><a href="viewRecentRecipes.php">Recent Recipes</a></li>
+            <li><a href="viewAllRecipes.php">All Recipes</a></li>
+            <li><a href="viewRecentRecipes.php" class="active">Recent Recipes</a></li>
             <li><a href="logoutPage.php">Sign out</a></li>
         </ul>
     </nav>
@@ -70,9 +70,10 @@
         <table rules="all">
             <tr class="first-row">
                 <td class="name-col">Recipe Name</td>
+                <td>Prep Time</td>
+                <td>Cook Time</td>
+                <td>Servings</td>
                 <td class="category-col">Categories</td>
-                <td>Recent</td>
-                <td>Popular</td>
                 <td>Edit</td>
                 <td>Delete</td>
             </tr>
@@ -81,10 +82,11 @@
                     $categories = json_decode($row['categories']);
             ?>
                 <tr>
-                    <td><?php echo $row['name']; ?></td>
-                    <td><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
-                    <td><a href="#"><button>Add</button></a></td>
-                    <td><a href="#"><button>Add</button></a></td>
+                    <td class="name-col"><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['prep_time']; ?> min</td>
+                    <td><?php echo $row['cook_time']; ?> min</td>
+                    <td><?php echo $row['servings']; ?></td>
+                    <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
                     <td><a href="#"><button>Edit</button></a></td>
                     <td><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>
