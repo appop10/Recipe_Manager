@@ -157,6 +157,7 @@ footer > div p {
 footer > div a {
   font-size: 1.3em;
   padding: 0.5em 2em;
+  text-decoration: none;
 }
 
 /*
@@ -164,7 +165,7 @@ footer > div a {
 */
 /** Navbar **/
 nav {
-  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/cropped-images/making-dough-header.jpg");
+  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/header-images/making-dough-header.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -196,6 +197,7 @@ div.recipes section a {
 }
 div.recipes section a img {
   width: 100%;
+  height: 30vh;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #454545;
 }
@@ -243,6 +245,7 @@ div.announcement section div h2 {
 }
 div.announcement section div p {
   font-size: 1.3em;
+  line-height: 1.35em;
 }
 div.announcement section div a {
   margin-top: 2em;
@@ -257,7 +260,7 @@ div.announcement > div {
   height: 75vh;
   width: 30vw;
   border-radius: 5px;
-  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/pexels-klaus-nielsen-6287234.jpg");
+  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/making-dough-vertical.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

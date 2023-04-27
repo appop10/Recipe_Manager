@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="stylesheets/home.css">
 
     <script src="javascript/main.js"></script>
+    <script src="javascript/home.js"></script>
 </head>
-<body>
+<body onload="pageLoad()">
     <nav class="transforming"><!-- Navbar -->
         <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
 
@@ -31,31 +32,10 @@
     <div class="recipes"><!-- Recent Recipes -->
         <div>
             <h2>Recent Recipes</h2>
-            <a class="green-button">View all</a>
+            <a href="recipes.html?filter=recentRecipes" class="green-button">View all</a>
         </div>
 
-        <!--
-            below are used for examples
-            later will generate cards with JS
-        -->
-        <section>
-            <a><!-- recipe suggestion -->
-                <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-                <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-                <p>Quick - Asian - No Meat</p>
-            </a><!-- recipe suggestion -->
-
-            <a><!-- recipe suggestion -->
-                <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-                <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-                <p>Quick - Asian - No Meat</p>
-            </a><!-- recipe suggestion -->
-
-            <a><!-- recipe suggestion -->
-                <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-                <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-                <p>Quick - Asian - No Meat</p>
-            </a><!-- recipe suggestion -->
+        <section><!-- recipe cards dynamically generated-->
         </section>
     </div><!-- Recent Recipes -->
 
@@ -65,24 +45,7 @@
             <a class="green-button">View all</a>
         </div>
 
-        <section>
-            <a><!-- recipe suggestion -->
-                <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-                <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-                <p>Quick - Asian - No Meat</p>
-            </a><!-- recipe suggestion -->
-
-            <a><!-- recipe suggestion -->
-                <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-                <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-                <p>Quick - Asian - No Meat</p>
-            </a><!-- recipe suggestion -->
-
-            <a><!-- recipe suggestion -->
-                <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-                <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-                <p>Quick - Asian - No Meat</p>
-            </a><!-- recipe suggestion -->
+        <section><!-- recipe cards dynamically generated-->
         </section>
     </div><!-- Popular Recipes -->
 
@@ -126,8 +89,8 @@
         </section>
 
         <div>
-            <p>Share Your Love of Pasta</p>
-            <a class="signin">Sign Up</a>
+            <p>Photo and Recipe Credits</p>
+            <a href="#" target="_blank" class="signin">View</a>
         </div>
     </footer><!-- Footer -->
 </body>
