@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
         $category = $_POST['category'];
         $ingredient = $_POST['ingredient'];
         $complexity = $_POST['complexity'];
-        $recipeImage = $_POST['recipeImage'];
+        $recipeImage = $_FILES['recipeImage'];
 
         // make a categories array after validation
         $categories = [$category, $ingredient, $complexity];
@@ -111,6 +111,8 @@ if (isset($_POST['submit'])) {
 
         if (empty($recipeImage)) {
             $recipeImage = "logo_black.png";
+        } else {
+            move_uploaded_file($recipeImage['tmp_name'], "../images/food-images/".$recipeImage['name']);
         }
 
         if ($emptyTally == 0) {
@@ -130,12 +132,12 @@ if (isset($_POST['submit'])) {
                 $stmt->bindParam(':categories', $categoriesJSON);
                 $stmt->bindParam(':ingredients', $ingredientsJSON);
                 $stmt->bindParam(':directions', $recipeStepsJSON);
-                $stmt->bindParam(':image', $recipeImage);
+                $stmt->bindParam(':image', $recipeImage['name']);
 
                 $stmt->execute();
             } catch(PDOException $e) {
                 $errMsg = "Could not add new recipe. Please try again";
-                // echo $e;
+                echo $e;
             }
         } else {
             $formRequested = true;
@@ -177,7 +179,7 @@ if (isset($_POST['submit'])) {
         <?php
         if ($formRequested) {
         ?>
-            <form method="post" action="addRecipe.php">
+            <form method="post" action="addRecipe.php" enctype="multipart/form-data">
                 <!-- General Information -->
                 <h2>General Information</h2>
 
@@ -260,7 +262,7 @@ if (isset($_POST['submit'])) {
                     <input type="text" name="imageName" id="imageName">
 
                     <label for="recipeImage">Upload Image</label>
-                    <input type="file" name="recipeImage" id="recipeImage" accept="image/png, image/jpeg">
+                    <input type="file" name="recipeImage" id="recipeImage" accept="image/jpeg">
                 </p>
 
                 <!-- Ingredient List -->
