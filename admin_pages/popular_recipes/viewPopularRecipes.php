@@ -8,7 +8,7 @@
             require "../databases/dbConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-            $sql = "SELECT id, name, categories FROM recipe_manager_test";
+            $sql = "SELECT id, name, categories FROM popular_recipes_test";
     
             $stmt = $conn->prepare("$sql");
             $stmt->execute();
@@ -44,9 +44,9 @@
 
             <ul>
                 <li><a href="../addRecipe.php">Add Recipe</a></li>
-                <li><a href="viewAllRecipes.php" class="active">All Recipes</a></li>
+                <li><a href="../all_recipes/viewAllRecipes.php">All Recipes</a></li>
                 <li><a href="../recent_recipes/viewRecentRecipes.php">Recent Recipes</a></li>
-                <li><a href="../popular_recipes/viewPopularRecipes.php">Popular Recipes</a></li>
+                <li><a href="viewPopularRecipes.php" class="active">Popular Recipes</a></li>
                 <li><a href="../logoutPage.php">Sign out</a></li>
             </ul>
         </div>
@@ -57,13 +57,13 @@
             if ($deleteRecordConfirm) {
         ?>
             <div class="confirm-delete">
-                <form method="post" action="deleteAllRecipe.php?eventID=<?php echo $eventID; ?>">
+                <form method="post" action="deletePopularRecipe.php?eventID=<?php echo $eventID; ?>">
                     <legend>Confirm Delete</legend>
                     <p>You are about to delete a record. Do you wish to proceed?</p>
 
                     <p>
                         <input type="submit" name="submit" type="submit" value="Yes, delete record">
-                        <a href="viewAllRecipes.php">No, keep record</a>
+                        <a href="viewPopularRecipes.php">No, keep record</a>
                     </p>
                 </form>
             </div>
@@ -74,9 +74,6 @@
             <tr class="first-row">
                 <td class="name-col">Recipe Name</td>
                 <td class="category-col">Categories</td>
-                <td>Recent</td>
-                <td>Popular</td>
-                <td>Edit</td>
                 <td>Delete</td>
             </tr>
             <?php
@@ -84,12 +81,9 @@
                     $categories = json_decode($row['categories']);
             ?>
                 <tr>
-                    <td><?php echo $row['name']; ?></td>
-                    <td><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
-                    <td><a href="addRecentRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
-                    <td><a href="addPopularRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
-                    <td><a href="#"><button>Edit</button></a></td>
-                    <td><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
+                    <td class="name-col"><?php echo $row['name']; ?></td>
+                    <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
+                    <td class="delete-col"><a href="viewPopularRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>
             <?php
                 }

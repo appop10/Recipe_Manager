@@ -26,7 +26,7 @@
             $directions = $row['directions'];
             $recipeImage = $row['image'];
 
-            $sqlPush = "INSERT INTO recent_recipes_test (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
+            $sqlPush = "INSERT INTO popular_recipes_test (name, prep_time, cook_time, servings, categories, ingredients, directions, image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
 
             $stmtPush = $conn->prepare("$sqlPush");
             $stmtPush->bindParam(':recipeName', $recipeName);
@@ -39,7 +39,7 @@
             $stmtPush->bindParam(':image', $recipeImage);
 
             $stmtPush->execute();
-            header("Location: ../recent_recipes/viewRecentRecipes.php");
+            header("Location: ../popular_recipes/viewPopularRecipes.php");
         } catch(PDOException $e) {
             echo $e;
         }
