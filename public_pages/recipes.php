@@ -1,3 +1,11 @@
+<?php
+    // check for location
+    if (isset($_GET['location'])) {
+        $location = $_GET['location'];
+    } else {
+        $location = "All";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +19,12 @@
 
     <script src="javascript/recipes.js"></script>
 </head>
-<body onload="pageLoad()">
+<body onload="pageLoad('<?php echo $location; ?>')">
     <nav class="static"><!-- Navbar -->
         <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
 
         <ul>
-            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="recipes.php">Recipes</a></li>
             <li><a>About</a></li>
             <li><a>Contact</a></li>
             <li><a class="signin" href="../admin_pages/loginPage.php">Sign In</a></li>
@@ -25,7 +33,7 @@
 
     <div class="title-filter"><!-- Title and filter -->
         <div>
-            <h2>All Recipes</h2>
+            <h2><!-- changes depending on where the information is from--></h2>
             <a class="green-button">Filter</a>
         </div>
 

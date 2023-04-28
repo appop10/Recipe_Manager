@@ -1,14 +1,14 @@
 /*
-    JavaScript for ATP Home
+    JavaScript for ATP Recipes
 */
 
-// dynamically generate recipe cards
-function pageLoad() {
-    getRecipeInfo();
+function pageLoad(inLocation) {
+    // generate recipe cards
+    getRecipeInfo(inLocation);
 }
 
 // create card elements
-function makeRecipeCard(inID, inName, inCategories, inImage) {
+function makeRecipeCard(inID, inName, inCategories, inImage, inLocation) {
     let imagePath = "../images/food-images/" + inImage;
     let categories = JSON.parse(inCategories);
     let categoryText = categories[0] + " - " + categories[1] + " - " + categories[2];
@@ -25,7 +25,7 @@ function makeRecipeCard(inID, inName, inCategories, inImage) {
     p.innerHTML = categoryText;
     // a
     let a = document.createElement("a");
-    a.setAttribute("href", "recipes.html?recipeID=" + inID);
+    a.setAttribute("href", "recipes.html?location=" + inLocation + "?recipeID=" + inID);
     a.appendChild(image);
     a.appendChild(h3);
     a.appendChild(p);
@@ -34,8 +34,8 @@ function makeRecipeCard(inID, inName, inCategories, inImage) {
 }
 
 // fetch call for the recipe information
-function getRecipeInfo() {
-    fetch("php/getAllRecipes.php", {
+function getRecipeInfo(inLocation) {
+    fetch("php/getRecipesPage.php?location=" + inLocation, {
         method: "POST",
         headers: {
             'Accept': 'application/json'
@@ -45,22 +45,27 @@ function getRecipeInfo() {
     }).then((response) => {
         // load response JSON into separate arrays
         let recipeListDiv = document.querySelector("div.recipe-list");
+        let titleH2 = document.querySelector("div.title-filter div h2");
         let recipeIDs = response[0];
         let recipeNames = response[1];
         let recipeCategories = response[2];
         let recipeImages = response[3];
+        let recipeLocation = response[4];
         let recipeCards = [];
 
         // make an array of a elements
         for (x=0; x < recipeIDs.length; x++) {
-            recipeCards[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeImages[x]);
+            recipeCards[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeImages[x], recipeLocation);
         }
 
         let lastEntry = recipeCards.length - 1;
 
         // append a elements to the specified section
-        for (x=lastEntry; x > 0; x--) {
+        for (x=lastEntry; x > -1; x--) {
             recipeListDiv.appendChild(recipeCards[x]);
         }
+        
+        // set the title of the page
+        titleH2.innerHTML = recipeLocation + " Recipes";
     }) 
 }

@@ -9,15 +9,18 @@ function pageLoad() {
     let popularSection = recipeDivs[1];
 
     let recentPHPLink = "php/getRecentRecipes.php";
+    let recentLocation = "Recent";
     let popularPHPLink = "php/getPopularRecipes.php";
+    let popularLocation = "Popular";
+
 
     // fetch recipe information
-    getRecipeInfo(recentPHPLink, recentSection);
-    getRecipeInfo(popularPHPLink, popularSection);
+    getRecipeInfo(recentPHPLink, recentSection, recentLocation);
+    getRecipeInfo(popularPHPLink, popularSection, popularLocation);
 }
 
 // create card elements
-function makeRecipeCard(inID, inName, inCategories, inImage) {
+function makeRecipeCard(inID, inName, inCategories, inImage, inLocation) {
     let imagePath = "../images/food-images/" + inImage;
     let categories = JSON.parse(inCategories);
     let categoryText = categories[0] + " - " + categories[1] + " - " + categories[2];
@@ -34,7 +37,7 @@ function makeRecipeCard(inID, inName, inCategories, inImage) {
     p.innerHTML = categoryText;
     // a
     let a = document.createElement("a");
-    a.setAttribute("href", "recipes.html?recipeID=" + inID);
+    a.setAttribute("href", "recipes.html?location=" + inLocation + "?recipeID=" + inID);
     a.appendChild(image);
     a.appendChild(h3);
     a.appendChild(p);
@@ -43,7 +46,7 @@ function makeRecipeCard(inID, inName, inCategories, inImage) {
 }
 
 // fetch call for the recipe information
-function getRecipeInfo(inPHPLink, inSection) {
+function getRecipeInfo(inPHPLink, inSection, inLocation) {
     fetch(inPHPLink, {
         method: "POST",
         headers: {
@@ -61,7 +64,7 @@ function getRecipeInfo(inPHPLink, inSection) {
 
         // make an array of a elements
         for (x=0; x < recipeIDs.length; x++) {
-            recipeCards[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeImages[x]);
+            recipeCards[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeImages[x], inLocation);
         }
 
         let lastEntry = recipeCards.length - 1;

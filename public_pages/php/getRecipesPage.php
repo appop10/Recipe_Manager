@@ -1,9 +1,31 @@
 <?php
+    $tableName = "";
+
+    // find and set which table to pull data from
+    if (isset($_GET['location'])) {
+        $location = $_GET['location'];
+
+        switch ($location) {
+            case "Recent":
+                $tableName = "recent_recipes";
+                break;
+            case "Popular":
+                $tableName = "popular_recipes";
+                break;
+            default: 
+                $tableName = "all_recipes";
+                break;
+        }
+    } else {
+        $location = "All";
+        $tableName = "all_recipes";
+    }
+
     try {
         require "../../admin_pages/databases/rmConnect.php";
         $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT id, recipe_name, recipe_categories, recipe_image FROM all_recipes";
+        $sql = "SELECT id, recipe_name, recipe_categories, recipe_image FROM $tableName";
 
         $stmt = $conn->prepare("$sql");
         $stmt->execute();
@@ -25,7 +47,7 @@
         }
 
         // store all the recipe information in one array and convert to JSON
-        $recipeInformation = [$recipeIDs, $recipeNames, $recipeCategories, $recipeImages];
+        $recipeInformation = [$recipeIDs, $recipeNames, $recipeCategories, $recipeImages, $location];
 
         $recipeInformationJSON = json_encode($recipeInformation);
 
