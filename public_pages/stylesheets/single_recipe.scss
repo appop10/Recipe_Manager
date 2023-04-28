@@ -23,8 +23,9 @@ main {
     div.left-half {
         position: fixed;
         top: 13vh;
+        left: 0;
         height: 87vh;
-
+        box-shadow: 1px 0 5px main.$color5;
 
         img {
             height: 100%;
@@ -42,6 +43,9 @@ main {
         }
     }
     div.right-half {
-        border: 1px solid blue;
+        position: absolute;
+        top: 13vh;
+        right: 0;
+        padding: 2em 4em;
     }
 }

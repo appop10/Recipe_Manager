@@ -94,6 +94,7 @@ nav.transforming img {
 }
 
 nav.static {
+  position: fixed;
   height: 13vh;
   background-color: #0e402d;
 }
@@ -183,7 +184,9 @@ main > div {
 main div.left-half {
   position: fixed;
   top: 13vh;
+  left: 0;
   height: 87vh;
+  box-shadow: 1px 0 5px #1d1d1d;
 }
 main div.left-half img {
   height: 100%;
@@ -199,5 +202,8 @@ main div.left-half div p {
   color: #e6af2e;
 }
 main div.right-half {
-  border: 1px solid blue;
+  position: absolute;
+  top: 13vh;
+  right: 0;
+  padding: 2em 4em;
 }/*# sourceMappingURL=single_recipe.css.map */

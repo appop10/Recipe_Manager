@@ -94,6 +94,7 @@ nav.transforming img {
 }
 
 nav.static {
+  position: fixed;
   height: 13vh;
   background-color: #0e402d;
 }

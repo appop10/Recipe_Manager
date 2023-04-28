@@ -104,6 +104,7 @@ nav.transforming {
 }
 nav.static {
     @extend nav;
+    position: fixed;
     height: 13vh;
     background-color: $color1;
 
