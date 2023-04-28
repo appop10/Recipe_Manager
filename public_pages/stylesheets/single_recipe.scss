@@ -46,6 +46,31 @@ main {
         position: absolute;
         top: 13vh;
         right: 0;
-        padding: 2em 4em;
+        padding: 0 4em;
+
+        section {
+            margin: 2em 0;
+            
+            h2 {
+                font-size: 1.8em;
+                border-bottom: 2px solid main.$color1;
+                padding-bottom: 0.2em;
+            }
+            > div {
+                border: 1px solid red;
+                display: flex;
+                justify-content: space-between;
+                margin: 1em 0;
+
+                > div {
+                    width: 50%;
+
+                    div.adjust-size {
+                        border: 1px solid main.$color1;
+                        display: flex;
+                    }
+                }
+            }
+        }
     }
 }
