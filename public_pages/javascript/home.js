@@ -1,25 +1,24 @@
 /*
     JavaScript for ATP Home
 */
-let recentRecipes = [];
-let popularRecipes = [];
+let recipeDivs = "";
 
 // page load events
 function pageLoad() {
+    recipeDivs = document.querySelectorAll("div.recipes section");
     // fetch recipe information
     getRecentRecipes();
 
     // generate recipe cards
-    let recipeDivs = document.querySelectorAll("div.recipes section");
+    
     // seperate the sections to target them
-    let recentRecipeSection = recipeDivs[0];
     let popularRecipeSection = recipeDivs[1];
 
     // loop through to make 3 recipe cards in each section
-    // for (x=0; x < 3; x++) {
-    //     recentRecipeSection.appendChild(makeRecipeCard());
-    //     popularRecipeSection.appendChild(makeRecipeCard());
-    // }
+    for (x=0; x < 3; x++) {
+        // recentRecipeSection.appendChild(recentRecipes[x]);
+        // popularRecipeSection.appendChild(makeRecipeCard());
+    }
 }
 
 // create card elements
@@ -58,14 +57,21 @@ function getRecentRecipes() {
     }).then((response) => {
         return response.json();
     }).then((response) => {
+        let recentRecipeSection = recipeDivs[0];
         let recipeIDs = response[0];
         let recipeNames = response[1];
         let recipeCategories = response[2];
         let recipeImages = response[3];
+        let recentRecipes = [];
 
         for (x=0; x < recipeIDs.length; x++) {
             recentRecipes[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeImages[x]);
         }
+
+        let lastEntry = recentRecipes.length - 1;
+
+        for (x=lastEntry; x > (lastEntry - 3); x--) {
+            recentRecipeSection.appendChild(recentRecipes[x]);
+        }
     }) 
 }
-// append the recentRecipes to the section
