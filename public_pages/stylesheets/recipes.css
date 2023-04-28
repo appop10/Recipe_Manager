@@ -108,6 +108,7 @@ header {
   width: 45%;
   margin: 10vh 0;
   text-align: center;
+  transition: height 1s linear;
 }
 header h1 {
   font-size: 3em;
@@ -157,6 +158,7 @@ footer > div p {
 footer > div a {
   font-size: 1.3em;
   padding: 0.5em 2em;
+  text-decoration: none;
 }
 
 /*
@@ -164,7 +166,7 @@ footer > div a {
 */
 /** Navbar **/
 nav {
-  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/cropped-images/making-dough-4-header.jpg");
+  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/header-images/making-dough-4-header.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

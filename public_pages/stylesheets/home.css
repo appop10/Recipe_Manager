@@ -108,6 +108,7 @@ header {
   width: 45%;
   margin: 10vh 0;
   text-align: center;
+  transition: height 1s linear;
 }
 header h1 {
   font-size: 3em;
@@ -169,6 +170,7 @@ nav {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  color: blue;
 }
 
 /** Recipes **/

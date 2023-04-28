@@ -8,8 +8,10 @@
     <title>ATP | Recipes</title>
 
     <link rel="stylesheet" href="stylesheets/recipes.css">
+
+    <script src="javascript/recipes.js"></script>
 </head>
-<body>
+<body onload="pageLoad()">
     <nav class="static"><!-- Navbar -->
         <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
 
@@ -33,46 +35,7 @@
         -->
     </div><!-- Title and filter -->
 
-    <div class="recipe-list"><!-- Recipes -->
-        <!--
-            below are used for examples
-            later will generate cards with JS
-        -->
-        <a><!-- recipe suggestion -->
-            <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-            <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-            <p>Quick - Asian - No Meat</p>
-        </a><!-- recipe suggestion -->
-
-        <a><!-- recipe suggestion -->
-            <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-            <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-            <p>Quick - Asian - No Meat</p>
-        </a><!-- recipe suggestion -->
-
-        <a><!-- recipe suggestion -->
-            <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-            <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-            <p>Quick - Asian - No Meat</p>
-        </a><!-- recipe suggestion -->
-
-        <a><!-- recipe suggestion -->
-            <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-            <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-            <p>Quick - Asian - No Meat</p>
-        </a><!-- recipe suggestion -->
-
-        <a><!-- recipe suggestion -->
-            <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-            <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-            <p>Quick - Asian - No Meat</p>
-        </a><!-- recipe suggestion -->
-
-        <a><!-- recipe suggestion -->
-            <img src="../images/cropped-images/10-minute-Spicy-Chilli-Garlic-Oil-Noodles-02.jpg" alt="10 minute spicy chilli garlic oil noodles">
-            <h3>10-minute Spicy Chilli Garlic Oil Noodles</h3>
-            <p>Quick - Asian - No Meat</p>
-        </a><!-- recipe suggestion -->
+    <div class="recipe-list"><!-- Recipes generated dynamically -->
     </div><!-- Recipes -->
 
     <footer><!-- Footer -->
