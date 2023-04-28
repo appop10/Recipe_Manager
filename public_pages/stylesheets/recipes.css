@@ -207,6 +207,7 @@ div.recipe-list {
   margin-bottom: 30vh;
 }
 div.recipe-list a {
+  text-decoration: none;
   width: 23vw;
   margin-bottom: 10vh;
 }

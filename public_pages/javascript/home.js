@@ -52,18 +52,21 @@ function getRecipeInfo(inPHPLink, inSection) {
     }).then((response) => {
         return response.json();
     }).then((response) => {
+        // load response JSON into separate arrays
         let recipeIDs = response[0];
         let recipeNames = response[1];
         let recipeCategories = response[2];
         let recipeImages = response[3];
         let recipeCards = [];
 
+        // make an array of a elements
         for (x=0; x < recipeIDs.length; x++) {
             recipeCards[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeImages[x]);
         }
 
         let lastEntry = recipeCards.length - 1;
 
+        // append a elements to the specified section
         for (x=lastEntry; x > (lastEntry - 3); x--) {
             inSection.appendChild(recipeCards[x]);
         }
