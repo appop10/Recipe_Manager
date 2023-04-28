@@ -10,7 +10,6 @@ nav {
         linear-gradient(main.$color1-transparent,main.$color1-transparent),
         url("../../images/header-images/making-dough-header.jpg");
     @include main.nav-image;
-    color: blue;
 }
 
 /** Recipes **/
@@ -36,6 +35,7 @@ div.recipes {
         margin: 2em 0;
 
         a {
+            text-decoration: none;
             width: 23vw;
     
             img {

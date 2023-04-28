@@ -170,7 +170,6 @@ nav {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: blue;
 }
 
 /** Recipes **/
@@ -195,6 +194,7 @@ div.recipes section {
   margin: 2em 0;
 }
 div.recipes section a {
+  text-decoration: none;
   width: 23vw;
 }
 div.recipes section a img {

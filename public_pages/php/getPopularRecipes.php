@@ -3,7 +3,7 @@
         require "../../admin_pages/databases/rmConnect.php";
         $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT id, recipe_name, recipe_categories, recipe_image FROM recent_recipes";
+        $sql = "SELECT id, recipe_name, recipe_categories, recipe_image FROM popular_recipes";
 
         $stmt = $conn->prepare("$sql");
         $stmt->execute();
