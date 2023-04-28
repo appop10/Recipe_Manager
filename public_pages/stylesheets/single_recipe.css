@@ -1,0 +1,203 @@
+/*
+    Nav, header, and other elements shared by other stylesheets
+*/
+/** General **/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #E5E5E5;
+  color: #1d1d1d;
+}
+
+/** Buttons **/
+a.signin {
+  color: #e6af2e;
+  border: 1px solid #e6af2e;
+  border-radius: 5px;
+}
+
+a.signin:hover {
+  background-color: #e6af2e;
+  color: #fff;
+}
+
+a.green-button {
+  font-size: 1.3em;
+  border-radius: 5px;
+  padding: 0.5em 2em;
+  color: #0e402d;
+  text-decoration: none;
+  border: 2px solid #0e402d;
+}
+
+a.green-button:hover {
+  color: #e6af2e;
+  background-color: #0e402d;
+}
+
+a.orange-button {
+  font-size: 1.3em;
+  border-radius: 5px;
+  padding: 0.5em 2em;
+  color: #0e402d;
+  text-decoration: none;
+  border: 2px solid #dd542a;
+}
+
+a.orange-button:hover {
+  background-color: #dd542a;
+}
+
+/** Navbar **/
+nav, nav.static, nav.transforming {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  padding: 2em 3em;
+  width: 100%;
+  z-index: 1;
+}
+nav ul, nav.static ul, nav.transforming ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+nav ul a, nav.static ul a, nav.transforming ul a {
+  font-size: 1.3em;
+  color: #E5E5E5;
+  padding: 0.2em 1em;
+  text-decoration: none;
+}
+nav ul a:hover {
+  color: #e6af2e;
+}
+nav ul a.signin {
+  color: #e6af2e;
+}
+
+nav.transforming {
+  height: 61vh;
+  transition: height 1s linear, background-color 1s linear;
+}
+nav.transforming img {
+  position: relative;
+  height: 45vh;
+  transition: height 1s linear;
+}
+
+nav.static {
+  height: 13vh;
+  background-color: #0e402d;
+}
+nav.static img {
+  position: relative;
+  bottom: 3vh;
+  height: 10vh;
+}
+
+/** Header **/
+header {
+  width: 45%;
+  margin: 10vh 0;
+  text-align: center;
+  transition: height 1s linear;
+}
+header h1 {
+  font-size: 3em;
+  color: #dd542a;
+}
+header p {
+  font-size: 1.3em;
+  margin-top: 1em;
+}
+
+/** Footer **/
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #E5E5E5;
+  background-color: #1d1d1d;
+  padding: 3em 4em;
+  padding-bottom: 4em;
+}
+footer img {
+  height: 25vh;
+  margin-right: 1.5em;
+}
+footer section {
+  display: flex;
+}
+footer section div {
+  margin: 0 1.5em;
+}
+footer section h3 {
+  color: #e6af2e;
+  font-size: 1.8em;
+  margin-bottom: 0.6em;
+}
+footer section p {
+  font-size: 1.3em;
+  line-height: 1.8em;
+}
+footer > div {
+  width: 15vw;
+}
+footer > div p {
+  font-size: 1.8em;
+  margin-bottom: 1.5em;
+}
+footer > div a {
+  font-size: 1.3em;
+  padding: 0.5em 2em;
+  text-decoration: none;
+}
+
+/*
+    Stylesheet for ATP Single Recipe
+*/
+/** Navbar **/
+nav {
+  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/header-images/making-dough-3-header.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/** Main **/
+main {
+  display: flex;
+}
+main > div {
+  width: 50%;
+  overflow: hidden;
+}
+main div.left-half {
+  position: fixed;
+  top: 13vh;
+  height: 87vh;
+}
+main div.left-half img {
+  height: 100%;
+}
+main div.left-half div {
+  position: relative;
+  bottom: 22vh;
+  color: #E5E5E5;
+  background-image: linear-gradient(to top, #1d1d1d, rgba(29, 29, 29, 0));
+  padding: 4em 1em 2em 2em;
+}
+main div.left-half div p {
+  color: #e6af2e;
+}
+main div.right-half {
+  border: 1px solid blue;
+}/*# sourceMappingURL=single_recipe.css.map */

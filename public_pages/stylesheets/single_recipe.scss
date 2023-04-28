@@ -1,0 +1,47 @@
+/*
+    Stylesheet for ATP Single Recipe
+*/
+
+@use 'main.scss';
+
+/** Navbar **/
+nav {
+    background-image: 
+        linear-gradient(main.$color1-transparent,main.$color1-transparent),
+        url("../../images/header-images/making-dough-3-header.jpg");
+    @include main.nav-image;
+}
+
+/** Main **/
+main {
+    display: flex;
+
+    > div {
+        width: 50%;
+        overflow: hidden;
+    }
+    div.left-half {
+        position: fixed;
+        top: 13vh;
+        height: 87vh;
+
+
+        img {
+            height: 100%;
+        }
+        div {
+            position: relative;
+            bottom: 22vh;
+            color: main.$color4;
+            background-image: linear-gradient(to top, #1d1d1d, #1d1d1d00);
+            padding: 4em 1em 2em 2em;
+
+            p {
+                color: main.$color2;
+            }
+        }
+    }
+    div.right-half {
+        border: 1px solid blue;
+    }
+}
