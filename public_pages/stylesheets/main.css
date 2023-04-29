@@ -85,7 +85,7 @@ nav ul a.signin {
 
 nav.transforming {
   height: 61vh;
-  transition: height 1s linear, background-color 1s linear;
+  transition: height 0.5s linear;
 }
 nav.transforming img {
   position: relative;

@@ -94,7 +94,7 @@ nav {
 nav.transforming {
     @extend nav;
     height: 61vh;
-    transition: height 1s linear, background-color 1s linear;
+    transition: height 0.5s linear;
 
     img {
         position: relative;

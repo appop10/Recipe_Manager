@@ -85,7 +85,7 @@ nav ul a.signin {
 
 nav.transforming {
   height: 61vh;
-  transition: height 1s linear, background-color 1s linear;
+  transition: height 0.5s linear;
 }
 nav.transforming img {
   position: relative;
@@ -216,15 +216,64 @@ main div.right-half section h2 {
   padding-bottom: 0.2em;
 }
 main div.right-half section > div {
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
   margin: 1em 0;
+  margin-bottom: 5em;
 }
 main div.right-half section > div > div {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45%;
+}
+main div.right-half section > div > div p {
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+main div.right-half section > div > div > p, main div.right-half section > div > div strong p {
+  display: flex;
+  justify-content: space-between;
 }
 main div.right-half section > div > div div.adjust-size {
-  border: 1px solid #0e402d;
+  border-radius: 5px;
   display: flex;
+  justify-content: space-evenly;
+  border: 1px solid #0e402d;
+  border-radius: 5px;
+}
+main div.right-half section > div > div div.adjust-size p {
+  text-align: center;
+  padding: 0.2em 0.5em;
+  flex: 1;
+}
+main div.right-half section > div > div div.adjust-size p:hover {
+  cursor: pointer;
+  background-color: #e6af2e;
+}
+main div.right-half section > div > div div.adjust-size p.current-size {
+  background-color: #e6af2e;
+}
+main div.right-half section > div > div div.adjust-size p.double {
+  border: 1px solid #0e402d;
+  border-style: none solid none solid;
+}
+main div.right-half section ul, main div.right-half section ol {
+  margin-top: 1em;
+  margin-bottom: 5em;
+  list-style-position: inside;
+}
+main div.right-half section ul li {
+  font-size: 1.45em;
+  line-height: 1.5em;
+}
+main div.right-half section ol li {
+  font-size: 1.8em;
+  font-weight: 600;
+  margin: 2em 0;
+}
+main div.right-half section ol span {
+  font-size: 0.8em;
+  line-height: 1.55em;
+  font-weight: 300;
 }/*# sourceMappingURL=single_recipe.css.map */

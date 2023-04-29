@@ -56,19 +56,74 @@ main {
                 border-bottom: 2px solid main.$color1;
                 padding-bottom: 0.2em;
             }
+            
             > div {
-                border: 1px solid red;
                 display: flex;
                 justify-content: space-between;
                 margin: 1em 0;
+                margin-bottom: 5em;
 
                 > div {
-                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 45%;
 
-                    div.adjust-size {
-                        border: 1px solid main.$color1;
-                        display: flex;
+                    p {
+                        font-size: 1.3em;
+                        line-height: 1.5em;
                     }
+                    > p, strong p {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    div.adjust-size {
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: space-evenly;
+                        border: 1px solid main.$color1;
+                        border-radius: 5px;
+
+                        p {
+                            text-align: center;
+                            padding: 0.2em 0.5em;
+                            flex: 1;
+                        }
+                        p:hover {
+                            cursor: pointer;
+                            background-color: main.$color2;
+                        }
+                        p.current-size {
+                            background-color: main.$color2;
+                        }
+                        p.double {
+                            border: 1px solid main.$color1;
+                            border-style: none solid none solid;
+                        }
+                    }
+                }
+            }
+            ul, ol {
+                margin-top: 1em;
+                margin-bottom: 5em;
+                list-style-position: inside;
+            }
+            ul {
+                li {
+                    font-size: 1.45em;
+                    line-height: 1.5em;
+                }
+            }
+            ol {
+                li {
+                    font-size: 1.8em;
+                    font-weight: 600;
+                    margin: 2em 0;
+                }
+                span {
+                    font-size: 0.8em;
+                    line-height: 1.55em;
+                    font-weight: 300;
                 }
             }
         }
