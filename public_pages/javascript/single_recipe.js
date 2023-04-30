@@ -2,8 +2,25 @@
     JavaScript for ATP Single Recipe
 */
 
+
+
 function pageLoad(inLocation, inID) {
+    // generate recipe information
     getRecipeInfo(inLocation, inID);
+
+     // select all the "buttons" (p elements)
+    let sizeButtons = document.querySelectorAll("div.adjust-size p");
+
+    // onclick events for the buttons
+    sizeButtons[0].onclick = () => {
+        console.log("single size");
+    }
+    sizeButtons[1].onclick = () => {
+        console.log("double the size!");
+    }
+    sizeButtons[2].onclick = () => {
+        console.log("tripple the size!");
+    }
 }
 
 function getRecipeInfo(inLocation, inID) {
@@ -98,16 +115,10 @@ function getRecipeInfo(inLocation, inID) {
     })
 }
 
-function doubleRecipe(inLocation, inID) {
-    fetch("php/getSingleRecipe.php?location=" + inLocation + "&recipeID=" +inID, {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then((response) => {
-        return response.json();
-    }).then((response) => {
-        // grab the time, servings, and amounts to double them
-        // print them to the page
-    })
+function doubleRecipe() {
+    console.log("double the recipe!");
+}
+
+function trippleRecipe() {
+    console.log("tripple the recipe!");
 }
