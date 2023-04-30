@@ -34,7 +34,7 @@
         require "../../admin_pages/databases/rmConnect.php";
         $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT recipe_name, prep_time, cook_time, serving_size, recipe_categories,  recipe_ingredients, recipe_directions, recipe_image FROM $tableName WHERE id=:recipeID";
+        $sql = "SELECT recipe_name, prep_time, cook_time, serving_size, recipe_category,  recipe_ingredient, recipe_complexity, recipe_ingredient_list, recipe_directions, recipe_image FROM $tableName WHERE id=:recipeID";
 
         $stmt = $conn->prepare("$sql");
         $stmt->bindParam(':recipeID', $recipeID);
@@ -43,7 +43,7 @@
 
         // fetch information and store it in an array
         $row = $stmt->fetch();
-        $recipeInformation = [$row['recipe_name'], $row['prep_time'], $row['cook_time'], $row['serving_size'], $row['recipe_categories'], $row['recipe_ingredients'], $row['recipe_directions'], $row['recipe_image']];
+        $recipeInformation = [$row['recipe_name'], $row['prep_time'], $row['cook_time'], $row['serving_size'], $row['recipe_category'], $row['recipe_ingredient'], $row['recipe_complexity'], $row['recipe_ingredient_list'], $row['recipe_directions'], $row['recipe_image']];
 
         // convert array to JSON
         $recipeInformationJSON = json_encode($recipeInformation);

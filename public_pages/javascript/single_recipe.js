@@ -71,10 +71,12 @@ function getRecipeInfo(inLocation, inID) {
         let prepTime = response[1];
         let cookTime = response[2];
         let servingSize = response[3];
-        let recipeCategoriesJSON = response[4];
-        let recipeIngredientsJSON = response[5];
-        let recipeDirectionsJSON = response[6];
-        let recipeImage = response[7];
+        let recipeCategory = response[4];
+        let recipeIngredient = response[5];
+        let recipeComplexity = response[6];
+        let recipeIngredientListJSON = response[7];
+        let recipeDirectionsJSON = response[8];
+        let recipeImage = response[9];
         // print them to the page
         // left side
         // image
@@ -86,18 +88,17 @@ function getRecipeInfo(inLocation, inID) {
         let pageName = document.querySelector("div.left-half div h1");
         pageName.innerHTML = recipeName;
         // p
-        let recipeCategories = JSON.parse(recipeCategoriesJSON);
-        let recipeCategoriesString = recipeCategories[0] + " - " + recipeCategories[1] + " - " + recipeCategories[2];
+        let recipeCategoriesString = recipeCategory + " - " + recipeIngredient + " - " + recipeComplexity;
         let pageCategories = document.querySelector("div.left-half div p");
         pageCategories.innerHTML = recipeCategoriesString;
         // right side
         // general information
         printGeneralInfo(prepTime, cookTime, servingSize);
         // ingredients
-        let recipeIngredients = JSON.parse(recipeIngredientsJSON);
-        let recipeIngredientAmounts = JSON.parse(recipeIngredients[0]);
-        let recipeIngredientTypes = JSON.parse(recipeIngredients[1]);
-        let recipeIngredientNames = JSON.parse(recipeIngredients[2]);
+        let recipeIngredientList = JSON.parse(recipeIngredientListJSON);
+        let recipeIngredientAmounts = JSON.parse(recipeIngredientList[0]);
+        let recipeIngredientTypes = JSON.parse(recipeIngredientList[1]);
+        let recipeIngredientNames = JSON.parse(recipeIngredientList[2]);
         let ingredientList = document.querySelector("#ingredient-list");
 
         let count = 1;

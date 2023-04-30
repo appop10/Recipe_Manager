@@ -34,7 +34,7 @@ try {
     require "../../admin_pages/databases/rmConnect.php";
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT prep_time, cook_time, serving_size, recipe_ingredients FROM $tableName WHERE id=:recipeID";
+    $sql = "SELECT prep_time, cook_time, serving_size, recipe_ingredient_list FROM $tableName WHERE id=:recipeID";
 
     $stmt = $conn->prepare("$sql");
     $stmt->bindParam(':recipeID', $recipeID);
@@ -43,7 +43,7 @@ try {
 
     // fetch information
     $row = $stmt->fetch();
-    $recipeInformation = [$row['prep_time'], $row['cook_time'], $row['serving_size'], $row['recipe_ingredients']];
+    $recipeInformation = [$row['prep_time'], $row['cook_time'], $row['serving_size'], $row['recipe_ingredient_list']];
 
     // convert array to JSON
     $recipeInformationJSON = json_encode($recipeInformation);
