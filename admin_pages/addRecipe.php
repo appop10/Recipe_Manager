@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
         $ingredientTypesJSON = json_encode($ingredientTypes);
         $ingredientNamesJSON = json_encode($ingredientNames);
         
-        $ingredients = [$ingredientAmountsJSON, $ingredientTypesJSON, $ingredientNames];
+        $ingredients = [$ingredientAmountsJSON, $ingredientTypesJSON, $ingredientNamesJSON];
 
         // load directions variables into an array
         $recipeSteps = [];

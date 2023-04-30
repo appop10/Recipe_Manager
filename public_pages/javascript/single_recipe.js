@@ -22,7 +22,7 @@ function getRecipeInfo(inLocation, inID) {
         let servingSize = response[3];
         let recipeCategoriesJSON = response[4];
         let recipeIngredientsJSON = response[5];
-        let recipeDescription = response[6];
+        let recipeDirectionsJSON = response[6];
         let recipeImage = response[7];
         // print them to the page
         // left side
@@ -49,17 +49,55 @@ function getRecipeInfo(inLocation, inID) {
         recipeSizeSpan.innerHTML = servingSize + " servings";
         // ingredients
         let recipeIngredients = JSON.parse(recipeIngredientsJSON);
-        let recipeIngredientAmounts = [recipeIngredients[0]];
+        let recipeIngredientAmounts = JSON.parse(recipeIngredients[0]);
+        let recipeIngredientTypes = JSON.parse(recipeIngredients[1]);
+        let recipeIngredientNames = JSON.parse(recipeIngredients[2]);
         let ingredientList = document.querySelector("#ingredient-list");
 
+        let count = 1;
+        let stop = false;
 
-        console.log(recipeIngredientAmounts);
+        while (!stop) {
+
+            if (recipeIngredientAmounts[count] || recipeIngredientAmounts[count] == "") {
+                let listElement = document.createElement("li");
+                listElement.innerHTML = recipeIngredientAmounts[count] + " " + recipeIngredientTypes[count] + " " + recipeIngredientNames[count];
+
+                ingredientList.appendChild(listElement);
+            } else {
+                stop = true;
+            }
+            
+            count++;
+        }
+
+        count = 1;
+        stop = false;
+
+        // directions
+        let recipeDirections = JSON.parse(recipeDirectionsJSON);
+        let directionList = document.querySelector("ol");
+
+        while (!stop) {
+
+            if (recipeDirections[count] || recipeDirections[count] == "") {
+                let spanElement = document.createElement("span");
+                spanElement.innerHTML = recipeDirections[count];
+                let listElement = document.createElement("li");
+                listElement.appendChild(spanElement);
+
+                directionList.appendChild(listElement);
+            } else {
+                stop = true;
+            }
+            
+            count++;
+        }
+
+        // console.log(count);
     })
 }
 
-function addLiElement() {
-    console.log("li element");
-}
 function doubleRecipe(inLocation, inID) {
     fetch("php/getSingleRecipe.php?location=" + inLocation + "&recipeID=" +inID, {
         method: "POST",
