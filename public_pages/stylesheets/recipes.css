@@ -200,7 +200,7 @@ div.title-filter div h2 {
 /** Recipe List **/
 div.recipe-list {
   position: relative;
-  top: 23vh;
+  top: 250px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

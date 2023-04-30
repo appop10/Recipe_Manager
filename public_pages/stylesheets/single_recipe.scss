@@ -38,6 +38,9 @@ main {
             background-image: linear-gradient(to top, #1d1d1d, #1d1d1d00);
             padding: 4em 1em 2em 2em;
 
+            h1 {
+                text-shadow: 2px 2px 8px #1d1d1d, 2px 2px 8px #1d1d1d, 2px 2px 8px #1d1d1d;
+            }
             p {
                 font-size: 1.3em;
                 color: main.$color2;

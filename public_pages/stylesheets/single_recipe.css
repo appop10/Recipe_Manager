@@ -199,6 +199,9 @@ main div.left-half div {
   background-image: linear-gradient(to top, #1d1d1d, rgba(29, 29, 29, 0));
   padding: 4em 1em 2em 2em;
 }
+main div.left-half div h1 {
+  text-shadow: 2px 2px 8px #1d1d1d, 2px 2px 8px #1d1d1d, 2px 2px 8px #1d1d1d;
+}
 main div.left-half div p {
   font-size: 1.3em;
   color: #e6af2e;
