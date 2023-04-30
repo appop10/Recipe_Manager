@@ -95,7 +95,6 @@ if (isset($_POST['submit'])) {
         }
 
         // arrays to JSON
-        $categoriesJSON = json_encode($categories);
         $ingredientsJSON = json_encode($ingredients);
         $recipeStepsJSON = json_encode($recipeSteps);
 
@@ -127,7 +126,7 @@ if (isset($_POST['submit'])) {
                 require "databases/rmConnect.php";
                 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-                $sql = "INSERT INTO all_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_category, recipe_ingredient, recipe_complexity, recipe_ingredient_list, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :recipeCategory, :recipeIngredient, :recipeComplexity, recipeIngredientList, :directions, :image)";
+                $sql = "INSERT INTO all_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_category, recipe_ingredient, recipe_complexity, recipe_ingredient_list, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :recipeCategory, :recipeIngredient, :recipeComplexity, :recipeIngredientList, :directions, :image)";
 
                 $stmt = $conn->prepare("$sql");
                 $stmt->bindParam(':recipeName', $recipeName);

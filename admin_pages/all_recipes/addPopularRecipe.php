@@ -21,20 +21,24 @@
             $prepTime = $row['prep_time'];
             $cookTime = $row['cook_time'];
             $servingSize = $row['serving_size'];
-            $categories = $row['recipe_categories'];
-            $ingredients = $row['recipe_ingredients'];
+            $category = $row['recipe_category'];
+            $ingredient = $row['recipe_ingredient'];
+            $complexity = $row['recipe_complexity'];
+            $recipeIngredientList = $row['recipe_ingredient_list'];
             $directions = $row['recipe_directions'];
             $recipeImage = $row['recipe_image'];
 
-            $sqlPush = "INSERT INTO popular_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_categories, recipe_ingredients, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
+            $sqlPush = "INSERT INTO popular_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_category, recipe_ingredient, recipe_complexity, recipe_ingredient_list, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :recipeCategory, :recipeIngredient, :recipeComplexity, :recipeIngredientList, :directions, :image)";
 
             $stmtPush = $conn->prepare("$sqlPush");
             $stmtPush->bindParam(':recipeName', $recipeName);
             $stmtPush->bindParam(':prepTime', $prepTime);
             $stmtPush->bindParam(':cookTime', $cookTime);
             $stmtPush->bindParam(':servingSize', $servingSize);
-            $stmtPush->bindParam(':categories', $categories);
-            $stmtPush->bindParam(':ingredients', $ingredients);
+            $stmtPush->bindParam(':recipeCategory', $category);
+            $stmtPush->bindParam(':recipeIngredient', $ingredient);
+            $stmtPush->bindParam(':recipeComplexity', $complexity);
+            $stmtPush->bindParam(':recipeIngredientList', $recipeIngredientList);
             $stmtPush->bindParam(':directions', $directions);
             $stmtPush->bindParam(':image', $recipeImage);
 

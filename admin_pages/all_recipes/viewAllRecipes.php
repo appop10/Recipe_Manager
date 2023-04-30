@@ -8,7 +8,7 @@
             require "../databases/rmConnect.php";
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-            $sql = "SELECT id, recipe_name, recipe_categories FROM all_recipes";
+            $sql = "SELECT id, recipe_name, recipe_category, recipe_ingredient, recipe_complexity FROM all_recipes";
     
             $stmt = $conn->prepare("$sql");
             $stmt->execute();
@@ -80,11 +80,11 @@
             </tr>
             <?php
                 while ($row = $stmt->fetch()) {
-                    $categories = json_decode($row['recipe_categories']);
+                    $recipeCategoriesString = $row['recipe_category'] . ", " . $row['recipe_ingredient'] . ", " . $row['recipe_complexity'];
             ?>
                 <tr>
                     <td><?php echo $row['recipe_name']; ?></td>
-                    <td class="category-col"><?php echo $categories[0].", ".$categories[1].", ".$categories[2]; ?></td>
+                    <td class="category-col"><?php echo $recipeCategoriesString; ?></td>
                     <td class="delete-col"><a href="addRecentRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
                     <td class="delete-col"><a href="addPopularRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
                     <td class="delete-col"><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
