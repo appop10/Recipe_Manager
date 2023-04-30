@@ -20,10 +20,9 @@ function pageLoad() {
 }
 
 // create card elements
-function makeRecipeCard(inID, inName, inCategories, inImage, inLocation) {
+function makeRecipeCard(inID, inName, inCategories, inIngredients, inComplexities, inImage, inLocation) {
     let imagePath = "../images/food-images/" + inImage;
-    let categories = JSON.parse(inCategories);
-    let categoryText = categories[0] + " - " + categories[1] + " - " + categories[2];
+    let categoryText = inCategories + " - " + inIngredients + " - " + inComplexities;
 
     // image
     let image = document.createElement("img");
@@ -59,12 +58,14 @@ function getRecipeInfo(inPHPLink, inSection, inLocation) {
         let recipeIDs = response[0];
         let recipeNames = response[1];
         let recipeCategories = response[2];
-        let recipeImages = response[3];
+        let recipeIngredients = response[3];
+        let recipeComplexities = response[4];
+        let recipeImages = response[5];
         let recipeCards = [];
 
         // make an array of a elements
         for (x=0; x < recipeIDs.length; x++) {
-            recipeCards[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeImages[x], inLocation);
+            recipeCards[x] = makeRecipeCard(recipeIDs[x], recipeNames[x], recipeCategories[x], recipeIngredients[x], recipeComplexities[x], recipeImages[x], inLocation);
         }
 
         let lastEntry = recipeCards.length - 1;
