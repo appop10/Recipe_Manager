@@ -53,9 +53,6 @@ if (isset($_POST['submit'])) {
         $complexity = $_POST['complexity'];
         $recipeImage = $_FILES['recipeImage'];
 
-        // make a categories array after validation
-        $categories = [$category, $ingredient, $complexity];
-
         // load ingredients into parallel arrays
         $ingredientAmounts = [];
         $ingredientTypes = [];
@@ -109,8 +106,11 @@ if (isset($_POST['submit'])) {
         $prepTimeEmpty = checkFieldEmpty($prepTime);
         $cookTimeEmpty = checkFieldEmpty($cookTime);
         $servingSizeEmpty = checkFieldEmpty($servingSize);
+        $recipeCategoryEmpty = checkFieldEmpty($category);
+        $recipeIngredientEmpty = checkFieldEmpty($ingredient);
+        $recipeComplexityEmpty = checkFieldEmpty($complexity);
 
-        $singleRecipeFields = [$recipeNameEmpty, $prepTimeEmpty, $cookTimeEmpty, $servingSizeEmpty];
+        $singleRecipeFields = [$recipeNameEmpty, $prepTimeEmpty, $cookTimeEmpty, $servingSizeEmpty, $recipeCategoryEmpty, $recipeIngredientEmpty, $recipeComplexityEmpty];
 
         $emptyTally = countEmptyFields($singleRecipeFields);
 
@@ -127,15 +127,17 @@ if (isset($_POST['submit'])) {
                 require "databases/rmConnect.php";
                 $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-                $sql = "INSERT INTO all_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_categories, recipe_ingredients, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :categories, :ingredients, :directions, :image)";
+                $sql = "INSERT INTO all_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_category, recipe_ingredient, recipe_complexity, recipe_ingredient_list, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :recipeCategory, :recipeIngredient, :recipeComplexity, recipeIngredientList, :directions, :image)";
 
                 $stmt = $conn->prepare("$sql");
                 $stmt->bindParam(':recipeName', $recipeName);
                 $stmt->bindParam(':prepTime', $prepTime);
                 $stmt->bindParam(':cookTime', $cookTime);
                 $stmt->bindParam(':servingSize', $servingSize);
-                $stmt->bindParam(':categories', $categoriesJSON);
-                $stmt->bindParam(':ingredients', $ingredientsJSON);
+                $stmt->bindParam(':recipeCategory', $category);
+                $stmt->bindParam(':recipeIngredient', $ingredient);
+                $stmt->bindParam(':recipeComplexity', $complexity);
+                $stmt->bindParam(':recipeIngredientList', $ingredientsJSON);
                 $stmt->bindParam(':directions', $recipeStepsJSON);
                 $stmt->bindParam(':image', $recipeImage['name']);
 
