@@ -37,7 +37,7 @@ function makeRecipeCard(inID, inName, inCategories, inImage, inLocation) {
     p.innerHTML = categoryText;
     // a
     let a = document.createElement("a");
-    a.setAttribute("href", "single_recipe.html?location=" + inLocation + "?recipeID=" + inID);
+    a.setAttribute("href", "single_recipe.php?location=" + inLocation + "&recipeID=" + inID);
     a.appendChild(image);
     a.appendChild(h3);
     a.appendChild(p);
