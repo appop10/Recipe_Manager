@@ -2,8 +2,6 @@
     JavaScript for ATP Single Recipe
 */
 
-
-
 function pageLoad(inLocation, inID) {
     // generate recipe information
     getRecipeInfo(inLocation, inID);
@@ -13,16 +11,52 @@ function pageLoad(inLocation, inID) {
 
     // onclick events for the buttons
     sizeButtons[0].onclick = () => {
-        console.log("single size");
+        if (!(sizeButtons[0].classList.contains("current-size"))) {
+            for (x=0; x < sizeButtons.length; x++) {
+                if (sizeButtons[x].classList.contains("current-size")) {
+                    sizeButtons[x].classList.toggle("current-size");
+                }
+            }
+
+            sizeButtons[0].classList.toggle("current-size");
+            changeRecipeInformation(inLocation, inID, 1);
+        }
     }
     sizeButtons[1].onclick = () => {
-        console.log("double the size!");
+        if (!(sizeButtons[1].classList.contains("current-size"))) {
+            for (x=0; x < sizeButtons.length; x++) {
+                if (sizeButtons[x].classList.contains("current-size")) {
+                    sizeButtons[x].classList.toggle("current-size");
+                }
+            }
+
+            sizeButtons[1].classList.toggle("current-size");
+            changeRecipeInformation(inLocation, inID, 2);
+        }
     }
     sizeButtons[2].onclick = () => {
-        console.log("tripple the size!");
+        if (!(sizeButtons[2].classList.contains("current-size"))) {
+            for (x=0; x < sizeButtons.length; x++) {
+                if (sizeButtons[x].classList.contains("current-size")) {
+                    sizeButtons[x].classList.toggle("current-size");
+                }
+            }
+
+            sizeButtons[2].classList.toggle("current-size");
+            changeRecipeInformation(inLocation, inID, 3);
+        }
     }
 }
-
+// repeated steps 
+function printGeneralInfo(inPrepTime, inCookTime, inServingSize) {
+    let recipeTimesSpans = document.querySelectorAll("#recipe-times span");
+    recipeTimesSpans[0].innerHTML = inPrepTime + " minutes";
+    recipeTimesSpans[1].innerHTML = inCookTime + " minutes";
+    recipeTimesSpans[2].innerHTML = inPrepTime + inCookTime + " minutes";
+    let recipeSizeSpan = document.querySelector("#recipe-size span");
+    recipeSizeSpan.innerHTML = inServingSize + " servings";
+}
+// Generate recipe information and print to page
 function getRecipeInfo(inLocation, inID) {
     fetch("php/getSingleRecipe.php?location=" + inLocation + "&recipeID=" +inID, {
         method: "POST",
@@ -58,12 +92,7 @@ function getRecipeInfo(inLocation, inID) {
         pageCategories.innerHTML = recipeCategoriesString;
         // right side
         // general information
-        let recipeTimesSpans = document.querySelectorAll("#recipe-times span");
-        recipeTimesSpans[0].innerHTML = prepTime + " minutes";
-        recipeTimesSpans[1].innerHTML = cookTime + " minutes";
-        recipeTimesSpans[2].innerHTML = prepTime + cookTime + " minutes";
-        let recipeSizeSpan = document.querySelector("#recipe-size span");
-        recipeSizeSpan.innerHTML = servingSize + " servings";
+        printGeneralInfo(prepTime, cookTime, servingSize);
         // ingredients
         let recipeIngredients = JSON.parse(recipeIngredientsJSON);
         let recipeIngredientAmounts = JSON.parse(recipeIngredients[0]);
@@ -110,15 +139,71 @@ function getRecipeInfo(inLocation, inID) {
             
             count++;
         }
-
-        // console.log(count);
     })
 }
+// change recipe information and ingredients, print to page
+function changeRecipeInformation(inLocation, inID, multiplier) {
+    // remove old ingredient list
+    let oldIngerdientList = document.querySelector("#ingredient-list");
+    
+    oldIngerdientList.remove();
 
-function doubleRecipe() {
-    console.log("double the recipe!");
-}
+    // get recipe information
+    fetch("php/getSingleRecipeIngredients.php?location=" + inLocation + "&recipeID=" +inID, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then((response) => {
+        return response.json();
+    }).then((response) => {
+        // separate response into different variables
+        let prepTime = response[0];
+        let cookTime = response[1];
+        let servingSize = response[2];
+        let recipeIngredientsJSON = response[3];
+        // multiply the times and servings
+        prepTime *= multiplier;
+        cookTime *= multiplier;
+        servingSize *= multiplier;
+        // print them to the page
+        // general information
+        printGeneralInfo(prepTime, cookTime, servingSize);
+        // ingredients
+        let recipeIngredients = JSON.parse(recipeIngredientsJSON);
+        let recipeIngredientAmounts = JSON.parse(recipeIngredients[0]);
+        let recipeIngredientTypes = JSON.parse(recipeIngredients[1]);
+        let recipeIngredientNames = JSON.parse(recipeIngredients[2]);
 
-function trippleRecipe() {
-    console.log("tripple the recipe!");
+        // make new ingredient list element
+        let newIngredientList = document.createElement("ul");
+        newIngredientList.setAttribute("id", "ingredient-list");
+
+        let count = 1;
+        let stop = false;
+
+        while (!stop) {
+
+            if (recipeIngredientAmounts[count] || recipeIngredientAmounts[count] == "") {
+                // change ingredient amounts
+                if (recipeIngredientAmounts[count]) {
+                    recipeIngredientAmounts[count] *= multiplier;
+                }
+                // add them to new list element
+                let listElement = document.createElement("li");
+                listElement.innerHTML = recipeIngredientAmounts[count] + " " + recipeIngredientTypes[count] + " " + recipeIngredientNames[count];
+
+                newIngredientList.appendChild(listElement);
+            } else {
+                stop = true;
+            }
+            
+            count++;
+        }
+
+        // add new list to the ingredient section 
+        let divSections = document.querySelectorAll("div.right-half section");
+        let ingredientSection = divSections[1];
+        ingredientSection.appendChild(newIngredientList);
+    })
 }

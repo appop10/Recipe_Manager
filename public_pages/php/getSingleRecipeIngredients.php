@@ -31,7 +31,7 @@ if (isset($_GET['recipeID'])) {
 
 try {
     // connect to database and pull information
-    require "../admin_pages/databases/rmConnect.php";
+    require "../../admin_pages/databases/rmConnect.php";
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
     $sql = "SELECT prep_time, cook_time, serving_size, recipe_ingredients FROM $tableName WHERE id=:recipeID";
