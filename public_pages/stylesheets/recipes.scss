@@ -12,8 +12,8 @@ nav {
     @include main.nav-image;
 }
 
-/** Title Filter **/
-div.title-filter {
+/** Title **/
+div.title {
     position: fixed;
     top: 13vh;
     display: flex;
@@ -22,8 +22,10 @@ div.title-filter {
     padding: 2em 0;
     background-color: main.$color4;
     z-index: 1;
+    padding-bottom: 0.5em;
+    transition: padding-bottom 0.5s linear;
 
-    div {
+    > div {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -35,7 +37,55 @@ div.title-filter {
         h2 {
             font-size: 2em;
         }
+        a:hover {
+            cursor: pointer;
+        }
     }
+}
+div.add-padding {
+    padding-bottom: 25vh;
+}
+
+/** Filter **/
+section.filter {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    z-index: 1;
+    width: 80%;
+    height: 0vh;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    box-shadow: 2px 0 5px main.$color5;
+    padding: 0em;
+    transition: height 0.5s linear;
+
+    > div {
+        flex: 1;
+        padding-left: 1em;
+
+        > p {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        div {
+            column-count: 2;
+
+            p {
+                font-size: 1.2em;
+                margin-bottom: 0.5em;
+            }
+        }
+    }
+    div.ingredient-options {
+        border: 1px solid main.$color1;
+        border-style: none solid none solid;
+    }
+}
+section.show-filter {
+    height: 25vh;
+    padding: 1em;
+    border: 1px solid main.$color5;
 }
 
 /** Recipe List **/

@@ -33,71 +33,107 @@ if (isset($_GET['location'])) {
         </ul>
     </nav><!-- Navbar -->
 
-    <div class="title-filter"><!-- Title -->
+    <div class="title"><!-- Title & Filter -->
         <div>
             <h2><!-- changes depending on where the information is from--></h2>
             <a class="green-button">Filter</a>
         </div>
-    </div><!-- Title -->
 
-    <div class="filter"><!-- Filter -->
-        <div><!-- category options -->
-            <p>Categories</p>
+        <section class="filter"><!-- Filter -->
+            <div><!-- category options -->
+                <p>Categories</p>
 
-            <input type="checkbox" name="categorySimple" id="categorySimple">
-            <label for="categorySimple">Simple</label>
+                <div>
+                    <p>
+                        <input type="checkbox" name="categorySimple" id="categorySimple">
+                        <label for="categorySimple">Simple</label>
+                    </p>
 
-            <input type="checkbox" name="categoryOnePot" id="categoryOnePot">
-            <label for="categoryOnePot">One Pot</label>
+                    <p>
+                        <input type="checkbox" name="categoryOnePot" id="categoryOnePot">
+                        <label for="categoryOnePot">One Pot</label>
+                    </p>
 
-            <input type="checkbox" name="categoryFusion" id="categoryFusion">
-            <label for="categoryFusion">Fusion</label>
+                    <p>
+                        <input type="checkbox" name="categoryFusion" id="categoryFusion">
+                        <label for="categoryFusion">Fusion</label>
+                    </p>
 
-            <input type="checkbox" name="categoryComfort" id="categoryComfort">
-            <label for="categoryComfort">Comfort</label>
+                    <p>
+                        <input type="checkbox" name="categoryComfort" id="categoryComfort">
+                        <label for="categoryComfort">Comfort</label>
+                    </p>
 
-            <input type="checkbox" name="categorySpicy" id="categorySpicy">
-            <label for="categorySpicy">Spicy</label>
-        </div><!-- category options -->
+                    <p>
+                        <input type="checkbox" name="categorySpicy" id="categorySpicy">
+                        <label for="categorySpicy">Spicy</label>
+                    </p>
+                </div>
+            </div><!-- category options -->
 
-        <div><!-- ingredient options -->
-            <p>Ingredients</p>
+            <div class="ingredient-options"><!-- ingredient options -->
+                <p>Ingredients</p>
 
-            <input type="checkbox" name="ingredientNoMeat" id="ingredientNoMeat">
-            <label for="ingredientNoMeat">No Meat</label>
+                <div>
+                    <p>
+                        <input type="checkbox" name="ingredientNoMeat" id="ingredientNoMeat">
+                        <label for="ingredientNoMeat">No Meat</label>
+                    </p>
 
-            <input type="checkbox" name="ingredientChicken" id="ingredientChicken">
-            <label for="ingredientChicken">Chicken</label>
+                    <p>
+                        <input type="checkbox" name="ingredientChicken" id="ingredientChicken">
+                        <label for="ingredientChicken">Chicken</label>
+                    </p>
 
-            <input type="checkbox" name="ingredientBeef" id="ingredientBeef">
-            <label for="ingredientBeef">Beef</label>
+                    <p>
+                        <input type="checkbox" name="ingredientBeef" id="ingredientBeef">
+                        <label for="ingredientBeef">Beef</label>
+                    </p>
 
-            <input type="checkbox" name="ingredientPork" id="ingredientPork">
-            <label for="ingredientPork">Pork</label>
+                    <p>
+                        <input type="checkbox" name="ingredientPork" id="ingredientPork">
+                        <label for="ingredientPork">Pork</label>
+                    </p>
 
-            <input type="checkbox" name="ingredientFish" id="ingredientFish">
-            <label for="ingredientFish">Fish</label>
-        </div><!-- ingredient options -->
+                    <p>
+                        <input type="checkbox" name="ingredientFish" id="ingredientFish">
+                        <label for="ingredientFish">Fish</label>
+                    </p>
+                </div>
+            </div><!-- ingredient options -->
 
-        <div><!-- complexity options -->
-            <p>Complexities</p>
+            <div><!-- complexity options -->
+                <p>Complexities</p>
 
-            <input type="checkbox" name="complexityNovice" id="complexityNovice">
-            <label for="complexityNovice">Novice</label>
+                <div>
+                    <p>
+                        <input type="checkbox" name="complexityNovice" id="complexityNovice">
+                        <label for="complexityNovice">Novice</label>
+                    </p>
 
-            <input type="checkbox" name="complexityBeginner" id="complexityBeginner">
-            <label for="complexityBeginner">Beginner</label>
+                    <p>
+                        <input type="checkbox" name="complexityBeginner" id="complexityBeginner">
+                        <label for="complexityBeginner">Beginner</label>
+                    </p>
 
-            <input type="checkbox" name="complexityIntermediate" id="complexityIntermediate">
-            <label for="complexityIntermediate">Intermediate</label>
+                    <p>
+                        <input type="checkbox" name="complexityIntermediate" id="complexityIntermediate">
+                        <label for="complexityIntermediate">Intermediate</label>
+                    </p>
 
-            <input type="checkbox" name="complexityAdvanced" id="complexityAdvanced">
-            <label for="complexityAdvanced">Advanced</label>
+                    <p>
+                        <input type="checkbox" name="complexityAdvanced" id="complexityAdvanced">
+                        <label for="complexityAdvanced">Advanced</label>
+                    </p>
 
-            <input type="checkbox" name="complexityExpert" id="complexityExpert">
-            <label for="complexityExpert">Expert</label>
-        </div><!-- complexity options -->
-    </div><!-- Filter -->
+                    <p>
+                        <input type="checkbox" name="complexityExpert" id="complexityExpert">
+                        <label for="complexityExpert">Expert</label>
+                    </p>
+                </div>
+            </div><!-- complexity options -->
+        </section><!-- Filter -->
+    </div><!-- Title & Filter -->
 
     <div class="recipe-list"><!-- Recipes generated dynamically -->
     </div><!-- Recipes -->

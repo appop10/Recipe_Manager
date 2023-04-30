@@ -5,6 +5,11 @@
 function pageLoad(inLocation) {
     // generate recipe cards
     getRecipeInfo(inLocation);
+
+    // onclick event for filter button
+    document.querySelector("a.green-button").onclick = () => {
+        filterDropDown();
+    }
 }
 
 // create card elements
@@ -44,7 +49,7 @@ function getRecipeInfo(inLocation) {
     }).then((response) => {
         // load response JSON into separate arrays
         let recipeListDiv = document.querySelector("div.recipe-list");
-        let titleH2 = document.querySelector("div.title-filter div h2");
+        let titleH2 = document.querySelector("div.title div h2");
         let recipeIDs = response[0];
         let recipeNames = response[1];
         let recipeCategories = response[2];
@@ -69,4 +74,13 @@ function getRecipeInfo(inLocation) {
         // set the title of the page
         titleH2.innerHTML = recipeLocation + " Recipes";
     }) 
+}
+
+// show/hide filter options
+function filterDropDown() {
+    let filterSection = document.querySelector("section.filter");
+    let titlePadding = document.querySelector("div.title");
+
+    titlePadding.classList.toggle("add-padding");
+    filterSection.classList.toggle("show-filter");
 }
