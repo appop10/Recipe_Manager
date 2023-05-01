@@ -43,7 +43,7 @@ div.title {
     }
 }
 div.add-padding {
-    padding-bottom: 25vh;
+    padding-bottom: 35vh;
 }
 
 /** Filter **/
@@ -51,6 +51,7 @@ section.filter {
     position: absolute;
     bottom: 0;
     display: flex;
+    flex-direction: column;
     z-index: 1;
     width: 80%;
     height: 0vh;
@@ -60,20 +61,25 @@ section.filter {
     padding: 0em;
     transition: height 0.5s linear;
 
-    > div {
-        flex: 1;
+    div.filter-options-panel {
+        display: flex;
         padding-left: 1em;
 
-        > p {
-            font-size: 1.5em;
-            margin-bottom: 0.5em;
-        }
-        div {
-            column-count: 2;
+        > div {
+            flex: 1;
+            padding: 1em;
 
-            p {
-                font-size: 1.2em;
+            > p {
+                font-size: 1.5em;
                 margin-bottom: 0.5em;
+            }
+            > div {
+                column-count: 2;
+    
+                p {
+                    font-size: 1.2em;
+                    margin-bottom: 0.5em;
+                }
             }
         }
     }
@@ -81,9 +87,26 @@ section.filter {
         border: 1px solid main.$color1;
         border-style: none solid none solid;
     }
+    div.filter-search-buttons {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            font-size: 1.2em;
+            border: 1px solid main.$color1;
+            border-radius: 5px;
+            padding: 0.2em 0.5em;
+            margin: 1em 0.5em;
+        }
+        button:hover {
+            background-color: main.$color1;
+            color: main.$color2;
+            cursor: pointer;
+        }
+    }
 }
 section.show-filter {
-    height: 25vh;
+    height: 35vh;
     padding: 1em;
     border: 1px solid main.$color5;
 }

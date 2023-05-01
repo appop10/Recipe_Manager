@@ -10,6 +10,32 @@ function pageLoad(inLocation) {
     document.querySelector("a.green-button").onclick = () => {
         filterDropDown();
     }
+
+    // element lists
+    let filterButtons = document.querySelectorAll("div.filter-search-buttons button");
+    let filterOptions = document.querySelectorAll("div.filter-options-panel div input");
+
+    // onclick event for apply filter button
+    filterButtons[0].onclick = () => {
+        let filterList = [];
+
+        for (x=0; x < filterOptions.length; x++) {
+            if (filterOptions[x].checked) {
+                filterList[x] = filterOptions[x].name;
+            } else {
+                filterList[x] = "";
+            }
+        }
+
+        applyFilter(inLocation, filterList);
+    }
+
+    // onclick event for clear filter button
+    filterButtons[1].onclick = () => {
+        for (x=0; x < filterOptions.length; x++) {
+            filterOptions[x].checked = false;
+        }
+    }
 }
 
 // create card elements
@@ -83,4 +109,31 @@ function filterDropDown() {
 
     titlePadding.classList.toggle("add-padding");
     filterSection.classList.toggle("show-filter");
+}
+
+// fetch call for filtered data
+function applyFilter(inLocation, inFilterNames) {
+    // create a parameter string of filter names
+    let getParamString = "";
+    let count = 1;
+
+    for (x=0; x < inFilterNames.length; x++) {
+        if (inFilterNames[x]) {
+            getParamString += "&filterName" + count + "=" + inFilterNames[x];
+            count++;
+        }
+    }
+
+    console.log(getParamString);
+    // fetch the information
+    // fetch("php/getFilteredRecipes.php?location=" + inLocation + getParamString, {
+    //     method: "POST",
+    //     headers: {
+    //         'Accept': 'application/json'
+    //     }
+    // }).then((response) => {
+    //     return response.json();
+    // }).then((response) => {
+    //     console.log(response);
+    // })
 }

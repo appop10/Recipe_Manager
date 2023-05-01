@@ -60,4 +60,3 @@
     } catch(PDOException $e) {
         echo $e;
     }
-?>

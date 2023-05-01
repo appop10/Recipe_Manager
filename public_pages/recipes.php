@@ -40,98 +40,105 @@ if (isset($_GET['location'])) {
         </div>
 
         <section class="filter"><!-- Filter -->
-            <div><!-- category options -->
-                <p>Categories</p>
+            <div class="filter-options-panel"><!-- filter options panel -->
+                <div><!-- category options -->
+                    <p>Categories</p>
 
-                <div>
-                    <p>
-                        <input type="checkbox" name="categorySimple" id="categorySimple">
-                        <label for="categorySimple">Simple</label>
-                    </p>
+                    <div>
+                        <p>
+                            <input type="checkbox" name="Simple" id="Simple">
+                            <label for="Simple">Simple</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="categoryOnePot" id="categoryOnePot">
-                        <label for="categoryOnePot">One Pot</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="One Pot" id="One Pot">
+                            <label for="One Pot">One Pot</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="categoryFusion" id="categoryFusion">
-                        <label for="categoryFusion">Fusion</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Fusion" id="Fusion">
+                            <label for="Fusion">Fusion</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="categoryComfort" id="categoryComfort">
-                        <label for="categoryComfort">Comfort</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Comfort" id="Comfort">
+                            <label for="Comfort">Comfort</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="categorySpicy" id="categorySpicy">
-                        <label for="categorySpicy">Spicy</label>
-                    </p>
-                </div>
-            </div><!-- category options -->
+                        <p>
+                            <input type="checkbox" name="Spicy" id="Spicy">
+                            <label for="Spicy">Spicy</label>
+                        </p>
+                    </div>
+                </div><!-- category options -->
 
-            <div class="ingredient-options"><!-- ingredient options -->
-                <p>Ingredients</p>
+                <div class="ingredient-options"><!-- ingredient options -->
+                    <p>Ingredients</p>
 
-                <div>
-                    <p>
-                        <input type="checkbox" name="ingredientNoMeat" id="ingredientNoMeat">
-                        <label for="ingredientNoMeat">No Meat</label>
-                    </p>
+                    <div>
+                        <p>
+                            <input type="checkbox" name="No Meat" id="No Meat">
+                            <label for="No Meat">No Meat</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="ingredientChicken" id="ingredientChicken">
-                        <label for="ingredientChicken">Chicken</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Chicken" id="Chicken">
+                            <label for="Chicken">Chicken</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="ingredientBeef" id="ingredientBeef">
-                        <label for="ingredientBeef">Beef</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Beef" id="Beef">
+                            <label for="Beef">Beef</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="ingredientPork" id="ingredientPork">
-                        <label for="ingredientPork">Pork</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Pork" id="Pork">
+                            <label for="Pork">Pork</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="ingredientFish" id="ingredientFish">
-                        <label for="ingredientFish">Fish</label>
-                    </p>
-                </div>
-            </div><!-- ingredient options -->
+                        <p>
+                            <input type="checkbox" name="Fish" id="Fish">
+                            <label for="Fish">Fish</label>
+                        </p>
+                    </div>
+                </div><!-- ingredient options -->
 
-            <div><!-- complexity options -->
-                <p>Complexities</p>
+                <div><!-- complexity options -->
+                    <p>Complexities</p>
 
-                <div>
-                    <p>
-                        <input type="checkbox" name="complexityNovice" id="complexityNovice">
-                        <label for="complexityNovice">Novice</label>
-                    </p>
+                    <div>
+                        <p>
+                            <input type="checkbox" name="Novice" id="Novice">
+                            <label for="Novice">Novice</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="complexityBeginner" id="complexityBeginner">
-                        <label for="complexityBeginner">Beginner</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Beginner" id="Beginner">
+                            <label for="Beginner">Beginner</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="complexityIntermediate" id="complexityIntermediate">
-                        <label for="complexityIntermediate">Intermediate</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Intermediate" id="Intermediate">
+                            <label for="Intermediate">Intermediate</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="complexityAdvanced" id="complexityAdvanced">
-                        <label for="complexityAdvanced">Advanced</label>
-                    </p>
+                        <p>
+                            <input type="checkbox" name="Advanced" id="Advanced">
+                            <label for="Advanced">Advanced</label>
+                        </p>
 
-                    <p>
-                        <input type="checkbox" name="complexityExpert" id="complexityExpert">
-                        <label for="complexityExpert">Expert</label>
-                    </p>
-                </div>
-            </div><!-- complexity options -->
+                        <p>
+                            <input type="checkbox" name="Expert" id="Expert">
+                            <label for="Expert">Expert</label>
+                        </p>
+                    </div>
+                </div><!-- complexity options -->
+            </div><!-- filter options panel -->
+
+            <div class="filter-search-buttons"><!-- filter search buttons -->
+                <button>Apply Filters</button>
+                <button>Clear Filters</button>
+            </div><!-- filter search buttons -->
         </section><!-- Filter -->
     </div><!-- Title & Filter -->
 
