@@ -13,14 +13,22 @@
     <title>ATP | Recipe</title>
 
     <link rel="stylesheet" href="stylesheets/single_recipe/single_recipe.css">
-    <link rel="styleshet" href="stylesheets/single_recipe/single_recipe_mq.css">
+    <link rel="stylesheet" href="stylesheets/single_recipe/single_recipe_mq.css">
 
     <script src="javascript/single_recipe.js"></script>
 </head>
 
 <body onload="pageLoad('<?php echo $recipeLocation?>', '<?php echo $recipeID?>')">
-    <nav class="static"><!-- Navbar -->
-        <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
+    <nav class="transforming"><!-- Navbar -->
+        <div>
+            <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
+
+            <div class="hamburger" onclick="dropMenu()">
+                <p id="bar1"></p>
+                <p id="bar2"></p>
+                <p id="bar3"></p>
+            </div>
+        </div>
 
         <ul>
             <li><a href="recipes.php">Recipes</a></li>

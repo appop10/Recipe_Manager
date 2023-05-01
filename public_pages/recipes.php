@@ -23,8 +23,16 @@ if (isset($_GET['location'])) {
 </head>
 
 <body onload="pageLoad('<?php echo $location; ?>')">
-    <nav class="static"><!-- Navbar -->
-        <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
+    <nav class="transforming"><!-- Navbar -->
+        <div>
+            <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
+
+            <div class="hamburger" onclick="dropMenu()">
+                <p id="bar1"></p>
+                <p id="bar2"></p>
+                <p id="bar3"></p>
+            </div>
+        </div>
 
         <ul>
             <li><a href="recipes.php">Recipes</a></li>

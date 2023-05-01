@@ -15,4 +15,60 @@
   footer img {
     height: 15vh;
   }
+}
+@media only screen and (max-width: 600px) {
+  nav > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+  }
+  nav div.hamburger {
+    display: block;
+    width: 8vw;
+    margin-right: 5vw;
+    padding-top: 2vh;
+  }
+  nav div.hamburger #bar1, nav div.hamburger #bar3 {
+    transition: transform 0.5s linear;
+  }
+  nav div.hamburger #bar2 {
+    opacity: 100%;
+    transition: opacity 0.5s linear;
+  }
+  nav div.hamburger #bar1.rotate-down {
+    transform: rotateZ(45deg) translate(2vw, 1vh);
+  }
+  nav div.hamburger #bar2.invisible {
+    opacity: 0%;
+  }
+  nav div.hamburger #bar3.rotate-up {
+    transform: rotateZ(-45deg) translate(2vw, -1vh);
+  }
+  nav ul {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    flex-direction: column;
+    background-color: #0e402d;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    transition-property: height, padding;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+  }
+  nav ul.drop-hamburger {
+    height: 35vh;
+    padding: 2em;
+  }
+  nav.transforming img, nav.static img {
+    position: absolute;
+    bottom: 0;
+    left: 2vw;
+  }
 }/*# sourceMappingURL=main_mq.css.map */

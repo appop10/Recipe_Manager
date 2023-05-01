@@ -6,5 +6,21 @@
 @media only screen and (max-width: 900px) {
     main {
         flex-direction: column;
+
+        > div {
+            width: 100%;
+        }
+        div.left-half {
+            position: relative;
+            top: 10vh;
+            height: 45vh;
+
+            img {
+                width: 100%;
+            }
+        }
+        div.right-half {
+            top: 55vh;
+        }
     }
 }

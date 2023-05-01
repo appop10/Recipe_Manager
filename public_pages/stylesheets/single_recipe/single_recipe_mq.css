@@ -23,4 +23,18 @@
   main {
     flex-direction: column;
   }
+  main > div {
+    width: 100%;
+  }
+  main div.left-half {
+    position: relative;
+    top: 10vh;
+    height: 45vh;
+  }
+  main div.left-half img {
+    width: 100%;
+  }
+  main div.right-half {
+    top: 55vh;
+  }
 }/*# sourceMappingURL=single_recipe_mq.css.map */
