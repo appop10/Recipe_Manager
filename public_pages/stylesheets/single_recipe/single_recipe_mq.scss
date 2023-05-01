@@ -24,3 +24,29 @@
         }
     }
 }
+
+@media only screen and (max-width: 600px) {
+    main {
+        div.right-half {
+            padding: 0 2em;
+
+            section {
+                h2 {
+                    font-size: 1.5em;
+                }
+                > div {
+                    flex-direction: column;
+
+                    > div {
+                        margin: 1em 0;
+                        width: 100%;
+
+                        div.adjust-size {
+                            margin: 1em 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

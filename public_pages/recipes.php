@@ -24,25 +24,6 @@ if (isset($_GET['location'])) {
 </head>
 
 <body onload="pageLoad('<?php echo $location; ?>')">
-    <nav class="static"><!-- Navbar -->
-        <div>
-            <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
-
-            <div class="hamburger" onclick="dropMenu()">
-                <p id="bar1"></p>
-                <p id="bar2"></p>
-                <p id="bar3"></p>
-            </div>
-        </div>
-
-        <ul>
-            <li><a href="recipes.php">Recipes</a></li>
-            <li><a>About</a></li>
-            <li><a>Contact</a></li>
-            <li><a class="signin" href="../admin_pages/loginPage.php">Sign In</a></li>
-        </ul>
-    </nav><!-- Navbar -->
-
     <div class="title"><!-- Title & Filter -->
         <div>
             <h2><!-- changes depending on where the information is from--></h2>
@@ -151,6 +132,25 @@ if (isset($_GET['location'])) {
             </div><!-- filter search buttons -->
         </section><!-- Filter -->
     </div><!-- Title & Filter -->
+
+    <nav class="static"><!-- Navbar -->
+        <div>
+            <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
+
+            <div class="hamburger" onclick="dropMenu()">
+                <p id="bar1"></p>
+                <p id="bar2"></p>
+                <p id="bar3"></p>
+            </div>
+        </div>
+
+        <ul>
+            <li><a href="recipes.php">Recipes</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+            <li><a class="signin" href="../admin_pages/loginPage.php">Sign In</a></li>
+        </ul>
+    </nav><!-- Navbar -->
 
     <div class="recipe-list"><!-- Recipes generated dynamically -->
     </div><!-- Recipes -->

@@ -119,7 +119,7 @@
 @media only screen and (max-width: 600px) {
   div.title {
     padding: 0.8em 0;
-    z-index: 0;
+    z-index: 1;
   }
   div.title > div h2 {
     font-size: 1.5em;
@@ -144,7 +144,7 @@
     height: 75vh;
   }
   div.recipe-list {
-    z-index: -1;
+    z-index: 0;
     top: 200px;
   }
   div.recipe-list a {

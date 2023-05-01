@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="stylesheets/single_recipe/single_recipe.css">
     <link rel="stylesheet" href="stylesheets/single_recipe/single_recipe_mq.css">
 
+    <script src="javascript/main.js"></script>
     <script src="javascript/single_recipe.js"></script>
 </head>
 
