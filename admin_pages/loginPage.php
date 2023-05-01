@@ -54,8 +54,10 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Login</title>
 
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="stylesheet" href="stylesheets/login/login.css">
+    <link rel="stylesheet" href="stylesheets/login/login_mq.css">
+
+    <script src="menuFunctions.js"></script>
 </head>
 
 <body>
@@ -65,8 +67,14 @@ if (isset($_POST["submit"])) {
         // display admin area
     ?>
         <nav>
-            <div>
-                <p><a href="loginPage.php">Admin Area</a></p>
+            <div class="nav-container">
+                <div class="hamburger" onclick="dropMenu()">
+                    <p id="bar1"></p>
+                    <p id="bar2"></p>
+                    <p id="bar3"></p>
+                </div>
+
+                <p class="login-title"><a href="loginPage.php">Admin Area</a></p>
 
                 <ul>
                     <li><a href="addRecipe.php">Add Recipe</a></li>

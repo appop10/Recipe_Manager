@@ -1,0 +1,47 @@
+/*
+    Media query page for main.scss
+*/
+@media only screen and (max-width: 900px) {
+  nav {
+    position: absolute;
+    overflow: hidden;
+    width: 6vw;
+    transition: width 0.5s ease-out;
+  }
+  nav div.hamburger {
+    display: block;
+    position: absolute;
+    width: 5vw;
+  }
+  nav div.hamburger #bar1, nav div.hamburger #bar3 {
+    transition: transform 0.5s linear;
+  }
+  nav div.hamburger #bar2 {
+    opacity: 100%;
+    transition: opacity 0.5s linear;
+  }
+  nav div.hamburger #bar1.rotate-down {
+    transform: rotateZ(45deg) translate(2.5vw, 0);
+  }
+  nav div.hamburger #bar2.invisible {
+    opacity: 0%;
+  }
+  nav div.hamburger #bar3.rotate-up {
+    transform: rotateZ(-45deg) translate(2.5vw, 0);
+  }
+  nav p.login-title, nav ul {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.5s ease-out;
+  }
+  nav p.show-title {
+    width: 30vw;
+  }
+  nav.slide-menu, ul.show-links {
+    width: 30vw;
+  }
+  main {
+    width: 100%;
+    height: 100vh;
+  }
+}/*# sourceMappingURL=main_mq.css.map */

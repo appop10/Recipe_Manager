@@ -2,7 +2,7 @@
     Stylesheet for loginPage.php
 */
 
-@use 'main.scss';
+@use '../main.scss';
 
 @mixin center-everything {
     display: flex;
@@ -41,7 +41,7 @@ main {
     width: 100%;
     background-image: 
         linear-gradient(main.$color1-transparent,main.$color1-transparent),
-        url("../../images/header-images/making-dough-header.jpg"); 
+        url("../../../images/header-images/making-dough-header.jpg"); 
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
