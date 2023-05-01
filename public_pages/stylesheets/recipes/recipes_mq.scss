@@ -28,3 +28,56 @@
         }
     }
 }
+
+@media only screen and (max-width: 600px) {
+    div.title {
+        padding: 0.8em 0;
+        z-index: 0;
+
+        > div {
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    }
+    div.add-padding {
+        padding-bottom: 75vh;
+    }
+    section.filter {
+        div.filter-options-panel {
+            flex-direction: column;
+            padding-left: 0.5em;
+
+            > div {
+                padding: 0.5em;
+
+                > p {
+                    font-size: 1.3em;
+                }
+            }
+            
+        }
+        div.ingredient-options {
+            border-style: solid none solid none;
+        }
+    }
+    section.show-filter {
+        height: 75vh;
+    }
+    div.recipe-list {
+        z-index: -1;
+        top: 200px;
+
+        a {
+            width: 40vw;
+            margin-bottom: 5vh;
+
+            h3 {
+                font-size: 1.3em
+            }
+            p {
+                font-size: 1em;
+            }
+        }
+    }
+}

@@ -16,6 +16,80 @@
     height: 15vh;
   }
 }
+@media only screen and (max-width: 600px) {
+  a.green-button {
+    padding: 0.5em;
+  }
+  nav {
+    z-index: 2;
+  }
+  nav > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+  }
+  nav div.hamburger {
+    display: block;
+    width: 8vw;
+    margin-right: 5vw;
+    padding-top: 2vh;
+  }
+  nav div.hamburger #bar1, nav div.hamburger #bar3 {
+    transition: transform 0.5s linear;
+  }
+  nav div.hamburger #bar2 {
+    opacity: 100%;
+    transition: opacity 0.5s linear;
+  }
+  nav div.hamburger #bar1.rotate-down {
+    transform: rotateZ(45deg) translate(2vw, 1vh);
+  }
+  nav div.hamburger #bar2.invisible {
+    opacity: 0%;
+  }
+  nav div.hamburger #bar3.rotate-up {
+    transform: rotateZ(-45deg) translate(2vw, -1vh);
+  }
+  nav ul {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    flex-direction: column;
+    background-color: #0e402d;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    transition-property: height, padding;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+  }
+  nav ul.drop-hamburger {
+    height: 35vh;
+    padding: 2em;
+  }
+  nav.transforming img, nav.static img {
+    position: absolute;
+    bottom: 1vh;
+    left: 2vw;
+  }
+  header {
+    width: 80%;
+  }
+  header h1 {
+    font-size: 2em;
+  }
+  footer section {
+    flex-direction: column;
+  }
+  footer section div {
+    margin: 1.5em 0;
+  }
+}
 /*
     Media query page for recipes.scss
 */
@@ -40,5 +114,47 @@
   }
   div.recipe-list a {
     width: 30%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  div.title {
+    padding: 0.8em 0;
+    z-index: 0;
+  }
+  div.title > div h2 {
+    font-size: 1.5em;
+  }
+  div.add-padding {
+    padding-bottom: 75vh;
+  }
+  section.filter div.filter-options-panel {
+    flex-direction: column;
+    padding-left: 0.5em;
+  }
+  section.filter div.filter-options-panel > div {
+    padding: 0.5em;
+  }
+  section.filter div.filter-options-panel > div > p {
+    font-size: 1.3em;
+  }
+  section.filter div.ingredient-options {
+    border-style: solid none solid none;
+  }
+  section.show-filter {
+    height: 75vh;
+  }
+  div.recipe-list {
+    z-index: -1;
+    top: 200px;
+  }
+  div.recipe-list a {
+    width: 40vw;
+    margin-bottom: 5vh;
+  }
+  div.recipe-list a h3 {
+    font-size: 1.3em;
+  }
+  div.recipe-list a p {
+    font-size: 1em;
   }
 }/*# sourceMappingURL=recipes_mq.css.map */

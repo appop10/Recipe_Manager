@@ -37,3 +37,45 @@
         }
     }
 }
+
+@media only screen and (max-width: 600px) {
+    div.recipes {
+        margin-bottom: 15vh;
+
+        div h2 {
+            font-size: 1.5em;
+        }
+        section {
+            a {
+                width: 40vw;
+
+                h3 {
+                    font-size: 1.2em;
+                }
+                p {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+    div.announcement {
+        flex-direction: column;
+
+        section {
+            width: 100vw;
+            height: 70vh;
+
+            div {
+                width: 100vw;
+            }
+        }
+        > div {
+            width: 100vw;
+            height: 70vh;
+
+            img {
+                width: 95vw;
+            }
+        }
+    }
+}

@@ -19,7 +19,7 @@
 </head>
 
 <body onload="pageLoad('<?php echo $recipeLocation?>', '<?php echo $recipeID?>')">
-    <nav class="transforming"><!-- Navbar -->
+    <nav class="static"><!-- Navbar -->
         <div>
             <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
 

@@ -28,7 +28,12 @@ $color5: #1d1d1d;
 }
 
 @media only screen and (max-width: 600px) {
+    a.green-button {
+        padding: 0.5em;
+    }
     nav {
+        z-index: 2;
+
         > div {
             position: absolute;
             top: 0;
@@ -83,8 +88,24 @@ $color5: #1d1d1d;
     nav.transforming, nav.static {
         img {
             position: absolute;
-            bottom: 0;
+            bottom: 1vh;
             left: 2vw;
+        }
+    }
+    header {
+        width: 80%;
+
+        h1 {
+            font-size: 2em;
+        }
+    }
+    footer {
+        section {
+            flex-direction: column;
+
+            div {
+                margin: 1.5em 0;
+            }
         }
     }
 }

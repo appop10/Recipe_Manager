@@ -19,11 +19,12 @@ if (isset($_GET['location'])) {
     <link rel="stylesheet" href="stylesheets/recipes/recipes.css">
     <link rel="stylesheet" href="stylesheets/recipes/recipes_mq.css">
 
+    <script src="javascript/main.js"></script>
     <script src="javascript/recipes.js"></script>
 </head>
 
 <body onload="pageLoad('<?php echo $location; ?>')">
-    <nav class="transforming"><!-- Navbar -->
+    <nav class="static"><!-- Navbar -->
         <div>
             <a href="home.html"><img src="../images/logo_white.png" alt="all things pasta logo"></a>
 

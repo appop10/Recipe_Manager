@@ -17,6 +17,12 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  a.green-button {
+    padding: 0.5em;
+  }
+  nav {
+    z-index: 2;
+  }
   nav > div {
     position: absolute;
     top: 0;
@@ -68,7 +74,19 @@
   }
   nav.transforming img, nav.static img {
     position: absolute;
-    bottom: 0;
+    bottom: 1vh;
     left: 2vw;
+  }
+  header {
+    width: 80%;
+  }
+  header h1 {
+    font-size: 2em;
+  }
+  footer section {
+    flex-direction: column;
+  }
+  footer section div {
+    margin: 1.5em 0;
   }
 }/*# sourceMappingURL=main_mq.css.map */

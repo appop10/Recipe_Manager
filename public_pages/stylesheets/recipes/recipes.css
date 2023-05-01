@@ -69,10 +69,10 @@ nav div.hamburger {
   display: none;
 }
 nav div.hamburger p {
-  height: 5px;
+  height: 3px;
   width: 100%;
   background-color: #fff;
-  margin: 2vh 0;
+  margin: 1vh 0;
   border-radius: 5px;
 }
 nav ul, nav.static ul, nav.transforming ul {
