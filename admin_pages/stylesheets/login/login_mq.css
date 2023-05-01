@@ -45,12 +45,40 @@
     width: 100%;
   }
 }
+@media only screen and (max-width: 600px) {
+  nav {
+    width: 10vw;
+    height: 6vh;
+    transition-property: height, width;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+  nav div.hamburger {
+    width: 8vw;
+  }
+  nav div.hamburger #bar1.rotate-down {
+    transform: rotateZ(45deg) translate(3.5vw, 0);
+  }
+  nav div.hamburger #bar3.rotate-up {
+    transform: rotateZ(-45deg) translate(3.5vw, 0);
+  }
+  nav p.show-title {
+    width: 100vw;
+  }
+  nav.slide-menu, ul.show-links {
+    width: 100vw;
+    height: 100vh;
+  }
+}
 /*
     Media query page for login.scss
 */
 @media only screen and (max-width: 900px) {
   main {
     height: 100vh;
+  }
+  main div h1, main div h2 {
+    text-align: center;
   }
   .login div.homepage {
     height: 50vh;
@@ -66,5 +94,27 @@
   }
   .login div.container form {
     width: 50vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  div.login {
+    display: flex;
+    flex-direction: column;
+  }
+  div.login div.homepage {
+    height: 25vh;
+    width: 100vw;
+    margin-bottom: 10vh;
+  }
+  div.login div.container {
+    height: 45vh;
+    width: 100vw;
+  }
+  div.login div.container > div {
+    height: 41vh;
+    width: 98vw;
+  }
+  div.login div.container form {
+    width: 100vw;
   }
 }/*# sourceMappingURL=login_mq.css.map */

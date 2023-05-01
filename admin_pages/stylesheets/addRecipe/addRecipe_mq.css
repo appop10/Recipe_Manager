@@ -45,6 +45,31 @@
     width: 100%;
   }
 }
+@media only screen and (max-width: 600px) {
+  nav {
+    width: 10vw;
+    height: 6vh;
+    transition-property: height, width;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+  nav div.hamburger {
+    width: 8vw;
+  }
+  nav div.hamburger #bar1.rotate-down {
+    transform: rotateZ(45deg) translate(3.5vw, 0);
+  }
+  nav div.hamburger #bar3.rotate-up {
+    transform: rotateZ(-45deg) translate(3.5vw, 0);
+  }
+  nav p.show-title {
+    width: 100vw;
+  }
+  nav.slide-menu, ul.show-links {
+    width: 100vw;
+    height: 100vh;
+  }
+}
 /*
     Media query page for addRecipe.scss
 */
@@ -54,5 +79,36 @@
   }
   form {
     margin: 3em 2em 3em auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  nav {
+    height: 6vh;
+  }
+  form {
+    margin: 2em 0;
+    padding: 0 1em;
+    width: 100%;
+  }
+  form div.recipe-times {
+    flex-wrap: wrap;
+  }
+  form div.recipe-times p {
+    margin: 1em;
+  }
+  form div.recipe-times p input {
+    width: 100%;
+  }
+  form div.ingredient-list div.ingredient-row {
+    flex-wrap: wrap;
+  }
+  form div.ingredient-list div.ingredient-row p {
+    width: 30%;
+  }
+  form div.ingredient-list div.ingredient-row p input[id*=Amount], form div.ingredient-list div.ingredient-row p select[id*=Type] {
+    width: 100%;
+  }
+  form div.form-buttons input {
+    width: 30vw;
   }
 }/*# sourceMappingURL=addRecipe_mq.css.map */

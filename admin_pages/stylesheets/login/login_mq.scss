@@ -6,6 +6,12 @@
 @media only screen and (max-width: 900px) {
     main {
         height: 100vh;
+
+        div {
+            h1, h2 {
+                text-align: center;
+            }
+        }
     }
     .login {
         div.homepage {
@@ -22,6 +28,31 @@
             }
             form {
                 width: 50vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.login {
+        display: flex;
+        flex-direction: column;
+
+        div.homepage {
+            height: 25vh;
+            width: 100vw;
+            margin-bottom: 10vh;
+        }
+        div.container {
+            height: 45vh;
+            width: 100vw;
+
+            > div {
+                height: 41vh;
+                width: 98vw;
+            }
+            form {
+                width: 100vw;
             }
         }
     }

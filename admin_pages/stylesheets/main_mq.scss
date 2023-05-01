@@ -48,3 +48,31 @@
         width: 100%;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    nav {
+        width: 10vw;
+        height: 6vh;
+        transition-property: height, width;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-out;
+
+        div.hamburger {
+            width: 8vw;
+
+            #bar1.rotate-down {
+                transform: rotateZ(45deg) translate(3.5vw, 0);
+            }
+            #bar3.rotate-up {
+                transform: rotateZ(-45deg) translate(3.5vw, 0);
+            }
+        }
+        p.show-title {
+            width: 100vw;
+        }
+    }
+    nav.slide-menu, ul.show-links {
+        width: 100vw;
+        height: 100vh;
+    }
+}
