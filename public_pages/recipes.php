@@ -182,7 +182,7 @@ if (isset($_GET['location'])) {
 
         <div>
             <p>Photo and Recipe Credits</p>
-            <a href="#" target="_blank" class="signin">View</a>
+            <a href="credits/credits.html" target="_blank" class="signin">View</a>
         </div>
     </footer><!-- Footer -->
 </body>
