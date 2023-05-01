@@ -12,7 +12,7 @@
     <meta name="description" content="Single recipe page for All Things Pasta">
     <title>ATP | Recipe</title>
 
-    <link rel="stylesheet" href="stylesheets/single_recipe.css">
+    <link rel="stylesheet" href="stylesheets/single_recipe/single_recipe.css">
 
     <script src="javascript/single_recipe.js"></script>
 </head>

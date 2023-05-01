@@ -16,7 +16,7 @@ if (isset($_GET['location'])) {
     <meta name="description" content="Recipe page for All Things Pasta">
     <title>ATP | Recipes</title>
 
-    <link rel="stylesheet" href="stylesheets/recipes.css">
+    <link rel="stylesheet" href="stylesheets/recipes/recipes.css">
 
     <script src="javascript/recipes.js"></script>
 </head>
