@@ -10,5 +10,27 @@
             width: 85%;
             margin: 2em 2em 2em auto;
         }
+        div.confirm-delete {
+            width: 100vw;
+
+            form a {
+                display: block;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        overflow-x: auto;
+        justify-content: flex-start;
+
+        table {
+            width: 100%;
+            margin: 3em 0;
+        }
+        td.name-col, td.category-col {
+            width: 30%;
+        }
     }
 }

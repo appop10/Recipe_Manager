@@ -45,6 +45,31 @@
     width: 100%;
   }
 }
+@media only screen and (max-width: 600px) {
+  nav {
+    width: 10vw;
+    height: 6vh;
+    transition-property: height, width;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+  nav div.hamburger {
+    width: 8vw;
+  }
+  nav div.hamburger #bar1.rotate-down {
+    transform: rotateZ(45deg) translate(3.5vw, 0);
+  }
+  nav div.hamburger #bar3.rotate-up {
+    transform: rotateZ(-45deg) translate(3.5vw, 0);
+  }
+  nav p.show-title {
+    width: 100vw;
+  }
+  nav.slide-menu, ul.show-links {
+    width: 100vw;
+    height: 100vh;
+  }
+}
 /*
     Media query page for addRecipe.scss
 */
@@ -52,5 +77,24 @@
   main table {
     width: 85%;
     margin: 2em 2em 2em auto;
+  }
+  main div.confirm-delete {
+    width: 100vw;
+  }
+  main div.confirm-delete form a {
+    display: block;
+  }
+}
+@media only screen and (max-width: 600px) {
+  main {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  main table {
+    width: 100%;
+    margin: 3em 0;
+  }
+  main td.name-col, main td.category-col {
+    width: 30%;
   }
 }/*# sourceMappingURL=viewAllRecipes_mq.css.map */

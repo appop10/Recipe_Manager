@@ -81,18 +81,18 @@ if ($_SESSION['validUser']) {
         ?>
         <table rules="all">
             <tr class="first-row">
-                <td>Recipe Name</td>
+                <td class="name-col">Recipe Name</td>
                 <td class="category-col">Categories</td>
-                <td>Recent</td>
-                <td>Popular</td>
-                <td>Delete</td>
+                <td class="delete-col">Recent</td>
+                <td class="delete-col">Popular</td>
+                <td class="delete-col">Delete</td>
             </tr>
             <?php
             while ($row = $stmt->fetch()) {
                 $recipeCategoriesString = $row['recipe_category'] . ", " . $row['recipe_ingredient'] . ", " . $row['recipe_complexity'];
             ?>
                 <tr>
-                    <td><?php echo $row['recipe_name']; ?></td>
+                    <td class="name-col"><?php echo $row['recipe_name']; ?></td>
                     <td class="category-col"><?php echo $recipeCategoriesString; ?></td>
                     <td class="delete-col"><a href="addRecentRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>
                     <td class="delete-col"><a href="addPopularRecipe.php?eventID=<?php echo $row['id']; ?>"><button>Add</button></a></td>

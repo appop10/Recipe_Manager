@@ -21,6 +21,9 @@ main {
         font-size: 1.2em;
         background-color: main.$color2;
     }
+    td.name-col {
+        width: fit-content;
+    }
     td.category-col {
         width: 25%;
     }
