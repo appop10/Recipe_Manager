@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
         $ingredientAmountsJSON = json_encode($ingredientAmounts);
         $ingredientTypesJSON = json_encode($ingredientTypes);
         $ingredientNamesJSON = json_encode($ingredientNames);
-        
+
         $ingredients = [$ingredientAmountsJSON, $ingredientTypesJSON, $ingredientNamesJSON];
 
         // load directions variables into an array
@@ -116,15 +116,15 @@ if (isset($_POST['submit'])) {
         if (empty($recipeImage)) {
             $recipeImage = "logo_black.png";
         } else {
-            move_uploaded_file($recipeImage['tmp_name'], "../images/food-images/".$recipeImage['name']);
+            move_uploaded_file($recipeImage['tmp_name'], "../images/food-images/" . $recipeImage['name']);
         }
 
         if ($emptyTally == 0) {
             $formRequested = false;
-           // INSERT into database
+            // INSERT into database
             try {
                 require "databases/rmConnect.php";
-                $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $sql = "INSERT INTO all_recipes (recipe_name, prep_time, cook_time, serving_size, recipe_category, recipe_ingredient, recipe_complexity, recipe_ingredient_list, recipe_directions, recipe_image) VALUES (:recipeName, :prepTime, :cookTime, :servingSize, :recipeCategory, :recipeIngredient, :recipeComplexity, :recipeIngredientList, :directions, :image)";
 
@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
                 $stmt->bindParam(':image', $recipeImage['name']);
 
                 $stmt->execute();
-            } catch(PDOException $e) {
+            } catch (PDOException $e) {
                 $errMsg = "Could not add new recipe. Please try again";
                 echo $e;
             }
@@ -162,22 +162,32 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Recipe</title>
 
-    <link rel="stylesheet" href="stylesheets/addRecipe.css">
+    <link rel="stylesheet" href="stylesheets/addRecipe/addRecipe.css">
+    <link rel="stylesheet" href="stylesheets/addRecipe/addRecipe_mq.css">
 
+    <script src="menuFunctions.js"></script>
     <script src="formFunctions.js"></script>
 </head>
 
 <body onload="pageLoad()">
     <nav>
-        <p><a href="loginPage.php">Admin Area</a></p>
+        <div class="nav-container">
+            <div class="hamburger" onclick="dropMenu()">
+                <p id="bar1"></p>
+                <p id="bar2"></p>
+                <p id="bar3"></p>
+            </div>
 
-        <ul>
-            <li><a href="addRecipe.php" class="active">Add Recipe</a></li>
-            <li><a href="all_recipes/viewAllRecipes.php">All Recipes</a></li>
-            <li><a href="recent_recipes/viewRecentRecipes.php">Recent Recipes</a></li>
-            <li><a href="popular_recipes/viewPopularRecipes.php">Popular Recipes</a></li>
-            <li><a href="logoutPage.php">Sign out</a></li>
-        </ul>
+            <p class="login-title"><a href="loginPage.php">Admin Area</a></p>
+
+            <ul>
+                <li><a href="addRecipe.php">Add Recipe</a></li>
+                <li><a href="all_recipes/viewAllRecipes.php">All Recipes</a></li>
+                <li><a href="recent_recipes/viewRecentRecipes.php">Recent Recipes</a></li>
+                <li><a href="popular_recipes/viewPopularRecipes.php">Popular Recipes</a></li>
+                <li><a href="logoutPage.php">Sign out</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
@@ -191,7 +201,7 @@ if (isset($_POST['submit'])) {
 
                 <p>
                     <label for="recipeName">Recipe Name <span class="error-message"><?php echo $recipeNameEmpty; ?></span></label>
-                    
+
                     <input type="text" name="recipeName" id="recipeName" placeholder="Pasta Dish">
                 </p>
 
@@ -199,28 +209,28 @@ if (isset($_POST['submit'])) {
                     <p>
                         <label for="prepTime">Prep Time</label>
                         <span class="error-message"><?php echo $prepTimeEmpty; ?></span>
-                        
+
                         <input type="number" name="prepTime" id="prepTime" min="0" max="100" step="5" placeholder="minutes">
                     </p>
 
                     <p>
                         <label for="cookTime">Cook Time</label>
                         <span class="error-message"><?php echo $cookTimeEmpty; ?></span>
-                        
+
                         <input type="number" name="cookTime" id="cookTime" min="0" max="100" step="5" placeholder="minutes">
                     </p>
 
                     <p>
                         <label for="servingSize">Serving Size</label>
                         <span class="error-message"><?php echo $servingSizeEmpty; ?></span>
-                        
+
                         <input type="number" name="servingSize" id="servingSize" min="0" max="20" step="1" placeholder="servings">
                     </p>
 
                     <p>
                         <label for="totalTime">Total Time</label>
                         <span></span>
-                        
+
                         <input type="number" name="totalTime" id="totalTime" min="0" max="100" step="5" placeholder="minutes">
                     </p>
                 </div><!-- prep, cook, total time and serving size -->
@@ -347,17 +357,17 @@ if (isset($_POST['submit'])) {
             <div class="confirm-message">
                 <div>
                     <img src="../images/logo_black.png" alt="all things pasta logo">
-                    <?php 
-                        if ($errMsg == "") {
+                    <?php
+                    if ($errMsg == "") {
                     ?>
                         <h1>New Recipe Added!</h1>
                         <h2>View all recipes to see your changes</h2>
                     <?php
-                        } else {
+                    } else {
                     ?>
                         <h1><?php echo $errMsg; ?></h1>
                     <?php
-                        }
+                    }
                     ?>
                 </div>
             </div>

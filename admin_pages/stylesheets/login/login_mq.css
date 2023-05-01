@@ -11,6 +11,7 @@
   nav div.hamburger {
     display: block;
     position: absolute;
+    left: 0;
     width: 5vw;
   }
   nav div.hamburger #bar1, nav div.hamburger #bar3 {
@@ -42,13 +43,15 @@
   }
   main {
     width: 100%;
-    height: 100vh;
   }
 }
 /*
     Media query page for login.scss
 */
 @media only screen and (max-width: 900px) {
+  main {
+    height: 100vh;
+  }
   .login div.homepage {
     height: 50vh;
     width: 50vw;

@@ -1,50 +1,59 @@
 <?php
-    session_start();
+session_start();
 
-    $deleteRecordConfirm = false;
+$deleteRecordConfirm = false;
 
-    if ($_SESSION['validUser']) {
-        try {
-            require "../databases/rmConnect.php";
-            $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    
-            $sql = "SELECT id, recipe_name, recipe_category, recipe_ingredient, recipe_complexity FROM all_recipes";
-    
-            $stmt = $conn->prepare("$sql");
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    
-        } catch(PDOException $e) {
-            echo $e;
-        }
+if ($_SESSION['validUser']) {
+    try {
+        require "../databases/rmConnect.php";
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if (isset($_GET['eventID'])) {
-            $deleteRecordConfirm = true;
-            $eventID = $_GET['eventID'];
-        }
-    } else {
-        header("Location: ../loginPage.php");
+        $sql = "SELECT id, recipe_name, recipe_category, recipe_ingredient, recipe_complexity FROM all_recipes";
+
+        $stmt = $conn->prepare("$sql");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo $e;
     }
+
+    if (isset($_GET['eventID'])) {
+        $deleteRecordConfirm = true;
+        $eventID = $_GET['eventID'];
+    }
+} else {
+    header("Location: ../loginPage.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Recipes</title>
 
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="../stylesheets/viewAllRecipes.css">
+    <link rel="stylesheet" href="../stylesheets/viewAllRecipes/viewAllRecipes.css">
+    <link rel="stylesheet" href="../stylesheets/viewAllRecipes/viewAllRecipes_mq.css">
+
+    <script src="../menuFunctions.js"></script>
 </head>
+
 <body>
     <nav>
-        <div>
-            <p><a href="../loginPage.php">Admin Area</a></p>
+        <div class="nav-container">
+            <div class="hamburger" onclick="dropMenu()">
+                <p id="bar1"></p>
+                <p id="bar2"></p>
+                <p id="bar3"></p>
+            </div>
+
+            <p class="login-title"><a href="../loginPage.php">Admin Area</a></p>
 
             <ul>
                 <li><a href="../addRecipe.php">Add Recipe</a></li>
-                <li><a href="viewAllRecipes.php" class="active">All Recipes</a></li>
+                <li><a href="viewAllRecipes.php">All Recipes</a></li>
                 <li><a href="../recent_recipes/viewRecentRecipes.php">Recent Recipes</a></li>
                 <li><a href="../popular_recipes/viewPopularRecipes.php">Popular Recipes</a></li>
                 <li><a href="../logoutPage.php">Sign out</a></li>
@@ -54,7 +63,7 @@
 
     <main>
         <?php
-            if ($deleteRecordConfirm) {
+        if ($deleteRecordConfirm) {
         ?>
             <div class="confirm-delete">
                 <form method="post" action="deleteAllRecipe.php?eventID=<?php echo $eventID; ?>">
@@ -68,7 +77,7 @@
                 </form>
             </div>
         <?php
-            }
+        }
         ?>
         <table rules="all">
             <tr class="first-row">
@@ -79,8 +88,8 @@
                 <td>Delete</td>
             </tr>
             <?php
-                while ($row = $stmt->fetch()) {
-                    $recipeCategoriesString = $row['recipe_category'] . ", " . $row['recipe_ingredient'] . ", " . $row['recipe_complexity'];
+            while ($row = $stmt->fetch()) {
+                $recipeCategoriesString = $row['recipe_category'] . ", " . $row['recipe_ingredient'] . ", " . $row['recipe_complexity'];
             ?>
                 <tr>
                     <td><?php echo $row['recipe_name']; ?></td>
@@ -90,9 +99,10 @@
                     <td class="delete-col"><a href="viewAllRecipes.php?eventID=<?php echo $row['id']; ?>"><button>Delete</button></a></td>
                 </tr>
             <?php
-                }
+            }
             ?>
         </table>
     </main>
 </body>
+
 </html>

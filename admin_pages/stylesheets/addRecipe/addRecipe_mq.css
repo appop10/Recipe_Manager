@@ -44,4 +44,15 @@
   main {
     width: 100%;
   }
-}/*# sourceMappingURL=main_mq.css.map */
+}
+/*
+    Media query page for addRecipe.scss
+*/
+@media only screen and (max-width: 900px) {
+  nav {
+    height: 195vh;
+  }
+  form {
+    margin: 3em 2em 3em auto;
+  }
+}/*# sourceMappingURL=addRecipe_mq.css.map */

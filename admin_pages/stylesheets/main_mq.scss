@@ -9,10 +9,10 @@
         width: 6vw;
         transition: width 0.5s ease-out;
 
-        
         div.hamburger {
             display: block;
             position: absolute;
+            left: 0;
             width: 5vw;
 
             #bar1, #bar3 {
@@ -46,6 +46,5 @@
     }
     main {
         width: 100%;
-        height: 100vh;
     }
 }

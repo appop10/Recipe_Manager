@@ -34,18 +34,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Recipes</title>
 
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="../stylesheets/viewAllRecipes.css">
+    <link rel="stylesheet" href="../stylesheets/viewAllRecipes/viewAllRecipes.css">
+    <link rel="stylesheet" href="../stylesheets/viewAllRecipes/viewAllRecipes_mq.css">
+
+    <script src="../menuFunctions.js"></script>
 </head>
 <body>
-    <nav>
-        <div>
-            <p><a href="../loginPage.php">Admin Area</a></p>
+<nav>
+        <div class="nav-container">
+            <div class="hamburger" onclick="dropMenu()">
+                <p id="bar1"></p>
+                <p id="bar2"></p>
+                <p id="bar3"></p>
+            </div>
+
+            <p class="login-title"><a href="../loginPage.php">Admin Area</a></p>
 
             <ul>
                 <li><a href="../addRecipe.php">Add Recipe</a></li>
                 <li><a href="../all_recipes/viewAllRecipes.php">All Recipes</a></li>
-                <li><a href="viewRecentRecipes.php" class="active">Recent Recipes</a></li>
+                <li><a href="viewRecentRecipes.php">Recent Recipes</a></li>
                 <li><a href="../popular_recipes/viewPopularRecipes.php">Popular Recipes</a></li>
                 <li><a href="../logoutPage.php">Sign out</a></li>
             </ul>

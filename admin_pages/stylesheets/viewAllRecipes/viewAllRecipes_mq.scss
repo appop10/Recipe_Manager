@@ -1,0 +1,14 @@
+/*
+    Media query page for addRecipe.scss
+*/
+
+@use '../main_mq.scss';
+
+@media only screen and (max-width: 900px) {
+    main {
+        table {
+            width: 85%;
+            margin: 2em 2em 2em auto;
+        }
+    }
+}

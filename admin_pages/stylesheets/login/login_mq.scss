@@ -4,6 +4,9 @@
 @use '../main_mq.scss';
 
 @media only screen and (max-width: 900px) {
+    main {
+        height: 100vh;
+    }
     .login {
         div.homepage {
             height: 50vh;

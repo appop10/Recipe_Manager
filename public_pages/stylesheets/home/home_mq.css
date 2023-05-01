@@ -20,6 +20,9 @@
   a.green-button {
     padding: 0.5em;
   }
+  nav {
+    z-index: 2;
+  }
   nav > div {
     position: absolute;
     top: 0;
