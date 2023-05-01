@@ -8,11 +8,11 @@ if (isset($_POST["submit"])) {
     $inUsername = $_POST["username"];
     $inPassword = $_POST["password"];
 
-    require 'databases/dbConnect.php';
+    require 'databases/rmConnect.php';
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT event_username, event_password FROM wdv341_events_users WHERE event_username = :username and event_password = :password";
+    $sql = "SELECT recipe_username, recipe_password FROM recipe_users WHERE recipe_username=:username AND recipe_password=:password";
 
     $stmt = $conn->prepare("$sql");
 

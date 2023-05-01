@@ -1,4 +1,7 @@
 <?php
+// make a Date Object to put in the footer
+$currentDate = date('d-m-Y');
+
 // check for location
 if (isset($_GET['location'])) {
     $location = $_GET['location'];
@@ -183,6 +186,7 @@ if (isset($_GET['location'])) {
         <div>
             <p>Photo and Recipe Credits</p>
             <a href="credits/credits.html" target="_blank" class="signin">View</a>
+            <span>&copy; <?php echo $currentDate; ?></span>
         </div>
     </footer><!-- Footer -->
 </body>

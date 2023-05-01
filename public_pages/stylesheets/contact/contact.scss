@@ -1,0 +1,62 @@
+/*
+    Stylesheet for ATP Contact page
+*/
+
+@use '../main.scss';
+
+/** Navbar **/
+nav {
+    background-image: 
+        linear-gradient(main.$color1-transparent,main.$color1-transparent),
+        url("../../../images/header-images/making-dough-5-header.jpg");
+    @include main.nav-image;
+}
+
+/** Main **/
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 15vh 0;
+}
+
+/** Form Div **/
+div.form-container {
+    border: 2px solid main.$color1;
+    border-radius: 5px;
+    width: 75%;
+    padding: 3em;
+
+    form {
+        height: 90%;
+
+        legend {
+            font-size: 2em;
+            color: main.$color1;
+            margin: 1em 0;
+        }
+        section {
+            border: 1px solid green;
+            width: 50%;
+        }
+        div {
+            top: 3em;
+            display: flex;
+
+            p {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                
+                label {
+                    font-size: 1.2em;
+                    margin-bottom: 0.3em;
+                }
+                input {
+                    font-size: 1.1em;
+                    padding: 0.5em;
+                }
+            }
+        }
+    }
+}
