@@ -167,7 +167,7 @@ footer > div a {
 */
 /** Navbar **/
 nav {
-  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../images/header-images/making-dough-3-header.jpg");
+  background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../../images/header-images/making-dough-3-header.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

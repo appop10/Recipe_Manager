@@ -2,15 +2,14 @@
     Stylesheet for ATP Home
 */
 
-@use 'main.scss';
+@use '../main.scss';
 
 /** Navbar **/
 nav {
     background-image: 
         linear-gradient(main.$color1-transparent,main.$color1-transparent),
-        url("../../images/header-images/making-dough-header.jpg");
+        url("../../../images/header-images/making-dough-header.jpg");
     @include main.nav-image;
-    color: black;
 }
 
 /** Recipes **/
@@ -109,7 +108,7 @@ div.announcement {
         border-radius: 5px;
         background-image: 
             linear-gradient(main.$color1-transparent,main.$color1-transparent),
-            url("../../images/making-dough-vertical.jpg");
+            url("../../../images/making-dough-vertical.jpg");
         @include main.nav-image;
 
 

@@ -1,0 +1,10 @@
+/*
+    Media query page for single_recipe.scss
+*/
+@use '../main_mq.scss';
+
+@media only screen and (max-width: 900px) {
+    main {
+        flex-direction: column;
+    }
+}

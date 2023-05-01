@@ -1,0 +1,30 @@
+/*
+    Media query page for recipes.scss
+*/
+@use '../main_mq.scss';
+
+@media only screen and (max-width: 900px) {
+    div.title {
+        top: 10vh;
+
+        > div {
+            width: 90%;
+        }
+    }
+    div.add-padding {
+        padding-bottom: 25vh;
+    }
+    section.filter {
+        width: 90%;
+    }
+    section.show-filter {
+        height: 25vh;
+    }
+    div.recipe-list {
+        width: 90%;
+
+        a {
+            width: 30%;
+        }
+    }
+}

@@ -17,6 +17,7 @@ if (isset($_GET['location'])) {
     <title>ATP | Recipes</title>
 
     <link rel="stylesheet" href="stylesheets/recipes/recipes.css">
+    <link rel="stylesheet" href="stylesheets/recipes/recipes_mq.css">
 
     <script src="javascript/recipes.js"></script>
 </head>

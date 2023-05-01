@@ -13,6 +13,7 @@
     <title>ATP | Recipe</title>
 
     <link rel="stylesheet" href="stylesheets/single_recipe/single_recipe.css">
+    <link rel="styleshet" href="stylesheets/single_recipe/single_recipe_mq.css">
 
     <script src="javascript/single_recipe.js"></script>
 </head>

@@ -1,0 +1,44 @@
+/*
+    Media query page for main.scss
+*/
+@media only screen and (max-width: 900px) {
+  nav.transforming, nav.static {
+    height: 10vh;
+  }
+  nav.transforming img, nav.static img {
+    height: 8vh;
+    bottom: 2vh;
+  }
+  footer {
+    flex-direction: column;
+  }
+  footer img {
+    height: 15vh;
+  }
+}
+/*
+    Media query page for recipes.scss
+*/
+@media only screen and (max-width: 900px) {
+  div.title {
+    top: 10vh;
+  }
+  div.title > div {
+    width: 90%;
+  }
+  div.add-padding {
+    padding-bottom: 25vh;
+  }
+  section.filter {
+    width: 90%;
+  }
+  section.show-filter {
+    height: 25vh;
+  }
+  div.recipe-list {
+    width: 90%;
+  }
+  div.recipe-list a {
+    width: 30%;
+  }
+}/*# sourceMappingURL=recipes_mq.css.map */

@@ -2,13 +2,13 @@
     Stylesheet for ATP Single Recipe
 */
 
-@use 'main.scss';
+@use '../main.scss';
 
 /** Navbar **/
 nav {
     background-image: 
         linear-gradient(main.$color1-transparent,main.$color1-transparent),
-        url("../../images/header-images/making-dough-3-header.jpg");
+        url("../../../images/header-images/making-dough-3-header.jpg");
     @include main.nav-image;
 }
 

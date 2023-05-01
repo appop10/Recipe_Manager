@@ -24,5 +24,7 @@ function shrinkNav() {
 }
 
 window.onscroll = () => {
-    shrinkNav();
+    if (screen.width > 900) {
+        shrinkNav();
+    }
 }
