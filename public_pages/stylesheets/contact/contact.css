@@ -241,6 +241,10 @@ div.form-container div.confirm-container div span {
   display: block;
   flex: 1;
 }
+div.form-container div.confirm-container a {
+  font-size: 1.3em;
+  color: #dd542a;
+}
 div.form-container form {
   position: absolute;
   display: flex;
