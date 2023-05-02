@@ -1,3 +1,7 @@
+<?php
+// make a Date Object to put in the footer
+$currentDate = date('d-m-Y');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +43,7 @@
 
     <main><!-- Form -->
         <div class="form-container"><!-- form container -->
-            <form method="post" action="#"><!-- form body -->
+            <form method="post" action="contact.php"><!-- form body -->
                 <legend>Send Me A Message</legend>
 
                 <div>
@@ -121,7 +125,7 @@
         <div>
             <p>Photo and Recipe Credits</p>
             <a href="credits/credits.html" target="_blank" class="signin">View</a>
-            <span>&copy; <!-- add current date --></span>
+            <span>&copy; <?php echo $currentDate; ?></span>
         </div>
     </footer><!-- Footer -->
 </body>

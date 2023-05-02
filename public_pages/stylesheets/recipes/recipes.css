@@ -160,6 +160,9 @@ footer section p {
   line-height: 1.8em;
 }
 footer > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 15vw;
 }
 footer > div p {
@@ -168,8 +171,14 @@ footer > div p {
 }
 footer > div a {
   font-size: 1.3em;
-  padding: 0.5em 2em;
+  padding: 0.5em 0;
   text-decoration: none;
+  text-align: center;
+}
+footer > div span {
+  display: block;
+  font-size: 1.2em;
+  padding-top: 1em;
 }
 
 /*

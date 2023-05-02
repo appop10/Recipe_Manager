@@ -150,7 +150,7 @@ if (isset($_GET['location'])) {
         <ul>
             <li><a href="recipes.php">Recipes</a></li>
             <li><a>About</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="contact.php">Contact</a></li>
             <li><a class="signin" href="../admin_pages/loginPage.php">Sign In</a></li>
         </ul>
     </nav><!-- Navbar -->
