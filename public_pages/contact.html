@@ -8,6 +8,7 @@
     <title>ATP | Contact</title>
 
     <link rel="stylesheet" href="stylesheets/contact/contact.css">
+    <link rel="stylesheet" href="stylesheets/contact/contact_mq.css">
 
     <script src="javascript/main.js"></script>
 </head>
@@ -44,36 +45,36 @@
                 <div>
                     <p>
                         <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" id="firstName" placeholder="Jane">
+                        <input type="text" name="firstName" id="firstName" placeholder="Jane" required>
                     </p>
 
                     <p>
                         <label for="lastName">Last Name</label>
-                        <input type="text" name="lastName" id="lastName" placeholder="Doe">
+                        <input type="text" name="lastName" id="lastName" placeholder="Doe" required>
                     </p>
                 </div>
 
                 <div>
                     <p>
                         <label for="emailAddress">Email</label>
-                        <input type="email" name="emailAddress" id="emailAddress" placeholder="janedoe@email.com">
+                        <input type="email" name="emailAddress" id="emailAddress" placeholder="janedoe@email.com" required>
                     </p>
 
                     <p>
                         <label for="confirmEmail">Confirm Email</label>
-                        <input type="email" name="confirmEmail" id="confirmEmail">
+                        <input type="email" name="confirmEmail" id="confirmEmail" required>
                     </p>
                 </div>
 
                 <div>
                     <p>
-                        <label for="phoneNumber">Phone Number</label>
-                        <input type="tel" name="phoneNumber" id="phoneNumber">
+                        <label for="messageSubject">Subject</label>
+                        <input type="text" name="messageSubject" id="messageSubject" placeholder="Recipe Suggestion" required>
                     </p>
 
                     <p>
-                        <label for="messageSubject">Subject</label>
-                        <input type="text" name="messageSubject" id="messageSubject" placeholder="Recipe Suggestion">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="tel" name="phoneNumber" id="phoneNumber">
                     </p>
                 </div>
 
@@ -85,7 +86,7 @@
                 </div>
 
                 <div>
-                    <input type="submit" name="submit" id="submit" value="Submit">
+                    <input type="submit" name="submit" id="submit" value="Send">
                     <input type="reset" name="reset" id="reset" value="Clear">
                 </div>
             </form><!-- form body -->

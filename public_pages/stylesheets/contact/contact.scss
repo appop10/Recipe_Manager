@@ -22,18 +22,29 @@ main {
 
 /** Form Div **/
 div.form-container {
+    position: relative;
+    display: flex;
+    align-items: center;
     border: 2px solid main.$color1;
     border-radius: 5px;
-    width: 75%;
-    padding: 3em;
+    width: 70vw;
+    height: 113vh;
 
     form {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         height: 90%;
+        width: 72vw;
+        left: -1vw;
+        padding: 3em;
+        background-color: main.$color4;
 
         legend {
             font-size: 2em;
             color: main.$color1;
-            margin: 1em 0;
+            margin-bottom: 1em;
         }
         section {
             border: 1px solid green;
@@ -55,7 +66,27 @@ div.form-container {
                 input {
                     font-size: 1.1em;
                     padding: 0.5em;
+                    margin-right: 1em;
                 }
+                label[for|="phoneNumber"], input[id|="phoneNumber"] {
+                    display: none;
+                }
+                textarea {
+                    font-size: 1.4em;
+                    padding: 0.5em;
+                    resize: none;
+                }
+            }
+            input[id|="submit"], input[id|="reset"] {
+                margin: 1em 2em 1em 0;
+                border: 2px solid main.$color3;
+                padding: 0.5em 2em;
+                color: main.$color1;
+                border-radius: 5px;
+                font-size: 1.3em;
+            }
+            input[id|="submit"]:hover, input[id|="reset"]:hover {
+                background-color: main.$color3;
             }
         }
     }

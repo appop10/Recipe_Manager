@@ -193,18 +193,29 @@ main {
 
 /** Form Div **/
 div.form-container {
+  position: relative;
+  display: flex;
+  align-items: center;
   border: 2px solid #0e402d;
   border-radius: 5px;
-  width: 75%;
-  padding: 3em;
+  width: 70vw;
+  height: 113vh;
 }
 div.form-container form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   height: 90%;
+  width: 72vw;
+  left: -1vw;
+  padding: 3em;
+  background-color: #E5E5E5;
 }
 div.form-container form legend {
   font-size: 2em;
   color: #0e402d;
-  margin: 1em 0;
+  margin-bottom: 1em;
 }
 div.form-container form section {
   border: 1px solid green;
@@ -226,4 +237,24 @@ div.form-container form div p label {
 div.form-container form div p input {
   font-size: 1.1em;
   padding: 0.5em;
+  margin-right: 1em;
+}
+div.form-container form div p label[for|=phoneNumber], div.form-container form div p input[id|=phoneNumber] {
+  display: none;
+}
+div.form-container form div p textarea {
+  font-size: 1.4em;
+  padding: 0.5em;
+  resize: none;
+}
+div.form-container form div input[id|=submit], div.form-container form div input[id|=reset] {
+  margin: 1em 2em 1em 0;
+  border: 2px solid #dd542a;
+  padding: 0.5em 2em;
+  color: #0e402d;
+  border-radius: 5px;
+  font-size: 1.3em;
+}
+div.form-container form div input[id|=submit]:hover, div.form-container form div input[id|=reset]:hover {
+  background-color: #dd542a;
 }/*# sourceMappingURL=contact.css.map */

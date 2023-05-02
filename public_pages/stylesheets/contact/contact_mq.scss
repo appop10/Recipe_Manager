@@ -1,0 +1,46 @@
+/*
+    Media query page for contact.scss
+*/
+
+@use '../main_mq.scss';
+
+@media only screen and (max-width: 900px) {
+    main {
+        margin: 10vh 0;
+    }
+    div.form-container {
+        width: 75vw;
+        height: 80vh;
+
+        form {
+            width: 77vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.form-container {
+        width: 95vw;
+        height: 180vh;
+
+        form {
+            width: 97vw;
+
+            div {
+                flex-direction: column;
+
+                p {
+                    margin: 0.5em 0;
+
+                    input {
+                        margin-right: 0;
+                    }
+                }
+                input[id|="submit"], input[id|="reset"] {
+                    align-self: center;
+                    margin: 1em;
+                }
+            }
+        }
+    }
+}
