@@ -1,6 +1,6 @@
 <?php
 // make a Date Object to put in the footer
-$currentDate = date('d-m-Y');
+$currentDate = date('m-d-Y');
 
 // check for location
 if (isset($_GET['location'])) {

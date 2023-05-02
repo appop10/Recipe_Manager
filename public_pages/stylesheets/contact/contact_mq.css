@@ -101,7 +101,7 @@
     width: 75vw;
     height: 80vh;
   }
-  div.form-container form {
+  div.form-container div.confirm-container, div.form-container form {
     width: 77vw;
   }
 }
@@ -109,6 +109,15 @@
   div.form-container {
     width: 95vw;
     height: 180vh;
+  }
+  div.form-container div.confirm-container {
+    width: 97vw;
+  }
+  div.form-container div.confirm-container div {
+    flex-direction: column;
+  }
+  div.form-container div.confirm-container div p {
+    text-align: left;
   }
   div.form-container form {
     width: 97vw;

@@ -4,10 +4,22 @@
 
 @use '../main.scss';
 
+@mixin inner-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 90%;
+    width: 72vw;
+    left: -1vw;
+    padding: 3em;
+    background-color: main.$color4;
+}
+
 /** Navbar **/
 nav {
-    background-image: 
-        linear-gradient(main.$color1-transparent,main.$color1-transparent),
+    background-image:
+        linear-gradient(main.$color1-transparent, main.$color1-transparent),
         url("../../../images/header-images/making-dough-5-header.jpg");
     @include main.nav-image;
 }
@@ -30,26 +42,46 @@ div.form-container {
     width: 70vw;
     height: 113vh;
 
+    div.confirm-container {
+        @include inner-container;
+
+        h2 {
+            font-size: 2em;
+        }
+        p, span {
+            font-size: 1.3em;
+            line-height: 1.35em;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+
+            p {
+                flex: 1;
+                text-align: right;
+                padding-right: 1em;
+            }
+            span {
+                display: block;
+                flex: 1;
+            }
+        }
+    }
+
     form {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 90%;
-        width: 72vw;
-        left: -1vw;
-        padding: 3em;
-        background-color: main.$color4;
+        @include inner-container;
 
         legend {
             font-size: 2em;
             color: main.$color1;
             margin-bottom: 1em;
         }
+
         section {
             border: 1px solid green;
             width: 50%;
         }
+
         div {
             top: 3em;
             display: flex;
@@ -58,26 +90,32 @@ div.form-container {
                 display: flex;
                 flex-direction: column;
                 flex: 1;
-                
+
                 label {
                     font-size: 1.2em;
                     margin-bottom: 0.3em;
                 }
+
                 input {
                     font-size: 1.1em;
                     padding: 0.5em;
                     margin-right: 1em;
                 }
-                label[for|="phoneNumber"], input[id|="phoneNumber"] {
+
+                label[for|="phoneNumber"],
+                input[id|="phoneNumber"] {
                     display: none;
                 }
+
                 textarea {
                     font-size: 1.4em;
                     padding: 0.5em;
                     resize: none;
                 }
             }
-            input[id|="submit"], input[id|="reset"] {
+
+            input[id|="submit"],
+            input[id|="reset"] {
                 margin: 1em 2em 1em 0;
                 border: 2px solid main.$color3;
                 padding: 0.5em 2em;
@@ -85,7 +123,9 @@ div.form-container {
                 border-radius: 5px;
                 font-size: 1.3em;
             }
-            input[id|="submit"]:hover, input[id|="reset"]:hover {
+
+            input[id|="submit"]:hover,
+            input[id|="reset"]:hover {
                 background-color: main.$color3;
             }
         }

@@ -210,6 +210,37 @@ div.form-container {
   width: 70vw;
   height: 113vh;
 }
+div.form-container div.confirm-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 90%;
+  width: 72vw;
+  left: -1vw;
+  padding: 3em;
+  background-color: #E5E5E5;
+}
+div.form-container div.confirm-container h2 {
+  font-size: 2em;
+}
+div.form-container div.confirm-container p, div.form-container div.confirm-container span {
+  font-size: 1.3em;
+  line-height: 1.35em;
+}
+div.form-container div.confirm-container div {
+  display: flex;
+  justify-content: center;
+}
+div.form-container div.confirm-container div p {
+  flex: 1;
+  text-align: right;
+  padding-right: 1em;
+}
+div.form-container div.confirm-container div span {
+  display: block;
+  flex: 1;
+}
 div.form-container form {
   position: absolute;
   display: flex;
@@ -248,7 +279,8 @@ div.form-container form div p input {
   padding: 0.5em;
   margin-right: 1em;
 }
-div.form-container form div p label[for|=phoneNumber], div.form-container form div p input[id|=phoneNumber] {
+div.form-container form div p label[for|=phoneNumber],
+div.form-container form div p input[id|=phoneNumber] {
   display: none;
 }
 div.form-container form div p textarea {
@@ -256,7 +288,8 @@ div.form-container form div p textarea {
   padding: 0.5em;
   resize: none;
 }
-div.form-container form div input[id|=submit], div.form-container form div input[id|=reset] {
+div.form-container form div input[id|=submit],
+div.form-container form div input[id|=reset] {
   margin: 1em 2em 1em 0;
   border: 2px solid #dd542a;
   padding: 0.5em 2em;
@@ -264,6 +297,7 @@ div.form-container form div input[id|=submit], div.form-container form div input
   border-radius: 5px;
   font-size: 1.3em;
 }
-div.form-container form div input[id|=submit]:hover, div.form-container form div input[id|=reset]:hover {
+div.form-container form div input[id|=submit]:hover,
+div.form-container form div input[id|=reset]:hover {
   background-color: #dd542a;
 }/*# sourceMappingURL=contact.css.map */

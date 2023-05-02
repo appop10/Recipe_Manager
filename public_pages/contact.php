@@ -1,6 +1,15 @@
 <?php
-// make a Date Object to put in the footer
-$currentDate = date('d-m-Y');
+    // make a Date Object to put in the footer
+    $currentDate = date('m-d-Y');
+
+    // other variables
+    $formSubmitted = false;
+
+    // check if form submitted
+    if (isset($_POST['submit'])) {
+        echo "form submitted, show confirmation";
+        $formSubmitted = true;
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +51,33 @@ $currentDate = date('d-m-Y');
     </header><!-- Header -->
 
     <main><!-- Form -->
-        <div class="form-container"><!-- form container -->
+    <div class="form-container"><!-- form container -->
+        <?php 
+            if ($formSubmitted) {
+        ?>
+        <div class="confirm-container">
+            <h2>Thanks for reaching out, <!-- echo first name -->!</h2>
+            <p>I've received the message below: </p>
+            
+            <div>
+                <p>Subject: </p>
+                <span><!-- echo subject --></span>
+            </div>
+
+            <div>
+                <p>Message: </p>
+                <span>
+                    <!-- echo message -->
+                    <br>Sincerely, 
+                    <br> <!-- echo full name -->
+                </span>
+            </div>
+
+            <p>I'll email you back at <!-- echo email --> as soon as I can. Have a good one!</p>
+        </div>
+        <?php
+            } else {
+        ?>
             <form method="post" action="contact.php"><!-- form body -->
                 <legend>Send Me A Message</legend>
 
@@ -94,6 +129,9 @@ $currentDate = date('d-m-Y');
                     <input type="reset" name="reset" id="reset" value="Clear">
                 </div>
             </form><!-- form body -->
+        <?php
+            }
+        ?>
         </div><!-- form container -->
     </main><!-- Form -->
 

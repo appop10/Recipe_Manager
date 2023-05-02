@@ -12,7 +12,7 @@
         width: 75vw;
         height: 80vh;
 
-        form {
+        div.confirm-container, form {
             width: 77vw;
         }
     }
@@ -23,6 +23,17 @@
         width: 95vw;
         height: 180vh;
 
+        div.confirm-container {
+            width: 97vw;
+
+            div {
+                flex-direction: column;
+
+                p {
+                    text-align: left;
+                }
+            }
+        }
         form {
             width: 97vw;
 
