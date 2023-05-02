@@ -236,7 +236,7 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div>
-                        <input type="submit" name="submit" id="submit" value="Send" onclick="scrollToForm()">
+                        <input type="submit" name="submit" id="submit" value="Send">
                         <input type="reset" name="reset" id="reset" value="Clear">
                     </div>
                 </form><!-- form body -->

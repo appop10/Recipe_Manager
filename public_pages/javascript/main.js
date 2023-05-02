@@ -26,7 +26,6 @@ function shrinkNav() {
 // event handler
 window.onscroll = () => {
     if (screen.width > 900) {
-        scrollTo(0, 300);
         shrinkNav();
     }
 }
@@ -36,9 +35,4 @@ function dropMenu() {
     document.querySelector(".hamburger #bar1").classList.toggle("rotate-down");
     document.querySelector(".hamburger #bar2").classList.toggle("invisible");
     document.querySelector(".hamburger #bar3").classList.toggle("rotate-up");
-}
-
-// contact form event 
-function scrollToForm() {
-    scrollTo(0, 500);
 }

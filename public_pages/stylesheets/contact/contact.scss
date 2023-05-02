@@ -116,6 +116,9 @@ div.form-container {
                     padding: 0.5em;
                     resize: none;
                 }
+                .errMsg {
+                    color: main.$color3;
+                }
             }
 
             input[id|="submit"],
