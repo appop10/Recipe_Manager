@@ -121,6 +121,15 @@ if (isset($_POST['submit'])) {
     if ($formValid) {
         if (empty($_POST['phoneNumber'])) {
             $formSubmitted = true;
+
+            // email variables
+            $to = "$emailAddress, appoplawski10@gmail.com";
+            $subject = $messageSubject;
+            $emailBody = "Hello! \n\n$messageText\n\nSincerely, \n$firstName $lastName";
+            $emailBody = wordwrap($emailBody, 70);
+
+            // send email
+            $confirm = mail($to, $subject, $emailBody);
         } else {
             exit("Form Invalid");
         }
