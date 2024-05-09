@@ -2,6 +2,9 @@
     Media query page for main.scss
 */
 @media only screen and (max-width: 900px) {
+  nav {
+    position: fixed;
+  }
   nav.transforming, nav.static {
     height: 10vh;
   }

@@ -1,4 +1,7 @@
 /*
+    Stylesheet for viewRecipes.php
+*/
+/*
     Stylesheet for unit_11_self_posting_form.php
 */
 /** General **/
@@ -80,9 +83,6 @@ main {
   width: 80%;
 }
 
-/*
-    Stylesheet for viewRecipes.php
-*/
 /** Main **/
 main {
   display: flex;

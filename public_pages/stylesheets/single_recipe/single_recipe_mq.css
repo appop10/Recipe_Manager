@@ -1,4 +1,7 @@
 /*
+    Media query page for single_recipe.scss
+*/
+/*
     Media query page for main.scss
 */
 @media only screen and (max-width: 900px) {
@@ -90,9 +93,6 @@
     margin: 1.5em 0;
   }
 }
-/*
-    Media query page for single_recipe.scss
-*/
 @media only screen and (max-width: 900px) {
   main {
     flex-direction: column;

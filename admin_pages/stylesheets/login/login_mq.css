@@ -1,4 +1,7 @@
 /*
+    Media query page for login.scss
+*/
+/*
     Media query page for main.scss
 */
 @media only screen and (max-width: 900px) {
@@ -70,9 +73,6 @@
     height: 100vh;
   }
 }
-/*
-    Media query page for login.scss
-*/
 @media only screen and (max-width: 900px) {
   main {
     height: 100vh;

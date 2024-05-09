@@ -1,4 +1,7 @@
 /*
+    Stylesheet for ATP Recipes
+*/
+/*
     Nav, header, and other elements shared by other stylesheets
 */
 /** General **/
@@ -181,9 +184,6 @@ footer > div span {
   padding-top: 1em;
 }
 
-/*
-    Stylesheet for ATP Recipes
-*/
 /** Navbar **/
 nav {
   background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../../images/header-images/making-dough-4-header.jpg");

@@ -1,4 +1,7 @@
 /*
+    Stylesheet for ATP Single Recipe
+*/
+/*
     Nav, header, and other elements shared by other stylesheets
 */
 /** General **/
@@ -160,6 +163,9 @@ footer section p {
   line-height: 1.8em;
 }
 footer > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 15vw;
 }
 footer > div p {
@@ -168,16 +174,16 @@ footer > div p {
 }
 footer > div a {
   font-size: 1.3em;
-  padding: 0.5em 2em;
+  padding: 0.5em 0;
   text-decoration: none;
+  text-align: center;
 }
 footer > div span {
   display: block;
+  font-size: 1.2em;
+  padding-top: 1em;
 }
 
-/*
-    Stylesheet for ATP Single Recipe
-*/
 /** Navbar **/
 nav {
   background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../../images/header-images/making-dough-3-header.jpg");

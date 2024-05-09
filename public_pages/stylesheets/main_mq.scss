@@ -10,6 +10,9 @@ $color4: #E5E5E5;
 $color5: #1d1d1d;
 
 @media only screen and (max-width: 900px) {
+    nav {
+        position: fixed;
+    }
     nav.transforming, nav.static {
         height: 10vh;
 

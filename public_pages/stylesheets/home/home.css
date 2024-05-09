@@ -1,4 +1,7 @@
 /*
+    Stylesheet for ATP Home
+*/
+/*
     Nav, header, and other elements shared by other stylesheets
 */
 /** General **/
@@ -59,7 +62,6 @@ a.orange-button:hover {
 nav, nav.static, nav.transforming {
   display: flex;
   justify-content: space-between;
-  position: sticky;
   top: 0;
   padding: 2em 3em;
   width: 100%;
@@ -181,9 +183,6 @@ footer > div span {
   padding-top: 1em;
 }
 
-/*
-    Stylesheet for ATP Home
-*/
 /** Navbar **/
 nav {
   background-image: linear-gradient(rgba(14, 64, 45, 0.7607843137), rgba(14, 64, 45, 0.7607843137)), url("../../../images/header-images/making-dough-header.jpg");
